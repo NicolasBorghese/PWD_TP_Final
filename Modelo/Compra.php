@@ -22,7 +22,6 @@ class Compra extends BaseDatos{
  
   public function setIdCompra($idcompra){
    $this->idcompra = $idcompra;
- 
   }
 
    /* Medodos get y set para $cofecha*/ 
@@ -99,7 +98,7 @@ class Compra extends BaseDatos{
         $resp = false;
         $base = new BaseDatos();
 
-        $sql = "INSERT INTO compra (cofecha, idusuario) VALUES ('".$this->getCoFecha()."', ".$this->getObjUsuario()->getIdUsuario().")";
+        $sql = "INSERT INTO compra (cofecha, idusuario) VALUES ('".$this->getCoFecha()."', '".$this->getObjUsuario()->getIdUsuario()."')";
      
         if ($base->Iniciar()) {
           if ($elId = $base->Ejecutar($sql)) {
@@ -125,7 +124,7 @@ class Compra extends BaseDatos{
     public function modificar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE compra SET cofecha = '".$this->getCoFecha()."', idusuario = ".$this->getObjUsuario()->getIdUsuario()." WHERE idcompra = ".$this->getIdCompra()."";
+        $sql = "UPDATE compra SET cofecha = '".$this->getCoFecha()."', idusuario = '".$this->getObjUsuario()->getIdUsuario()."' WHERE idcompra = '".$this->getIdCompra()."'";
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
