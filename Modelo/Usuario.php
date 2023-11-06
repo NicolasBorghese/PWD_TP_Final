@@ -6,6 +6,7 @@ class Usuario extends BaseDatos{
     private $uspass;
     private $usmail;
     private $usdeshabilitado;
+    private $mensajeoperacion;
 
     public function __construct(){
         $this->idusuario = "";

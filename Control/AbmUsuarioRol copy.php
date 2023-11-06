@@ -8,7 +8,7 @@ class AbmUsuarioRol{
      */
     private function cargarObjeto($param)
     {
-        $objtUsuarioRol = null;
+        $objUsuarioRol = null;
         $objRol = null;
         $objUsuario = null;
         if (array_key_exists('idrol', $param) && $param['idrol'] != null) {
@@ -40,9 +40,10 @@ class AbmUsuarioRol{
      private function cargarObjetoConClave($param)
      {
          $objUsuarioRol = null;
+         $objRol = null;
          if (isset($param['idusuario']) && isset($param['idrol'])) {
-             $objUsuarioRol = new UsuarioRol();
-             $objUsuarioRol->setear($objUsuario, $objRol);
+            $objUsuarioRol = new UsuarioRol();
+            $objUsuarioRol->setear($objUsuarioRol,$objRol);
          }
          return $objUsuarioRol;
      }
@@ -56,12 +57,11 @@ class AbmUsuarioRol{
     
      private function seteadosCamposClaves($param)
      {
- 
-         $resp = false;
-         if (isset($param['idusuario']) && isset($param['idrol']));
- 
-         $resp = true;
-         return $resp;
+        $resp = false;
+        if (isset($param['idusuario']) && isset($param['idrol']));
+
+        $resp = true;
+        return $resp;
      }
 
 
