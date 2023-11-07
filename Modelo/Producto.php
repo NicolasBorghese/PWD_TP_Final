@@ -54,10 +54,10 @@ class Producto extends BaseDatos{
   }
 
   /* Medodos get y set para mensajeoperacion*/
-  public function getMensajeoperacion(){
+  public function getmensajeoperacion(){
     return $this->mensajeoperacion;
   }
-  public function setMensajeoperacion($valor){
+  public function setmensajeoperacion($valor){
     $this->mensajeoperacion = $valor;
   }
   

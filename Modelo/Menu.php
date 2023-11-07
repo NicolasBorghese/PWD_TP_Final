@@ -95,7 +95,7 @@ class Menu {
                 $this->setear($row['idmenu'], $row['menombre'],$row['medescripcion'],$objMenuPadre,$row['medeshabilitado']); 
           }
         } else {
-          $this->setmensajeoperacion("Menu->listar: ".$base->getError());
+          $this->setMensajeOperacion("Menu->listar: ".$base->getError());
         }
        }
        return $resp;
@@ -121,10 +121,10 @@ class Menu {
             $this->setIdMenu($elid);
             $resp = true;
         } else {
-            $this->setmensajeoperacion("Menu->insertar: ".$base->getError());
+            $this->setMensajeOperacion("Menu->insertar: ".$base->getError());
         }
         } else {
-        $this->setmensajeoperacion("Menu->insertar: ".$base->getError());
+        $this->setMensajeOperacion("Menu->insertar: ".$base->getError());
       }
        return $resp;
     }
@@ -146,10 +146,10 @@ class Menu {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
             } else {
-                $this->setmensajeoperacion("Menu->modificar: ".$base->getError());
+                $this->setMensajeOperacion("Menu->modificar: ".$base->getError());
             }
         } else {
-            $this->setmensajeoperacion("Menu->modificar: ".$base->getError());
+            $this->setMensajeOperacion("Menu->modificar: ".$base->getError());
         }
         return $resp;
     }
@@ -170,10 +170,10 @@ class Menu {
              if ($base->Ejecutar($sql)) {
                  $resp = true;
              } else {
-                 $this->setmensajeoperacion("Menu->eliminar: ".$base->getError());
+                 $this->setMensajeOperacion("Menu->eliminar: ".$base->getError());
              }
          } else {
-             $this->setmensajeoperacion("Menu->eliminar: ".$base->getError());
+             $this->setMensajeOperacion("Menu->eliminar: ".$base->getError());
          }
          return $resp;
     }
@@ -237,10 +237,10 @@ class Menu {
             if ($base->Ejecutar($sql)) {
                 return true;
             } else {
-                $this->setMensajeoperacion("Usuario->desabilitar: " . $base->getError());
+                $this->setMensajeOperacion("Usuario->desabilitar: " . $base->getError());
             }
         } else {
-            $this->setMensajeoperacion("Usuario->desabilitar: " . $base->getError());
+            $this->setMensajeOperacion("Usuario->desabilitar: " . $base->getError());
         }
     
         return $resp;

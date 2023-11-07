@@ -81,7 +81,7 @@ class Compra extends BaseDatos{
             }
           }
         } else {
-          $this->setmensajeoperacion("Compra->listar: ".$base->getError());
+          $this->setMensajeOperacion("Compra->listar: ".$base->getError());
         }
         return $resp;
     }
@@ -108,7 +108,7 @@ class Compra extends BaseDatos{
             $this->setmensajeoperacion("Compra->insertar: ".$base->getError()[2]);
           }
         } else {
-          $this->setmensajeoperacion("Compra->insertar: ".$base->getError()[2]);
+          $this->setMensajeOperacion("Compra->insertar: ".$base->getError()[2]);
         }
         return $resp;
 
@@ -130,10 +130,10 @@ class Compra extends BaseDatos{
             if ($base->Ejecutar($sql)) {
                 $resp = true;
             } else {
-                $this->setmensajeoperacion("Compra->modificar: ".$base->getError());
+                $this->setMensajeOperacion("Compra->modificar: ".$base->getError());
             }
         } else {
-            $this->setmensajeoperacion("Compra->modificar: ".$base->getError());
+            $this->setMensajeOperacion("Compra->modificar: ".$base->getError());
         }
         return $resp;
     }
@@ -154,10 +154,10 @@ class Compra extends BaseDatos{
           if ($base->Ejecutar($sql)) {
             return true;
           } else {
-            $this->setmensajeoperacion("Compra->eliminar: ".$base->getError());
+            $this->setMensajeOperacion("Compra->eliminar: ".$base->getError());
           }
         } else {
-          $this->setmensajeoperacion("Compra->eliminar: ".$base->getError());
+          $this->setMensajeOperacion("Compra->eliminar: ".$base->getError());
         }
         return $resp;
     }
