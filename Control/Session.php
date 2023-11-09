@@ -61,7 +61,7 @@ class Session{
     }
 
 
-    /*getUsuario().Devuelve el usuario logeado*/
+    /**Devuelve el usuario logeado*/
     public function getUsuario()
     {
        $usuario = null;
