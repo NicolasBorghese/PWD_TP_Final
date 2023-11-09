@@ -78,7 +78,7 @@ class AbmMenu {
      * @param array $param
      * @return boolean
      */
-    public function modificacion($param){
+    public function modificar($param){
        
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
