@@ -16,9 +16,14 @@ class AbmCompra{
      */
     private function cargarObjeto($param){
         $objCompra = null;
-           
+        
+        /*OBSERVACIÓN: Se puede verificar la existencia de las claves que sean necesarias
+        en vez de obligar a cargar todo, esto puede aplicar en caso de que se quiera
+        cargar un objeto del cual no se tengan todos los datos.
+        En este caso se carga todo*/
+        
         if( 
-        array_key_exists('idCompra', $param) &&
+        array_key_exists('idcompra', $param) &&
         array_key_exists('cofecha', $param) &&
         array_key_exists('idusuario', $param)
         ){
@@ -26,16 +31,15 @@ class AbmCompra{
             $objUsuario->setIdUsuario($param['idusuario']);
             $objUsuario->cargar();
 
-            $objAuto = new Auto();
+            $objCompra = new Compra();
 
-            $objAuto->setear(
-                $param['Patente'],
-                $param['Marca'],
-                $param['Modelo'],
-                $objPersona
+            $objCompra->setear(
+                $param['idcompra'],
+                $param['cofecha'],
+                $objUsuario
             );
         }
-        return $objAuto;
+        return $objCompra;
     }
     
     /**
@@ -45,14 +49,14 @@ class AbmCompra{
      * solamente se necesitan las claves del mismo
      * 
      * @param array $param
-     * @return Auto
+     * @return Compra
      */
     private function cargarObjetoConClave($param){
         $obj = null;
         
-        if(isset($param['Patente']) ){
-            $obj = new Auto();
-            $obj->setear($param['Patente'], null, null, null);
+        if(isset($param['idcompra']) ){
+            $obj = new Compra();
+            $obj->setear($param['idcompra'], null, null);
         }
         return $obj;
     }
@@ -64,7 +68,7 @@ class AbmCompra{
      */
     private function seteadosCamposClaves($param){
         $resp = false;
-        if (isset($param['Patente']))
+        if (isset($param['idcompra']))
             $resp = true;
         return $resp;
     }
@@ -79,8 +83,8 @@ class AbmCompra{
         $resp = false;
 
         /*Si el id del objeto tuviera autoincrement en la base de datos entonces los campos claves 
-        del mismo deberían setearse en nulos al momento de realizar la insersión
-        $param['Patente'] = null;*/
+        del mismo deberían setearse en nulos al momento de realizar la insersión*/
+        $param['idcompra'] = null;
 
         $obj = $this->cargarObjeto($param);
         // verEstructura($obj);
@@ -150,20 +154,17 @@ class AbmCompra{
 
         if ($param <> NULL){
 
-            if  (isset($param['Patente']))
-                $where .= " and Patente = '".$param['Patente']."'";
+            if  (isset($param['idcompra']))
+                $where .= " and idcompra = '".$param['idcompra']."'";
 
-            if  (isset($param['Marca']))
-                $where.= " and Marca = '".$param['Marca']."'";
+            if  (isset($param['cofecha']))
+                $where.= " and cofecha = '".$param['cofecha']."'";
 
-            if  (isset($param['Modelo']))
-                $where.= " and Modelo = ".$param['Modelo'];
-                
-            if  (isset($param['DniDuenio']))
-                $where.= " and DniDuenio = '".$param['DniDuenio']."'";
+            if  (isset($param['idusuario']))
+                $where.= " and idusuario = ".$param['idusuario'];
         }
 
-        $obj = new Auto();
+        $obj = new Compra();
         $arreglo = $obj->listar($where);
 
         return $arreglo;
