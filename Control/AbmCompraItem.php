@@ -9,10 +9,10 @@ class AbmCompraItem{
     private function cargarObjeto($param){
         //print_r($param);
         $obj = null;
-        if( array_key_exists('idcompraitem',$param) and array_key_exists('objProducto',$param)     
-          and array_key_exists('objCompra',$param) and array_key_exists('cicantidad',$param)){
+        if( array_key_exists('idcompraitem',$param) and array_key_exists('idproducto',$param)     
+          and array_key_exists('idcompra',$param) and array_key_exists('cicantidad',$param)){
             $obj = new CompraItem();
-            $obj->setear($param['idcompraitem'], $param['objProducto'],$param['objCompra'],$param['cicantidad']);
+            $obj->setear($param['idcompraitem'], $param['idproducto'],$param['idcompra'],$param['cicantidad']);
         }
         return $obj;
     }
@@ -53,7 +53,6 @@ class AbmCompraItem{
      */
     public function alta($param){
         $resp = false;
-        //$param['NroDni'] =null;
         $unObjCompraI = $this->cargarObjeto($param);
         if ($unObjCompraI!=null && $unObjCompraI->insertar()){
             $resp = true;
@@ -105,10 +104,10 @@ class AbmCompraItem{
         if ($param<>null){
             if  (isset($param['idcompraitem']))
                 $where.=" and idcompraitem ='".$param['idcompraitem']."'";
-            if  (isset($param['objProducto']))
-                $where.=" and objProducto ='".$param['objProducto']."'";
-            if  (isset($param['objCompra']))
-                $where.=" and objCompra ='".$param['objCompra']."'";
+            if  (isset($param['idproducto']))
+                $where.=" and idproducto ='".$param['idproducto']."'";
+            if  (isset($param['idcompra']))
+                $where.=" and idcompra ='".$param['idcompra']."'";
             if  (isset($param['cicantidad']))
                 $where.=" and cicantidad ='".$param['cicantidad']."'";
         }

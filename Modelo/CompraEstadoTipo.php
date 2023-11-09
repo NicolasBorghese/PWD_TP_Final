@@ -13,11 +13,11 @@ class CompraEstadoTipo{
  }
 
  /* Medodos get y set para $idcompra*/ 
- public function getIdCET() {
+ public function getIdCompraEstadoTipo() {
     return $this->idcompraestadotipo;
    }
   
-public function setIdCET($idCET){
+public function setIdCompraEstadoTipo($idCET){
     $this->idcompraestadotipo = $idCET;
    }
  
@@ -46,7 +46,7 @@ public function getMensajeOperacion(){
   }
 
   public function setear($idcompraestadotipo, $cetdescripcion, $cetdetalle) {
-    $this->setIdCET($idcompraestadotipo);
+    $this->setIdCompraEstadoTipo($idcompraestadotipo);
     $this->setDescripcion($cetdescripcion);
     $this->setDetalle($cetdetalle);
   }
@@ -59,7 +59,7 @@ public function getMensajeOperacion(){
 	public function cargar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql = "SELECT * FROM compraestadotipo WHERE idcompraestadotipo = '".$this->getIdCET()."'";
+        $sql = "SELECT * FROM compraestadotipo WHERE idcompraestadotipo = '".$this->getIdCompraEstadoTipo()."'";
         if ($base->Iniciar()) {
           $res = $base->Ejecutar($sql);
           if ($res > -1) {
@@ -88,11 +88,11 @@ public function getMensajeOperacion(){
         $resp = false;
         $base = new BaseDatos();
 
-        $sql = "INSERT INTO compraestadotipo (idcompraestadotipo, cetdescripcion, cetdetalle) VALUES ('".$this->getIdCET()."', '".$this->getDescripcion()."','".$this->getDetalle()."')";
+        $sql = "INSERT INTO compraestadotipo (idcompraestadotipo, cetdescripcion, cetdetalle) VALUES ('".$this->getIdCompraEstadoTipo()."', '".$this->getDescripcion()."','".$this->getDetalle()."')";
      
         if ($base->Iniciar()) {
           if ($elId = $base->Ejecutar($sql)) {
-           // $this->setIdCET($elId);
+           // $this->setIdCompraEstadoTipo($elId);
             $resp = true;
           } else {
             $this->setmensajeoperacion("CompraEstadoTipo->insertar: ".$base->getError()[2]);
@@ -114,7 +114,7 @@ public function getMensajeOperacion(){
     public function modificar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE compraestadotipo SET idcompraestadotipo = '".$this->getIdCET()."', cetdescripcion = '".$this->getDescripcion()."','".$this->getDetalle()."' WHERE idcompraestadotipo = '".$this->getIdCET()."'";
+        $sql = "UPDATE compraestadotipo SET idcompraestadotipo = '".$this->getIdCompraEstadoTipo()."', cetdescripcion = '".$this->getDescripcion()."','".$this->getDetalle()."' WHERE idcompraestadotipo = '".$this->getIdCompraEstadoTipo()."'";
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
@@ -138,7 +138,7 @@ public function getMensajeOperacion(){
         $resp = false;
         $base = new BaseDatos();
 
-        $sql = "DELETE FROM compraestadotipo WHERE idcompraestadotipo = ".$this->getIdCET()."";
+        $sql = "DELETE FROM compraestadotipo WHERE idcompraestadotipo = ".$this->getIdCompraEstadoTipo()."";
 
         if ($base->Iniciar()) {
           if ($base->Ejecutar($sql)) {
@@ -195,7 +195,7 @@ public function getMensajeOperacion(){
     public function obtenerInfo(){
 
         $info = [];
-        $info['idcompraestadotipo'] = $this->getIdCET();
+        $info['idcompraestadotipo'] = $this->getIdCompraEstadoTipo();
         $info['cetdescripcion'] = $this->getDescripcion();
         $info['cetdetalle'] =$this->getDetalle();
         return $info;
