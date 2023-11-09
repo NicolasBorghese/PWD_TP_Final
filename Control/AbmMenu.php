@@ -110,7 +110,7 @@ class AbmMenu {
 
         $arreglo = $obj->listar($where);  
         return $arreglo;  
-    }
+    } //Cambios
    
 }
 ?>
