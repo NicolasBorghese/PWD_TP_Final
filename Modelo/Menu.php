@@ -3,7 +3,7 @@ class Menu {
     private $idmenu;
     private $menombre ;
     private $medescripcion;
-    private $menuPadre;
+    private $menuPadre;//guarda un objeto Menu con el cual se llama al idmenu que es el idpadre
     private $medeshabilitado;
     private $mensajeoperacion;
 
