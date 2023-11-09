@@ -20,7 +20,7 @@ class AbmRol{
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      *  que son claves
      * @param array $param
-     * @return Usuario
+     * @return Rol
      */
     private function cargarObjetoConClave($param){
         $obj = null;
