@@ -165,6 +165,30 @@ $this->cefechafin = $cefechafin;
       return $resp;
     }
 
+    /**
+     * Esta función lee el id actual del objeto y si puede lo borra de la base de datos
+     * Retorna un booleano que indica si le operación tuvo éxito
+     * 
+     * @return boolean
+     */
+    public function eliminar(){
+      $resp = false;
+      $base = new BaseDatos();
+
+      $sql = "DELETE FROM compraestado WHERE idcompraestado = ".$this->getIdCompraEstado()."";
+
+      if ($base->Iniciar()) {
+        if ($base->Ejecutar($sql)) {
+          return true;
+        } else {
+          $this->setMensajeOperacion("compraestado->eliminar: ".$base->getError());
+        }
+      } else {
+        $this->setMensajeOperacion("compraestado->eliminar: ".$base->getError());
+      }
+      return $resp;
+  }
+
    /**
      * Esta función recibe condiciones de busqueda en forma de consulta sql para obtener
      * los registros requeridos.
