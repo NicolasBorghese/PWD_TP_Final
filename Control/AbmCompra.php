@@ -3,9 +3,10 @@
 class AbmCompra{
 
     /*
+    ATRIBUTOS:
     'idcompra'
     'cofecha'
-    'idusuario'
+    'idusuario' <-- corresponde un objeto Usuario
     */
 
     /**
