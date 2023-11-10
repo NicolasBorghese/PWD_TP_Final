@@ -92,7 +92,7 @@ public function getMensajeOperacion(){
      
         if ($base->Iniciar()) {
           if ($elId = $base->Ejecutar($sql)) {
-           // $this->setIdCompraEstadoTipo($elId);
+           // $this->setIdCompraEstadoTipo($elId);  Chuequear esto si algo falla
             $resp = true;
           } else {
             $this->setmensajeoperacion("CompraEstadoTipo->insertar: ".$base->getError()[2]);
