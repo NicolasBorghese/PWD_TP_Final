@@ -37,6 +37,15 @@ CREATE TABLE `compra` (
   `idusuario` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
+-- Volcado de datos de la tabla compra //cambiar lod id compra y usuario
+INSERT INTO `compra` (`idcompra`, `cofecha`, `idusuario`) VALUES
+(1, '2021-11-19 02:43:15', 1),
+(2, '2021-11-19 02:45:20', 1),
+(3, '2021-11-19 02:53:10', 1),
+(4, '2021-11-19 02:54:14', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +59,14 @@ CREATE TABLE `compraestado` (
   `cefechaini` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `cefechafin` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- volcado de datos para la tabla compraestado //cambiar los id de compraestado, compra y compraestadotipo
+
+INSERT INTO `compraestado` (`idcompraestado`, `idcompra`, `idcompraestadotipo`, `cefechaini`, `cefechafin`) VALUES
+(1, 1, 1, '2021-11-19 02:43:16', '2021-11-19 06:45:09'),
+(2, 2, 2, '2021-11-19 02:45:21', '2021-11-19 06:52:46'),
+(3, 3, 3, '2021-11-19 02:53:12', '2021-11-19 06:53:16'),
+(4, 4, 4, '2021-11-19 02:54:15', '2021-11-19 06:54:18');
 
 -- --------------------------------------------------------
 
@@ -86,6 +103,14 @@ CREATE TABLE `compraitem` (
   `cicantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Volcado de datos para la tabla compraitem // cambiar los idproducto
+
+INSERT INTO `compraitem` (`idcompraitem`, `idproducto`, `idcompra`, `cicantidad`) VALUES
+(1, 123, 1, 1),
+(2, 234, 2, 1),
+(3, 345, 3, 1),
+(4, 456, 4, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -105,11 +130,23 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`idmenu`, `menombre`, `medescripcion`, `idpadre`, `medeshabilitado`) VALUES
-(7, 'nuevo', 'kkkkk', NULL, NULL),
-(8, 'nuevo', 'kkkkk', NULL, NULL),
-(9, 'nuevo', 'kkkkk', 7, NULL),
-(10, 'nuevo', 'kkkkk', NULL, NULL),
-(11, 'nuevo', 'kkkkk', NULL, NULL);
+(1, 'MenuPublico', '#', NULL, NULL),
+(2, 'Home', 'home', 1, NULL),
+(3, 'Iniciar Sesion', 'inicarSesion', 1, NULL),
+(4, 'Registrarse', 'registrar', 1, NULL),
+(5, 'Cliente', '#', NULL, NULL),
+(6, 'Cambiar E-Mail','cambioEmail',5,NULL ),
+(7, 'Cambiar Contraseña', 'cambioContrasenia', 5, NULL),
+(8, 'Administrar Compras', 'compras', 5, NULL),
+(9, 'Deposito','#',NULL,NULL),
+(10,'Crear Producto', 'agregarProducto',9,NULL),
+(11,'Administrar Productos', 'administrarProductos',9, NULL),
+(12,'Administrar Compras', 'administrarCompras',9,NULL),
+(13, 'Administrador', '#', NULL,NULL),
+(14, 'Crear Usuario', 'crearUsuario',13,NULL), -- Habilita un usuario nuevo
+(15, 'Administrar Usuarios', 'administrarUsuarios',13,NULL), -- asigna los roles correspondientes y actualiza la información que se requiera.
+(16,'Crear Menu', 'crearMenu', 13, NULL), -- crea un rol con su respectivo menu
+(17, 'Administrar Menu', 'administrarMenu',13,NULL); -- los gestiona
 
 -- --------------------------------------------------------
 
@@ -122,6 +159,13 @@ CREATE TABLE `menurol` (
   `idrol` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Volcado de datos para la tabla menurol
+
+INSERT INTO `menurol` (`idmenu`, `idrol`) VALUES
+(1, 1),
+(2, 2),
+(3, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -130,10 +174,19 @@ CREATE TABLE `menurol` (
 
 CREATE TABLE `producto` (
   `idproducto` bigint(20) NOT NULL,
-  `pronombre` int(11) NOT NULL,
+  `pronombre` varchar(11) NOT NULL,
   `prodetalle` varchar(512) NOT NULL,
   `procantstock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- Volcado de datos para la tabla producto
+
+INSERT INTO `producto` (`idproducto`,`pronombre`,`prodetalle`,`procantstock`) VALUES
+(123,'Mate','Porongo', 5),
+(234,'Mate','Porongo Artesanal', 3),
+(345,'Termo','Taragui', 6),
+(456,'Termo','Taragui Electrico', 1);
 
 -- --------------------------------------------------------
 
@@ -146,6 +199,14 @@ CREATE TABLE `rol` (
   `rodescripcion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+-- Volcado de datos para la tabla rol
+
+INSERT INTO `rol` (`idrol`, `rodescripcion`) VALUES
+(1, 'Admin'),
+(2, 'Deposito'),
+(3, 'Cliente');
+
 -- --------------------------------------------------------
 
 --
@@ -155,10 +216,19 @@ CREATE TABLE `rol` (
 CREATE TABLE `usuario` (
   `idusuario` bigint(20) NOT NULL,
   `usnombre` varchar(50) NOT NULL,
-  `uspass` int(11) NOT NULL,
+  `uspass` int(50) NOT NULL,
   `usmail` varchar(50) NOT NULL,
   `usdeshabilitado` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- Volcado de doatos par la tabla usuario
+
+INSERT INTO `usuario` (`idusuario`, `usnombre`,`uspass`,`usmail`, `usdeshabilitado`) VALUES
+('1', 'Moya', '81dc9bdb52d04dc20036dbd8313ed055', 'moya@gmail.com', 'NULL'),-- 1234
+('2', 'Farias', '81b073de9370ea873f548e31b8adc081', 'farias@gmail.com', 'NULL'),-- 2345
+('3', 'Lopez', 'def7924e3199be5e18060bb3e1d547a7', 'lopez@gmail.com', 'NULL'),-- 3456
+('4', 'Ramirez', '6562c5c1f33db6e05a082a88cddab5ea', 'ramirez@gmail.com', 'NULL');-- 4567
 
 -- --------------------------------------------------------
 
@@ -174,7 +244,11 @@ CREATE TABLE `usuariorol` (
 --
 -- Índices para tablas volcadas
 --
-
+INSERT INTO `usuariorol` (`idusuario`, `idrol`) VALUES
+(1,1), -- Admin
+(2,2), -- Deposito
+(3,3), -- Cliente
+(4,3); -- Cliente
 --
 -- Indices de la tabla `compra`
 --
@@ -182,6 +256,7 @@ ALTER TABLE `compra`
   ADD PRIMARY KEY (`idcompra`),
   ADD UNIQUE KEY `idcompra` (`idcompra`),
   ADD KEY `fkcompra_1` (`idusuario`);
+  
 
 --
 -- Indices de la tabla `compraestado`
@@ -340,7 +415,7 @@ ALTER TABLE `menurol`
 ALTER TABLE `usuariorol`
   ADD CONSTRAINT `fkmovimiento_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON UPDATE CASCADE,
   ADD CONSTRAINT `usuariorol_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON UPDATE CASCADE;
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
