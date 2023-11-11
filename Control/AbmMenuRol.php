@@ -167,12 +167,14 @@ class AbmMenuRol{
         if ($param <> NULL){
 
             if  (isset($param['idrol']))
-                $where .= " and idrol = '".$param['idrol']."'";
+                $where .= " and idrol = ".$param['idrol'];
 
             if  (isset($param['idmenu']))
-                $where.= " and idmenu = '".$param['idmenu']."'";
+                $where.= " and idmenu = '".$param['idmenu'];
 
         }
+
+        echo $where ." <br>";
 
         $obj = new MenuRol();
         $arreglo = $obj->listar($where);

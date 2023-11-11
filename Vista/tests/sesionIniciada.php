@@ -2,15 +2,30 @@
 include_once "../../configuracion.php";
 $sesion= new Session();
 if ($sesion->activa()) {
-    $listaUsuarioRol = new AbmUsuarioRol();// el buscar devuelve objetos UsuarioRol
-    $listaUsuarioRol = $sesion->getRol();// lista(array) de obj UsuarioRol
+    //$listaUsuarioRol = new AbmUsuarioRol();// el buscar devuelve objetos UsuarioRol
+    $listaUsuarioRol = $sesion->getRol();// me devuelve un obj UsuarioRol que contiene un obj Usuario y un obj Rol
+    if($listaUsuarioRol == null){
+        echo "No esta devolviendo nada <br>";
+    }else{
+        echo "devolvio algo <br>";
+    }
+    echo "Lista UsuariRol <br>";
     verEstructura($listaUsuarioRol);
-    $idRol=$listaUsuarioRol['idrol'];
+    echo "<br> Id Objeto Rol <br>";
+    $verRol= $listaUsuarioRol->getObjRol()->getIdRol();
+    echo $verRol. " <br>";
+    $idRol['idrol']=$listaUsuarioRol->getObjRol()->getIdRol();
+    verEstructura($idRol);
     $menuRol= new AbmMenuRol();
-    $buscaMenu['idmenu']= $menuRol->buscar($idRol);//bucsamos el menu por el id del rol
-    $listaIdMenu= $buscaMenu['idmenu'];
+    $buscaMenu = $menuRol->buscar($idRol);//bucsamos el menu por el id del rol(esto devuleve un obj menuRol)
+    echo "Objeto menuRol <br>";
+    verEstructura($buscaMenu);
+    $objMenuRol= $buscaMenu[0];
+    $idMenu['idmenu']= $objMenuRol->getmenu()->getIdMenu();
     $objMenu = new AbmMenu();
-    $menu = $objMenu->buscar($listaIdMenu);// lista de menus
+    $menu = $objMenu->buscar($idMenu);// lista de menus (es un array)
+    echo "Menu <br>";
+    verEstructura($menu);
 
     
 }

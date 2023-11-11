@@ -20,7 +20,7 @@ class Session{
         //if ($nombreUsuario!= null && $psw != null) {
         $param['usnombre'] = $nombreUsuario;
         $param['uspass'] = $psw;
-        $param['usdeshabilitado'] = 'null';
+        //$param['usdeshabilitado'] = 'null'; //volver a abilitar
 
     
 

@@ -162,9 +162,9 @@ CREATE TABLE `menurol` (
 -- Volcado de datos para la tabla menurol
 
 INSERT INTO `menurol` (`idmenu`, `idrol`) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+(13, 1), -- Admin
+(9, 2), -- Deposito
+(5, 3); -- Cliente
 
 -- --------------------------------------------------------
 
