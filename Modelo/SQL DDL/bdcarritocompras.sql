@@ -216,7 +216,7 @@ INSERT INTO `rol` (`idrol`, `rodescripcion`) VALUES
 CREATE TABLE `usuario` (
   `idusuario` bigint(20) NOT NULL,
   `usnombre` varchar(50) NOT NULL,
-  `uspass` int(50) NOT NULL,
+  `uspass` varchar(50) NOT NULL,
   `usmail` varchar(50) NOT NULL,
   `usdeshabilitado` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

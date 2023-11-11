@@ -1,9 +1,6 @@
 <?php
-include_once 'conector/BaseDatos.php';
-include_once 'Usuario.php';
-include_once 'Rol.php';
 
-class UsuarioRol extends BaseDatos{
+class UsuarioRol {
     private $objUsuario;
     private $objRol;
     private $mensajeoperacion;
@@ -111,7 +108,7 @@ class UsuarioRol extends BaseDatos{
         $base=new BaseDatos();
         
         $sql="UPDATE usuariorol SET idrol='".$this->getObjRol()->getIdRol()
-        ."' WHERE  id_usuario =" . $this->getObjUsuario()->getIdUsuario()."'";
+        ."' WHERE  idusuario =" . $this->getObjUsuario()->getIdUsuario()."'";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -159,7 +156,10 @@ class UsuarioRol extends BaseDatos{
 	public static function listar($parametro=""){
         $arreglo = array();
         $base = new BaseDatos();
-      
+        $sql="SELECT * FROM usuariorol ";
+        if ($parametro!="") {
+            $sql.='WHERE '.$parametro;
+        }
         $res = $base->Ejecutar($sql);
         if ($res > -1) {
             if ($res > 0) {
@@ -168,16 +168,16 @@ class UsuarioRol extends BaseDatos{
                     $objUsuario = null;
                     $objRol = null;
 
-                    if ($row['id_rol'] != null) {
+                    if ($row['idrol'] != null) {
                         $objRol = new Rol();
-                        $objRol->setIdRol($row['id_rol']);
-                        $objRol->Buscar();
+                        $objRol->setIdRol($row['idrol']);
+                        $objRol->cargar();
                     }
 
-                    if ($row['id_usuario'] != null) {
+                    if ($row['idusuario'] != null) {
                         $objUsuario = new Usuario();
-                        $objUsuario->setIdUsuario($row['id_usuario']);
-                        $objUsuario->Buscar();
+                        $objUsuario->setIdUsuario($row['idusuario']);
+                        $objUsuario->cargar();
                     }
                     $obj = new UsuarioRol();
                     $obj->setear($objUsuario, $objRol);

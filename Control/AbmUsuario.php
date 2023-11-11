@@ -101,9 +101,9 @@ class AbmUsuario{
         $where = " true ";
         if ($param<>null){
             if  (isset($param['idusuario']))
-                $where.=" and idusuario ='".$param['idusuario']."'";
+                $where.=" and idusuario =".$param['idusuario'];
             if  (isset($param['idrol']))
-                $where.=" and idrol ='".$param['idrol']."'";
+                $where.=" and idrol =".$param['idrol'];
         }
         $obj = new UsuarioRol();
         $arreglo = $obj->listar($where);
@@ -142,18 +142,20 @@ class AbmUsuario{
         $where = " true ";
         if ($param<>null){
             if  (isset($param['idusuario']))
-                $where.=" and idusuario ='".$param['idusuario']."'";
+                $where.=" and idusuario = ".$param['idusuario'];
             if  (isset($param['usnombre']))
-                $where.=" and usnombre ='".$param['usnombre']."'";
+                $where.=" and usnombre = '".$param['usnombre']."'";
             if  (isset($param['uspass']))
-                $where.=" and uspass ='".$param['uspass']."'";
+                $where.=" and uspass = '".$param['uspass']."'";
             if  (isset($param['usmail']))
-                $where.=" and usmail ='".$param['usmail']."'";
+                $where.=" and usmail = '".$param['usmail']."'";
             if  (isset($param['usdeshabilitado']))
-                $where.=" and usdeshabilitado is null";
+                $where.=" and usdeshabilitado = ".$param['usdeshabilitado'];
         }
+        echo $where;
         $obj = new Usuario();
         $arreglo = $obj->listar($where);
+        print_r($arreglo);
         return $arreglo;
     }
 } 

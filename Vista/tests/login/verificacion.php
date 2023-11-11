@@ -17,14 +17,17 @@ verEstructura($datos);
 $objSession = new Session();
 //colocamos las variables con las que inica la sesion
 $objSession->iniciar($datos['usnombre'],$datos['uspass']);
-verEstructura($objSession);
+echo "Objeto sesion <br>";
+print_r($objSession);
 //las validamos
 $validUser=$objSession->validar();
 //redireccion
 if($validUser){
     header('Location:../sesionIniciada.php');
+
 }else{
     //header('Location:../login.php');
+    echo "No Inicio sesion <br>";
     verEstructura($objSession);
     
 }

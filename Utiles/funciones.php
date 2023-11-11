@@ -30,9 +30,9 @@ function verEstructura($e){
 // autoload para version 8.0
 spl_autoload_register(function($class_name) {
     $directorys = array(
-        $_SESSION['ROOT'].'Modelo/',
-        $_SESSION['ROOT'].'Modelo/Conector/',
-        $_SESSION['ROOT'].'Control/',
+        $GLOBALS['ROOT'].'Modelo/',
+        $GLOBALS['ROOT'].'Modelo/Conector/',
+        $GLOBALS['ROOT'].'Control/',
       //  $GLOBALS['ROOT'].'util/class/',
     );
     //print_object($directorys) ;

@@ -187,7 +187,7 @@ class Usuario extends BaseDatos{
      * 
      * @return array
      */
-    public function listar($parametro = ""){
+    public function listar($parametro ){
         $arreglo = array();
         $base=new BaseDatos();
 
@@ -196,6 +196,7 @@ class Usuario extends BaseDatos{
         if ($parametro!="") {
             $sql.='WHERE '.$parametro;
         }
+        echo $sql;
         $res = $base->Ejecutar($sql);
         if($res>-1){
             if($res>0){

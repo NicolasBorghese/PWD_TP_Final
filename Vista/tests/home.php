@@ -7,6 +7,6 @@
 </head>
 <body>
     Test para ver si funcionan las clases y los amb
-    <button onclick="location.href='login.php'"></button>
+    <button onclick="location.href='login.php'">Login</button>
 </body>
 </html>

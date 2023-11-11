@@ -9,9 +9,9 @@ class AbmRol{
     private function cargarObjeto($param){
         //print_r($param);
         $obj = null;
-        if( array_key_exists('idrol',$param) and array_key_exists('roldescripcion',$param)){
+        if( array_key_exists('idrol',$param) and array_key_exists('rodescripcion',$param)){
             $obj = new Rol();
-            $obj->setear($param['idrol'], $param['roldescripcion']);
+            $obj->setear($param['idrol'], $param['rodescripcion']);
         }
         return $obj;
     }
@@ -104,8 +104,8 @@ class AbmRol{
         if ($param<>null){
             if  (isset($param['idrol']))
                 $where.=" and idrol ='".$param['idrol']."'";
-            if  (isset($param['roldescripcion']))
-                $where.=" and roldescripcion ='".$param['roldescripcion']."'";
+            if  (isset($param['rodescripcion']))
+                $where.=" and rodescripcion ='".$param['rodescripcion']."'";
         }
         $obj = new Rol();
         $arreglo = $obj->listar($where);

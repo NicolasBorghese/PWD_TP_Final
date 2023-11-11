@@ -52,7 +52,7 @@ class Rol extends BaseDatos{
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['idrol'], $row['roldescripcion']);
+                    $this->setear($row['idrol'], $row['rodescripcion']);
                     
                 }
             }

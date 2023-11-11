@@ -22,7 +22,10 @@ class Session{
         $param['uspass'] = $psw;
         $param['usdeshabilitado'] = 'null';
 
+    
+
         $resultado = $obj->buscar($param);
+        
         if (count($resultado) > 0){
             $usuario = $resultado [0];
             $_SESSION['idusuario']=$usuario->getIdUsuario();
