@@ -102,7 +102,7 @@ class AbmMenu {
             if  (isset($param['menombre']))
                  $where.=" and menombre ='".$param['menombre']."'";
             if  (isset($param['idpadre']))
-                 $where.=" and idpadre ='".$param['idpadre']."'";
+                 $where.=" and idpadre =".$param['idpadre'];
             if  (isset($param['medeshabilitado']))
                  $where.=" and medeshabilitado ='".$param['medeshabilitado']."'";
         }
