@@ -1,0 +1,111 @@
+/* -------------------- FUENTES -------------------- */
+@font-face {
+    font-family: 'Titillium_Web';
+    src: url('fuentes/AnyConv.com__TitilliumWeb-SemiBold.woff') format('woff');
+}
+
+/* -------------------- AJUSTES GENERALES -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* -------------------- DEFINICIÓN DE VARIABLES -------------------- */
+:root {
+    --estructura: #0C0C0D;
+    --fuentes: #8b8b8b;
+}
+
+/* -------------------- ESTILOS HEADER -------------------- */
+.header {
+    padding: 30px;
+    margin: 0;
+    height: 150px;
+    display: flex;
+}
+
+.menu-opciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.menu-opciones a {
+    margin: 50px;
+    font-family: 'Titillium_Web', sans-serif;
+    font-size: 18px;
+}
+
+.login {
+    margin-top: auto;
+    padding-left: 400px;
+}
+
+.login i {
+    font-size: 35px;
+}
+
+/* -------------------- ESTILOS FOOTER -------------------- */
+.footer {
+    padding: 70px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    border-top: solid 1px white;
+    padding: 15px;
+}
+
+.redes-sociales,
+.contacto {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 50px;
+    font-size: 15px;
+}
+
+/* -------------------- ESTILOS COMPARTIDOS HEADER Y FOOTER -------------------- */
+.header,
+.footer {
+    font-size: 20px;
+    background-color: var(--estructura);
+    color: var(--fuentes);
+}
+
+/* -------------------- DECORACIONES/DETALLES -------------------- */
+a:hover {
+    border-bottom: solid 1px rgb(73, 73, 73);
+}
+
+.logo-nav img {
+    width: 130px;
+    position: relative;
+    bottom: 20px;
+}
+
+.navbar:hover {
+    background-color: rgb(36, 36, 36);
+}
+
+.logo {
+    cursor: pointer;
+}
+
+/* -------------------- CONTENIDO DE LA PÁGINA -------------------- */
+.contenido-pagina {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)),
+        url(matemanos.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.carousel-inner {
+    padding: 50px;
+}
