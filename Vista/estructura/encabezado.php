@@ -21,7 +21,7 @@
     <!-- link a css propio -->
     <link rel="stylesheet" href="Vista/estructura/css/estilos.css">
     <!-- link a js propio -->
-    <script src="./estructura/js/funciones.js"></script>
+    <script src="estructura/js/validaBoostrap.js"></script>
 
     <!-- link a iconos de bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -45,6 +45,6 @@
             <div class="navbar"><a class="nav-link" href="#">SETS</a></div>
         </div>
         <div class="login">
-            <i class="bi bi-person-fill"></i>
+            <i class="bi bi-person-fill fa-user" data-bs-toggle="modal" data-bs-target="#mimodal" tabindex="-1"></i>
         </div>
     </header>

@@ -32,6 +32,12 @@ include_once 'Vista/estructura/encabezado.php';
                 </button>
             </div>
         </div>
+
+        </div>
+     <?php 
+        require_once("Vista/crearCuenta/formCrearCuent.php");
+        require_once("Vista/login/login.php");  
+    ?>  
     </div>
 
 <?php include_once 'Vista/estructura/pie.php'?>
