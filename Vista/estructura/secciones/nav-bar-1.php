@@ -3,7 +3,7 @@
 <header class="header">
     <div class="menu-opciones">
         <div class="logo-nav">
-            <img src="Archivos/Imagenes/logoBlanco.png">
+            <img src="../../Archivos/Imagenes/logoBlanco.png">
         </div>
         <div class="navbar">
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
@@ -16,6 +16,6 @@
         
     </div>
     <div class="login">
-        <i class="bi bi-person-fill fa-user" data-bs-toggle="modal" data-bs-target="#mimodal" tabindex="-1"></i>
+        <i class="bi bi-person-fill fa-user" data-bs-toggle="modal" data-bs-target="#modalLogin" tabindex="-1"></i>
     </div>
 </header>

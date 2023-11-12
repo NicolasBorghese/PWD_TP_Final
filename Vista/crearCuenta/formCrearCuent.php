@@ -1,6 +1,6 @@
 <!-- Crea un modal con un formulaario para crear una cuenta -->
 
-<div class="modal fade" id="mimodal" data-bs-backdrop="static">
+<div class="modal fade" id="modalCrearCuenta" data-bs-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,7 +8,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form name="formCuenta" id="formCuenta" action="Vista/crearCuenta/accionVerifDatos.php" method="POST" class="needs-validation" novalidate>
+        <form name="formCuenta" id="formCuenta" action="../crearCuenta/accionVerifDatos.php" method="POST" class="needs-validation" novalidate>
           <div class="contenedor-dato">
             <label for="usuario" class="form-label">Nombre usuario</label>
             <input type="text" class="form-control" id="usnombre" name="usnombre" placeholder="moni74" required>
@@ -54,13 +54,13 @@
           </div>
           <br>
           <div class="d-grid mb-3 gap-2">
-            <button type="submit" name="btn" id="btn" class="btn text-white  btn-dark">Registrarme</button>
+            <button type="submit" name="btn" id="btn" class="btn text-white  btn-dark">REGISTRARME</button>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <div class="d-grid gap-2 col-6 mx-auto">
-          <a class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#mimodal2" tabindex="-1" data-bs-toggle="modal">Iniciar sesion</a>
+          <a class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalLogin" tabindex="-1" data-bs-toggle="modal">Iniciar Sesión</a>
         </div>
       </div>
     </div>

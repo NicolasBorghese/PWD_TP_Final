@@ -1,10 +1,10 @@
 <!-- Crea un modal con un formulaario para iniciar sesion-->
 
-<div class="modal fade" id="mimodal2" data-bs-backdrop="static">
+<div class="modal fade" id="modalLogin" data-bs-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title ">Iniciar sesion</h5>
+        <h5 class="modal-title ">Iniciar sesión</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -34,15 +34,19 @@
           </div>
           <br>
           <div class="d-grid mb-3 gap-2">
-            <button type="submit" id="btn" class="btn btn-dark" name="btn">Login</button>
+            <button type="submit" id="btn" class="btn btn-dark" name="btn">INGRESAR</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer"></div>
+      <div class="modal-footer">
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <a class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalCrearCuenta" tabindex="-1" data-bs-toggle="modal">Crear Cuenta</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
+
 <script>
   // colocolo aca este js porque no me esta tomando la validacion poniendo el escrip en el encabezado
   (() => {
