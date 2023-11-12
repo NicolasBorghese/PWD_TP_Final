@@ -108,3 +108,7 @@ a:hover {
 .carousel-inner {
     padding: 50px;
 }
+/* -------------------- Modal crear cuenta e iniciar sesion-------------------- */
+.modal-title {
+    text-align: center;
+  }
