@@ -17,6 +17,6 @@
         <div class="navbar"><a class="nav-link" href="#">SETS</a></div>
     </div>
     <div class="login">
-        <i class="bi bi-person-fill"></i>
+        <i class="bi bi-person-fill fa-user" data-bs-toggle="modal" data-bs-target="#mimodal" tabindex="-1">
     </div>
 </header>
