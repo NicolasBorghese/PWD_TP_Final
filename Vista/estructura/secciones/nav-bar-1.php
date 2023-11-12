@@ -1,6 +1,5 @@
 
 <!-- ____________________________________ NAV BAR 1 ________________________________ -->
-<div id="contenedorCuerpo">
 <header class="header">
     <div class="menu-opciones">
         <div class="logo-nav">

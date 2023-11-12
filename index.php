@@ -33,12 +33,11 @@ include_once 'Vista/estructura/secciones/nav-bar-1.php';
             </button>
         </div>
 
-        </div>
+    </div>
     <?php 
         require_once("Vista/crearCuenta/formCrearCuent.php");
         require_once("Vista/login/login.php");  
     ?>  
-    </div>
 </div>
 
 <?php include_once 'Vista/estructura/secciones/pie.php'?>
