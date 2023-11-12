@@ -1,4 +1,3 @@
-<body onload="actualizarCurrent(<?php echo $seccionActual ?>)">
 
 <!-- ____________________________________ NAV BAR 1 ________________________________ -->
 <div id="contenedorCuerpo">
