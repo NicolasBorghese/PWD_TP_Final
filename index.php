@@ -1,6 +1,6 @@
 <?php 
 $tituloPagina = "TechnoMate | Inicio";
-include_once 'Vista/estructura/secciones/encabezado.php';
+include_once 'Vista/estructura/secciones/headIndex.php';
 include_once 'Vista/estructura/secciones/nav-bar-1.php';
 ?>
 
@@ -34,10 +34,11 @@ include_once 'Vista/estructura/secciones/nav-bar-1.php';
         </div>
     </div>
 </div>
-
-<?php 
-    require_once("Vista/crearCuenta/formCrearCuent.php");
-    require_once("Vista/login/login.php");  
-?>  
+<div>
+    <?php 
+        require_once("Vista/crearCuenta/formCrearCuent.php");
+        require_once("Vista/login/login.php");
+    ?> 
+</div>
 
 <?php include_once 'Vista/estructura/secciones/pie.php'?>
