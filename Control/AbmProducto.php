@@ -112,7 +112,7 @@ class AbmProducto
         if  (isset($param['procantstock']))
                 $where.=" and procansStock ='".$param['procantstock']."'";
         }
-        $obj = new Rol();
+        $obj = new Producto();
         $arreglo = $obj->listar($where);
         return $arreglo;
     }
