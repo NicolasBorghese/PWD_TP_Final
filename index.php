@@ -34,7 +34,7 @@ include_once 'Vista/estructura/secciones/nav-bar-1.php';
         </div>
 
         </div>
-     <?php 
+    <?php 
         require_once("Vista/crearCuenta/formCrearCuent.php");
         require_once("Vista/login/login.php");  
     ?>  
