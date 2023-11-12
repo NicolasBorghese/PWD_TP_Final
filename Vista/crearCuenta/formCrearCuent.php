@@ -1,3 +1,4 @@
+
 <!-- Crea un modal con un formulaario para crear una cuenta -->
 
 <div class="modal fade" id="modalCrearCuenta" data-bs-backdrop="static">
@@ -66,25 +67,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  // colocolo aca este js porque no me esta tomando la validacion poniendo el escrip en el encabezado
-  (() => {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-  })();
-</script>

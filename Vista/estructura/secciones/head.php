@@ -21,7 +21,7 @@
     <!-- link a css propio -->
     <link rel="stylesheet" href="../estructura/css/estilos.css">
     <!-- link a js propio -->
-    <script src="../estructura/js/validaBoostrap.js"></script>
+    <!--<script src="../estructura/js/validaBoostrap.js"></script>-->
 
     <!-- link a iconos de bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">

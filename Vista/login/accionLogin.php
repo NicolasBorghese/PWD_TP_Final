@@ -20,7 +20,7 @@ if($validUser){
     //hacia donde redirige?
 
 }else{
-    header('Location:../login.php'); 
+    //header('Location:../login.php'); 
     echo "No Inicio sesion <br>";
     //como colocamos el mensaje de usuario invalido?
     

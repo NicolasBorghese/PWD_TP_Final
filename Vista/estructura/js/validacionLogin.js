@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    $("#formularioLogin").validate({
+    $("#inicioSesion").validate({
         rules: {
-            direccionMail: {
+            usnombre: {
                 required: true
             },
-            contrasenia: {
+            uspass: {
                 required: true
             },
             captcha: {
@@ -14,10 +14,10 @@ $(document).ready(function () {
             }
         },
         messages: {
-            direccionMail: {
-                required: "Ingrese su usuario (dirección de mail)"
+            usnombre: {
+                required: "Ingrese su usuario"
             },
-            contrasenia: {
+            uspass: {
                 required: "Ingrese su contraseña"
             },
             captcha: {
@@ -31,19 +31,21 @@ $(document).ready(function () {
             element.closest(".contenedor-dato").append(error);
         },
         highlight: function (element) {
-            $(element).addClass("is-invalid").removeClass("is-valid");
+            $(element).addClass("is-invalid")/*.removeClass("is-valid")*/;
         },
         unhighlight: function (element) {
             $(element).removeClass("is-invalid")/*.addClass("is-valid")*/;
         }
     });
 
-    $("#formularioLogin").submit(function(event) {
+    /*Función que valida si los datos son correctos, en caso de serlo
+    el usuario ingresará a su cuenta */
+    $("#inicioSesion").submit(function(event) {
 
         //event.preventDefault();
 
-        var formData = $("#formularioLogin").serialize();
-        var ruta = "../../Control/ajaxLogin.php";
+        var formData = $("#inicioSesion").serialize();
+        var ruta = "../../Control/Ajax/ajaxLogin.php";
 
         $.ajax({
           url: ruta,
@@ -76,7 +78,7 @@ jQuery.validator.addMethod("captchaValido", function (value, element) {
 function validarCaptcha(value, element){
 
     var formData = {'captcha': value};
-    var ruta = "../../Control/ajaxCaptcha.php";
+    var ruta = "../../Control/Ajax/ajaxCaptcha.php";
 
     $.ajax({
       url: ruta,
@@ -89,7 +91,6 @@ function validarCaptcha(value, element){
         if (respuesta.validacion == "exito"){
 
             var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
-
             elementosRepetidos.forEach(function(elemento) {
                 elemento.remove();
             });
@@ -103,6 +104,11 @@ function validarCaptcha(value, element){
             element.closest(".contenedor-dato").append(contenedorMensaje);
 
         } else {
+
+            var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
+            elementosRepetidos.forEach(function(elemento) {
+                elemento.remove();
+            });
 
         }
       }
