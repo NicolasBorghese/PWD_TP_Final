@@ -11,7 +11,7 @@
         <form name="formCuenta" id="formCuenta" action="Vista/crearCuenta/accionVerifDatos.php" method="POST" class="needs-validation" novalidate>
           <div class="contenedor-dato">
             <label for="usuario" class="form-label">Nombre usuario</label>
-            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="moni74" required>
+            <input type="text" class="form-control" id="usnombre" name="usnombre" placeholder="moni74" required>
             <div class="valid-feedback">
               bien!
             </div>
@@ -22,7 +22,7 @@
           <br>
           <div class="contenedor-dato">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/" required>
+            <input type="email" class="form-control" id="usmail" name="usmail" placeholder="name@example.com" pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/" required>
             <div class="valid-feedback">
               bien!
             </div>
@@ -33,7 +33,7 @@
           <br>
           <div class="contenedor-dato">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <input type="password" class="form-control" id="uspass" name="uspass" required>
             <div class="valid-feedback">
               bien!
             </div>
@@ -44,7 +44,7 @@
           <br>
           <div class="contenedor-dato">
             <label for="password" class="form-label">Repita Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <input type="password" class="form-control" id="uspass" name="uspass" required>
             <div class="valid-feedback">
               bien!
             </div>

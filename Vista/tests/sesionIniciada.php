@@ -26,7 +26,7 @@ if ($sesion->activa()) {
     $menu = $objMenu->buscar($idMenu);// lista de menus (es un array)
     echo "Menu <br>";
     verEstructura($menu);
-
+    //buscar los submenus con idpadre para colocarlos
     
 }
 ?>

@@ -1,4 +1,4 @@
 
 <p>
-    soy la accion verificar datos 
+    soy la accion verificar datos
 </p>

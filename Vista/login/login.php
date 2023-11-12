@@ -13,7 +13,7 @@
 
           <div class="contenedor-dato">
             <label for="usuario" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Moni74" required>
+            <input type="text" class="form-control" id="usnombre" name="usnombre" placeholder="Moni74" required>
             <div class="valid-feedback">
               bien!
             </div>
@@ -24,7 +24,7 @@
           <br>
           <div class="contenedor-dato">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <input type="password" class="form-control" id="uspass" name="uspass" required>
             <div class="valid-feedback">
               bien!
             </div>
