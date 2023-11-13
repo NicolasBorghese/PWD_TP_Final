@@ -6,13 +6,13 @@
             <img src="../../Archivos/Imagenes/logoBlanco.png">
         </div>
         <div class="navbar">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../home">Inicio</a>
         </div>
-        <div class="navbar"><a class="nav-link" href="#">Mates</a></div>
-        <div class="navbar"><a class="nav-link" href="#">Yerbas</a></div>
-        <div class="navbar"><a class="nav-link" href="#">Bombillas</a></div>
-        <div class="navbar"><a class="nav-link" href="#">Termos</a></div>
-        <div class="navbar"><a class="nav-link" href="#">SETS</a></div>
+        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Mates">Mates</a></div>
+        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Yerbas">Yerbas</a></div>
+        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Bombillas">Bombillas</a></div>
+        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Termos">Termos</a></div>
+        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=SETS">SETS</a></div>
         
     </div>
     <div class="login logo">
