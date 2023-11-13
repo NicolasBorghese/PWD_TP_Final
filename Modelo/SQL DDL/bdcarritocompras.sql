@@ -204,10 +204,28 @@ INSERT INTO `producto` (`idproducto`,`pronombre`,`prodetalle`,`procantstock`,`ti
 (14,'Set Matero Completo Termo Stanley Mate Calabaza Y Cuero','180.199', 100,"SETS","../../Archivos/Foto/sets/set1.png"),
 (15,'Set Matero Canasta + Mate + Bombilla + Yerbero + Azucarero','18.242', 100,"SETS","../../Archivos/Foto/sets/set2.png"),
 (16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12.927', 100,"SETS","../../Archivos/Foto/sets/set3.png"),
-/*mas mates*/
+/*Mas mates*/
 (17,'mate basico madera','5000',5,"Mates","../../Archivos/Foto/mates/mate4.png"),
 (18,'mate de aluminio','4000',8,"Mates","../../Archivos/Foto/mates/mate5.png"),
-(19,'mate de plastico terere','3500',10,"Mates","../../Archivos/Foto/mates/mate6.png");
+(19,'mate de plastico terere','3500',10,"Mates","../../Archivos/Foto/mates/mate6.png"),
+/*Mas yerbas*/
+(20,'Yerba Mate Playadito','2000',10,"Yerbas","../../Archivos/Foto/yerbas/yerba4.png"),
+(21,'Yerba mate Amanda Despalada','3000', 5,"Yerbas","../../Archivos/Foto/yerbas/yerba5.png"),
+(22,'Yerba Mate VerdeFlor','4000', 20,"Yerbas","../../Archivos/Foto/yerbas/yerba6.png"),
+/*Mas Bombillas*/
+(23,'Bombilla Mate Pico De Loro Sincelada','3.500', 100,"Bombillas","../../Archivos/Foto/bombillas/bombilla4.png"),
+(24,'Bombilla Stanley Acero Inoxidable','3.000', 50,"Bombillas","../../Archivos/Foto/bombillas/bombilla5.png"),
+(25,'Bombillon De Acero Inoxidable','8.000', 80,"Bombillas","../../Archivos/Foto/bombillas/bombilla6.png"),
+/*Mas Termos*/
+(26,'Termo Media Manija Y Pico Cebador 24hs Color Gris','20.000', 50,"Termos","../../Archivos/Foto/termos/Termo4.png"),
+(27,'Termo 1lt Termolar','18.000', 30,"Termos","../../Archivos/Foto/termos/Termo5.png"),
+(28,'Termo Acero Inoxidable BOCA','30.000', 60,"Termos","../../Archivos/Foto/termos/Termo6.png"),
+/*Mas sets*/
+(29,'Set Matero 0 DESCENSOS','26.000', 11,"SETS","../../Archivos/Foto/sets/set4.png"),
+(30,'Set Matero Campero Canasta + Mate + Bombilla + Yerbero + Azucarero','19.600', 20,"SETS","../../Archivos/Foto/sets/set5.png"),
+(31,'Set Matero Campeones Del Mundo ','18.120', 50,"SETS","../../Archivos/Foto/sets/set6.png");
+
+
 
 -- --------------------------------------------------------
 
