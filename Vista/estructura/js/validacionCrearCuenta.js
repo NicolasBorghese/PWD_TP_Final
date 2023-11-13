@@ -2,23 +2,25 @@ $(document).ready(function () {
 
     $("#formCrearCuenta").validate({
         rules: {
-            usnombre: {
-                required: true
+            usnombreCrearCuenta: {
+                required: true,
+                nombreNoRepetido: {nombreNoRpetido: true}
             },
-            uspass: {
-                required: true
+            usmailCrearCuenta: {
+                required: true,
+                mailValido: {mailValido: true}
             },
             captchaCrearCuenta: {
                 required: true,
-                captchaValido: {captchaValido: true}
+                captchaCrearCuentaValido: {captchaCrearCuentaValido: true}
             }
         },
         messages: {
-            usnombre: {
+            usnombreCrearCuenta: {
                 required: "Ingrese su usuario"
             },
-            uspass: {
-                required: "Ingrese su contraseña"
+            usmailCrearCuenta: {
+                required: "Ingrese su dirección de mail"
             },
             captchaCrearCuenta: {
                 required: "Complete el captcha"
@@ -34,12 +36,12 @@ $(document).ready(function () {
             $(element).addClass("is-invalid").removeClass("is-valid");
         },
         unhighlight: function (element) {
-            $(element).removeClass("is-invalid")/*.addClass("is-valid")*/;
+            $(element).removeClass("is-invalid").addClass("is-valid");
         }
     });
 
     /*Función que valida si los datos son correctos, en caso de serlo
-    el usuario ingresará a su cuenta */
+    se creara una cuenta de usuario sin rol que deberá asignar un admin */
     $("#formCrearCuenta").submit(function(event) {
 
         //event.preventDefault();
@@ -72,13 +74,21 @@ $(document).ready(function () {
     });
 });
 
-jQuery.validator.addMethod("captchaValido", function (value, element) {
-    return this.optional(element) || validarCaptcha(value, element);
+jQuery.validator.addMethod("captchaCrearCuentaValido", function (value, element) {
+    return this.optional(element) || validarCaptchaCrearCuenta(value, element);
 }, "Captcha incorrecto");
 
-function validarCaptcha(value, element){
+jQuery.validator.addMethod("nombreNoRepetido", function (value, element) {
+    return this.optional(element) || validarNombre(value, element);
+}, "Nombre de usuario en uso");
 
-    var formData = {'captcha': value};
+jQuery.validator.addMethod("mailValido", function (value, element) {
+    return this.optional(element) || (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value));
+}, "Mail ingresado no válido");
+
+function validarCaptchaCrearCuenta(value, element){
+
+    var formData = {'captchaCrearCuenta': value};
     var ruta = "../../Control/Ajax/ajaxCaptchaCrearCuenta.php";
 
     $.ajax({
@@ -107,6 +117,46 @@ function validarCaptcha(value, element){
         } else {
 
             var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
+            elementosRepetidos.forEach(function(elemento) {
+                elemento.remove();
+            });
+
+        }
+      }
+    });
+}
+
+function validarNombre(value, element){
+
+    var formData = {'usnombre': value};
+    var ruta = "../../Control/Ajax/ajaxValidarNombre.php";
+
+    $.ajax({
+      url: ruta,
+      type: "POST",
+      data: formData,
+      dataType: "json",
+
+      success: function(respuesta) {
+
+        if (respuesta.validacion == "exito"){
+
+            var elementosRepetidos = document.querySelectorAll(".nombre-disponible");
+            elementosRepetidos.forEach(function(elemento) {
+                elemento.remove();
+            });
+
+            var contenedorMensaje = document.createElement("span");
+            mensaje = "Nombre de usuario disponible";
+            contenedorMensaje.textContent = mensaje;
+            $(contenedorMensaje).addClass("valid-feedback");
+            $(contenedorMensaje).addClass("nombre-disponible");
+            $(element).removeClass("is-invalid").addClass("is-valid");
+            element.closest(".contenedor-dato").append(contenedorMensaje);
+
+        } else {
+
+            var elementosRepetidos = document.querySelectorAll(".nombre-disponible");
             elementosRepetidos.forEach(function(elemento) {
                 elemento.remove();
             });

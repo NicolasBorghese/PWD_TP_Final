@@ -1,17 +1,19 @@
 <?php
-if (isset ($_POST)){
 
-  $captcha = sha1($_POST["captcha"]);
-  $cookieCapcha = $_COOKIE["captchaCrearCuenta"];
+include_once "../../configuracion.php";
+$datos = data_submitted();
 
-  if ($captcha != $cookieCapcha ){
-    $respuesta = array("validacion" => "captcha", "error" => "Captcha incorrecto");
+$captcha = sha1($datos["captchaCrearCuenta"]);
+$cookieCapcha = $_COOKIE["captchaCrearCuenta"];
 
-  } else {
-    $respuesta = array("validacion" => "exito");
+if ($captcha == $cookieCapcha ){
+  $respuesta = array("validacion" => "exito");
+  
+} else {
+  $respuesta = array("validacion" => "captcha", "error" => "Captcha incorrecto");
     
-  }
-
-  echo json_encode($respuesta);
 }
+
+echo json_encode($respuesta);
+
 ?>

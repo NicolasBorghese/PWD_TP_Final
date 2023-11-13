@@ -12,31 +12,19 @@
         <form name="formCrearCuenta" id="formCrearCuenta" method="POST" class="needs-validation" novalidate>
           
           <div class="contenedor-dato">
-            <label for="usuario" class="form-label">Nombre usuario</label>
-            <input type="text" class="form-control" id="usnombre" name="usnombre">
+            <label for="usnombreCrearCuenta" class="form-label">Nombre usuario</label>
+            <input type="text" class="form-control" id="usnombreCrearCuenta" name="usnombreCrearCuenta">
           </div>
           <br>
 
           <div class="contenedor-dato">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="usmail" name="usmail" placeholder="nombre@mail.com" pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/">
+            <label for="usemailCrearCuenta" class="form-label">Email</label>
+            <input type="text" class="form-control" id="usmailCrearCuenta" name="usmailCrearCuenta" placeholder="nombre@mail.com">
           </div>
           <br>
 
           <div class="contenedor-dato">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="uspass" name="uspass">
-          </div>
-          <br>
-
-          <div class="contenedor-dato">
-            <label for="password" class="form-label">Repita Contraseña</label>
-            <input type="password" class="form-control" id="uspass" name="uspass">
-          </div>
-          <br>
-
-          <div class="contenedor-dato">
-            <label for="captcha" class="form-label">Captcha</label>
+            <label for="captchaCrearCuenta" class="form-label">Captcha</label>
             <input type="text" class="form-control" id="captchaCrearCuenta" name="captchaCrearCuenta">
           </div>
 
@@ -60,3 +48,5 @@
     </div>
   </div>
 </div>
+
+<script src="../estructura/js/validacionCrearCuenta.js"></script>

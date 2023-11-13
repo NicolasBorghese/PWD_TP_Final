@@ -2,22 +2,22 @@ $(document).ready(function () {
 
     $("#formLogin").validate({
         rules: {
-            usnombre: {
+            usnombreLogin: {
                 required: true
             },
-            uspass: {
+            uspassLogin: {
                 required: true
             },
             captchaLogin: {
                 required: true,
-                captchaValido: {captchaValido: true}
+                captchaLoginValido: {captchaLoginValido: true}
             }
         },
         messages: {
-            usnombre: {
+            usnombreLogin: {
                 required: "Ingrese su usuario"
             },
-            uspass: {
+            uspassLogin: {
                 required: "Ingrese su contraseña"
             },
             captchaLogin: {
@@ -72,15 +72,15 @@ $(document).ready(function () {
     });
 });
 
-jQuery.validator.addMethod("captchaValido", function (value, element) {
-    return this.optional(element) || validarCaptcha(value, element);
+jQuery.validator.addMethod("captchaLoginValido", function (value, element) {
+    return this.optional(element) || validarCaptchaLogin(value, element);
 }, "Captcha incorrecto");
 
-function validarCaptcha(value, element){
+function validarCaptchaLogin(value, element){
 
-    var formData = {'captcha': value};
+    var formData = {'captchaLogin': value};
     var ruta = "../../Control/Ajax/ajaxCaptchaLogin.php";
-
+    
     $.ajax({
       url: ruta,
       type: "POST",
@@ -88,7 +88,7 @@ function validarCaptcha(value, element){
       dataType: "json",
 
       success: function(respuesta) {
-
+        
         if (respuesta.validacion == "exito"){
 
             var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
@@ -105,7 +105,7 @@ function validarCaptcha(value, element){
             element.closest(".contenedor-dato").append(contenedorMensaje);
 
         } else {
-
+            
             var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
             elementosRepetidos.forEach(function(elemento) {
                 elemento.remove();

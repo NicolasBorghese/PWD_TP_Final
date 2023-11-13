@@ -13,17 +13,17 @@
         <form name="formLogin" id="formLogin" method="POST" class="needs-validation" novalidate>
 
           <div class="contenedor-dato">
-            <label for="usnombre" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="usnombre" name="usnombre">
+            <label for="usnombreLogin" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="usnombreLogin" name="usnombreLogin">
           </div>
           <br>
           <div class="contenedor-dato">
-            <label for="uspass" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="uspass" name="uspass">
+            <label for="uspassLogin" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="uspassLogin" name="uspassLogin">
           </div>
           <br>
           <div class="contenedor-dato">
-            <label for="captcha" class="form-label">Captcha</label>
+            <label for="captchaLogin" class="form-label">Captcha</label>
             <input type="text" class="form-control" id="captchaLogin" name="captchaLogin">
           </div>
           <br>
