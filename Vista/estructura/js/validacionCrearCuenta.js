@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#formLogin").validate({
+    $("#formCrearCuenta").validate({
         rules: {
             usnombre: {
                 required: true
@@ -8,7 +8,7 @@ $(document).ready(function () {
             uspass: {
                 required: true
             },
-            captchaLogin: {
+            captchaCrearCuenta: {
                 required: true,
                 captchaValido: {captchaValido: true}
             }
@@ -20,7 +20,7 @@ $(document).ready(function () {
             uspass: {
                 required: "Ingrese su contraseña"
             },
-            captchaLogin: {
+            captchaCrearCuenta: {
                 required: "Complete el captcha"
             }
         },
@@ -40,12 +40,12 @@ $(document).ready(function () {
 
     /*Función que valida si los datos son correctos, en caso de serlo
     el usuario ingresará a su cuenta */
-    $("#formLogin").submit(function(event) {
+    $("#formCrearCuenta").submit(function(event) {
 
         //event.preventDefault();
 
-        var formData = $("#formLogin").serialize();
-        var ruta = "../../Control/Ajax/ajaxLogin.php";
+        var formData = $("#formCrearCuenta").serialize();
+        var ruta = "../../Control/Ajax/ajaxCrearCuenta.php";
 
         $.ajax({
           url: ruta,
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
             if (respuesta.validacion == "exito"){
 
-                //Resultado de loguearse correctamente
+                //Resultado de crear la cuenta correctamente
                 window.location.href = "../home/home.php";
 
             } else if (respuesta.validacion == "captcha") {
@@ -67,8 +67,8 @@ $(document).ready(function () {
         });
     });
 
-    $("#actualizarCaptchaLogin").on("click", function() {
-        $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
+    $("#actualizarCaptchaCrearCuenta").on("click", function() {
+        $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
     });
 });
 
@@ -79,7 +79,7 @@ jQuery.validator.addMethod("captchaValido", function (value, element) {
 function validarCaptcha(value, element){
 
     var formData = {'captcha': value};
-    var ruta = "../../Control/Ajax/ajaxCaptchaLogin.php";
+    var ruta = "../../Control/Ajax/ajaxCaptchaCrearCuenta.php";
 
     $.ajax({
       url: ruta,

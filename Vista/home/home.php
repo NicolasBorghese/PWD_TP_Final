@@ -37,7 +37,7 @@ include_once '../estructura/secciones/nav-bar-1.php';
 <div>
     <?php
         require_once("../login/login.php");
-        require_once("../crearCuenta/formCrearCuent.php"); 
+        require_once("../crearCuenta/formCrearCuenta.php"); 
     ?>
 </div>
 
