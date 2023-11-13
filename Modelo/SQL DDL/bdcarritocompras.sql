@@ -203,8 +203,11 @@ INSERT INTO `producto` (`idproducto`,`pronombre`,`prodetalle`,`procantstock`,`ti
 /*Sets*/
 (14,'Set Matero Completo Termo Stanley Mate Calabaza Y Cuero','180.199', 100,"SETS","../../Archivos/Foto/sets/set1.png"),
 (15,'Set Matero Canasta + Mate + Bombilla + Yerbero + Azucarero','18.242', 100,"SETS","../../Archivos/Foto/sets/set2.png"),
-(16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12.927', 100,"SETS","../../Archivos/Foto/sets/set3.png")
-;
+(16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12.927', 100,"SETS","../../Archivos/Foto/sets/set3.png"),
+/*mas mates*/
+(17,'mate basico madera','5000',5,"Mates","../../Archivos/Foto/mates/mate4.png"),
+(18,'mate de aluminio','4000',8,"Mates","../../Archivos/Foto/mates/mate5.png"),
+(19,'mate de plastico terere','3500',10,"Mates","../../Archivos/Foto/mates/mate6.png");
 
 -- --------------------------------------------------------
 

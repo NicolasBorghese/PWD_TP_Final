@@ -73,6 +73,7 @@
     font-size: 20px;
     background-color: var(--estructura);
     color: var(--fuentes);
+  
 }
 
 /* -------------------- DECORACIONES/DETALLES -------------------- */
@@ -95,6 +96,7 @@ a:hover {
 }
 
 /* -------------------- CONTENIDO DE LA PÁGINA -------------------- */
+
 .contenido-pagina {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.7)),
@@ -103,6 +105,8 @@ a:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .carousel-inner {
@@ -111,4 +115,11 @@ a:hover {
 /* -------------------- Modal crear cuenta e iniciar sesion-------------------- */
 .modal-title {
     text-align: center;
+  }
+
+/********************************* efecto de la card *****************/
+
+.sombraCarta:hover {
+    box-shadow: 0px 0px 20px rgba(156, 154, 154, 0.918);
+    
   }
