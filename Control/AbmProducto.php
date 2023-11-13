@@ -13,7 +13,7 @@ class AbmProducto
         if (array_key_exists('idproducto', $param)) {
 
             $obj = new Producto();
-            $obj->setear( $param['idproducto'],$param['proNombre'],$param['prodetalle'],$param['procantstock']);
+            $obj->setear( $param['idproducto'],$param['proNombre'],$param['prodetalle'],$param['procantstock'],$param['tipo'],$param['imagenproducto']);
         }
         return $obj;
     }
@@ -29,7 +29,7 @@ class AbmProducto
         $obj = null;
         if (isset($param['idproducto'])) {
             $obj = new Producto();
-            $obj->setear($param['idproducto'], null, null, null, null, null);
+            $obj->setear($param['idproducto'], null, null, null, null, null,null, null);
         }
         return $obj;
     }
@@ -111,6 +111,10 @@ class AbmProducto
                 $where.=" and prodetalle ='".$param['prodetalle']."'";
         if  (isset($param['procantstock']))
                 $where.=" and procansStock ='".$param['procantstock']."'";
+        if  (isset($param['tipo']))
+                $where.=" and tipo ='".$param['tipo']."'";
+        if  (isset($param['imagenproducto']))
+        $where.=" and imagenproducto='".$param['imagenproducto']."'";  
         }
         $obj = new Producto();
         $arreglo = $obj->listar($where);

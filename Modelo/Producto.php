@@ -2,8 +2,10 @@
 class Producto extends BaseDatos{
     private $idproducto;
     private $pronombre;
-    private $prodetalle;
-    private $procantstock;  
+    private $prodetalle; // aca iria el precio
+    private $procantstock;
+    private $tipo;// si es yerba, mate o bobilla
+    private $imagenProducto; //url de imagen
     private $mensajeoperacion;
 
     public function __contruct(){
@@ -11,14 +13,18 @@ class Producto extends BaseDatos{
         $this->pronombre="";
         $this->prodetalle="";
         $this->procantstock="";
+        $this->tipo="";
+        $this->imagenproducto="";
         $this->mensajeoperacion ="";
     }
 
-    public function setear($idproducto, $pronombre, $prodetalle, $procantstock){
+    public function setear($idproducto, $pronombre, $prodetalle, $procantstock,$tipo,$imagenproducto){
         $this->setIdProducto($idproducto);
         $this->setProNombre($pronombre);
         $this->setProDetalle($prodetalle);
         $this->setProCantstock($procantstock);
+        $this->setTipo($tipo);
+        $this->setImagenProducto($imagenproducto);
         }
 
  /* Medodos get y set para iidproducto*/ 
@@ -52,6 +58,21 @@ class Producto extends BaseDatos{
    public function setProCantstock($valor){
     $this->procantstock = $valor;
   }
+   /* Medodos get y set para tipo*/ 
+   public function getTipo(){
+    return $this->tipo;
+}
+public function setTipo($valor){
+    $this->tipo = $valor;
+}
+
+ /* Medodos get y set para getImagenProducto()*/ 
+ public function getImagenProducto(){
+  return $this->imagenproducto;
+}
+public function setImagenProducto($valor){
+  $this->imagenproducto = $valor;
+}
 
   /* Medodos get y set para mensajeoperacion*/
   public function getmensajeoperacion(){
@@ -75,7 +96,7 @@ class Producto extends BaseDatos{
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'],$row['procantstock']);
+                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'],$row['procantstock'],$row['tipo'],$row['imagenproducto']);
                 }
             }    
         } else {
@@ -94,8 +115,8 @@ class Producto extends BaseDatos{
         //echo "insertar";
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO producto(pronombre, prodetalle, procantstock) 
-        VALUES ('".$this->getProNombre()."','".$this->getProDetalle()."',".$this->getProCantstock()."');";  
+        $sql="INSERT INTO producto (pronombre, prodetalle, procantstock, tipo, imagenproducto)
+        VALUES ('".$this->getProNombre()."','".$this->getProDetalle()."','".$this->getProCantstock()."','".$this->getTipo()."','".$this->getImagenProduco()."')";
       if ($base->Iniciar()) {
         if ($elid = $base->Ejecutar($sql)){
             $this->setIdProducto($elid);
@@ -121,7 +142,7 @@ class Producto extends BaseDatos{
         $resp = false;
         $base = new BaseDatos();
         $sql = "UPDATE producto SET pronombre = '".$this->getProNombre()."',prodetalle = '".$this->getProDetalle()."',procantstock = '".$this->getProCantStock().
-        "' WHERE idproducto = ". $this->getIdProducto()."";
+        "',tipo= '".$this->getTipo()."', imagenproducto='".$this->getImagenProduco()."' WHERE idproducto = '". $this->getIdProducto()."' ";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -174,19 +195,20 @@ class Producto extends BaseDatos{
         $sql = "SELECT * FROM producto ";
     
        if ($parametro != "") {
-         $sql .= " WHERE .$parametro";
+         $sql .= "WHERE".$parametro;
         }
        $res = $base->Ejecutar($sql);
        if ($res > -1) {
          if ($res > 0) {
            while ($row = $base->Registro()) {
-             $obj = new Compra();
+             /*$obj = new Compra();
     
              $objUsuario= new Usuario();
              $objUsuario->setIdProducto($row['idproducto']);
-             $objUsuario->cargar();
-    
-             $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'],$row['procantstock']);
+             $objUsuario->cargar();*/
+              $obj= new Producto();
+
+             $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'],$row['procantstock'],$row['tipo'],$row['imagenproducto']);
     
              array_push($arreglo, $obj);
            }
@@ -207,6 +229,7 @@ class Producto extends BaseDatos{
         $info['pronombre'] = $this->getProNombre();
         $info['prodetalle'] =$this->getProDetalle();
         $info['procantstock'] =$this->getProCantStock();
+        $info['tipo'] =$this->getTipo();
         return $info;
     }
 

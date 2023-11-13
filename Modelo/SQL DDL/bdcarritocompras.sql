@@ -174,19 +174,37 @@ INSERT INTO `menurol` (`idmenu`, `idrol`) VALUES
 
 CREATE TABLE `producto` (
   `idproducto` bigint(20) NOT NULL,
-  `pronombre` varchar(11) NOT NULL,
+  `pronombre` varchar(250) NOT NULL,
   `prodetalle` varchar(512) NOT NULL,
-  `procantstock` int(11) NOT NULL
+  `procantstock` int(11) NOT NULL,
+  `tipo` varchar(20)  NOT NULL,
+  `imagenproducto`  varchar(512)  NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 -- Volcado de datos para la tabla producto
 
-INSERT INTO `producto` (`idproducto`,`pronombre`,`prodetalle`,`procantstock`) VALUES
-(123,'Mate','Porongo', 5),
-(234,'Mate','Porongo Artesanal', 3),
-(345,'Termo','Taragui', 6),
-(456,'Termo','Taragui Electrico', 1);
+INSERT INTO `producto` (`idproducto`,`pronombre`,`prodetalle`,`procantstock`,`tipo`,`imagenproducto`) VALUES
+(01,'Mate Termico Argentina','4900', 10,"Mates","../../Archivos/Foto/mates/mate1.png"),
+(02,'Mate Pampa Negro Afa','17999', 10,"Mates","../../Archivos/Foto/mates/mate2.png"),
+(03,'Mate De Madera Imperial','19800', 10,"Mates","../../Archivos/Foto/mates/mate3.png"),
+/*yerbas*/
+(04,'Yerba Mate De Campo La Merced','1665', 100,"Yerbas","../../Archivos/Foto/yerbas/yerba1.png"),
+(05,'Yerba mate Canarias sabor tradicional','4222', 100,"Yerbas","../../Archivos/Foto/yerbas/yerba2.png"),
+(06,'Yerba Mate Grapia Milenaria','2700', 100,"Yerbas","../../Archivos/Foto/yerbas/yerba3.png"),
+/*bombillas*/
+(08,'Bombilla Mate Pico De Loro Uruguaya Gruesa Original','3.299', 110,"Bombillas","../../Archivos/Foto/bombillas/bombilla1.png"),
+(09,'Bombilla Acero Inoxidable - Un Mate No Se Tapa','3.997', 110,"Bombillas","../../Archivos/Foto/bombillas/bombilla2.png"),
+(10,'Bombillon Torneado De Acero Inoxidable','7.600', 80,"Bombillas","../../Archivos/Foto/bombillas/bombilla3.png"),
+/*termoss*/
+(11,'Termo Kushiro 1200ml Manija Y Pico Cebador 24hs Doble Capa Color Gris','22.499', 50,"Termos","../../Archivos/Foto/termos/Termo1.png"),
+(12,'Termo Stanley Original Mate System Classic 1.2 Litros','95.863', 50,"Termos","../../Archivos/Foto/termos/Termo2.png"),
+(13,'Termo Acero Inoxidable Discovery Antiderrame 500 Ml Color Azul','12.900', 60,"Termos","../../Archivos/Foto/termos/Termo3.png"),
+/*Sets*/
+(14,'Set Matero Completo Termo Stanley Mate Calabaza Y Cuero','180.199', 100,"SETS","../../Archivos/Foto/sets/set1.png"),
+(15,'Set Matero Canasta + Mate + Bombilla + Yerbero + Azucarero','18.242', 100,"SETS","../../Archivos/Foto/sets/set2.png"),
+(16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12.927', 100,"SETS","../../Archivos/Foto/sets/set3.png")
+;
 
 -- --------------------------------------------------------
 
