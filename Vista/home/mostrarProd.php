@@ -27,7 +27,7 @@ $objProduc = new AbmProducto();
     echo "<div class='col'>";
     echo "<div class='p-3 d-flex justify-content-center align-items-center'>";
         echo "<div class='card text-center sombraCarta' style='width: 18rem;'>";
-        echo "<img class='card-img-top mx-auto d-block'  style=' height: 16rem;' src='". $listaProd[$i]->getImagenProducto()."' alt='" . $listaProd[$i]->getProNombre() . "'>";
+        echo "<img class='card-img-top' style='height: 16rem;' src='". $listaProd[$i]->getImagenProducto()."' alt='" . $listaProd[$i]->getProNombre() . "'>";
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'>" .$listaProd[$i]->getProNombre() . "</h5>";
         echo "<p class='card-text'>Precio: $" . $listaProd[$i]->getProDetalle() . "</p>";
