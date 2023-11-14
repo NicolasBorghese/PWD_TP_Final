@@ -1,15 +1,16 @@
 <?php
-require_once "../../configuracion.php";
 
+include_once "../../configuracion.php";
 $datos = data_submitted();
 
-$usnombre = $datos["usnombreCrearCuenta"];
+$usnombre = $datos['usnombreCrearCuenta'];
+
 $param['usnombre'] = $usnombre;
 
 $objUsuario = new AbmUsuario();
-//$colUsuarios = $objUsuario->buscar($param);
+$colUsuarios = $objUsuario->buscar($param);
 
-if (count($objUsuario->darValor($param)) == 1){
+if (count($colUsuarios) == 0){
     $respuesta = array("validacion" => "exito");
     
 } else {

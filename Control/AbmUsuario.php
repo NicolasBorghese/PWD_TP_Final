@@ -132,7 +132,6 @@ class AbmUsuario{
         return $resp;
     }
     
-    
     /**
      * Permite buscar un objeto según distintos criterios.
      * Recibe un arreglo indexado que contiene los criterios de busqueda.

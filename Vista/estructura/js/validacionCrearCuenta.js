@@ -91,13 +91,13 @@ jQuery.validator.addMethod("captchaCrearCuentaCorrecto", function (value, elemen
     return this.optional(element) || captchaCrearCuentaCorrecto(value);
 }, "El captcha ingresado es incorrecto");
 
+
 function nombreNoRepetido(value){
 
     var formData = {'usnombreCrearCuenta': value};
     var ruta = "../../Control/Ajax/nombreNoRepetido.php";
     var resultado = false;
 
-    console.log("Previo al Ajax");    
     $.ajax({
 
         url: ruta,
@@ -109,17 +109,44 @@ function nombreNoRepetido(value){
         success: function(respuesta) {
 
             if (respuesta.validacion == "exito"){
-                console.log(respuesta.validacion);
                 resultado = true;
             }
         }
 
     });
 
-    console.log(resultado);
-
     return resultado;
 }
+
+/**
+ * GUARDAR ESTA FUNCIÓN, DEVUELVE LOS ERRORES
+ */
+function nombreNoRepetido2(value) {
+
+    var formData = {'usnombreCrearCuenta': value};
+    var ruta = "../../Control/Ajax/nombreNoRepetido.php";
+
+    console.log("Previo al Ajax");
+
+    return $.ajax({
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json"
+    }).then(function(respuesta) {
+        console.log("Hubo éxito en la consulta Ajax");
+        console.log(respuesta.validacion);
+        return respuesta.validacion === "exito";
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
+        return false;
+    });
+}
+
+// Ejemplo de uso
+nombreNoRepetido("nombreUsuario").then(function(resultado) {
+    console.log(resultado);
+});
 
 function captchaCrearCuentaSinExpirar(value){
 
