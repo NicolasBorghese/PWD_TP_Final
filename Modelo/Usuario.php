@@ -253,6 +253,24 @@ class Usuario {
         "\nMail: ".$this->getUsMail()."\nDeshabilitado: ".$this->getUsDeshabilitado()."\n\n";
 			
 	}
+
+    /**
+     * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
+     * en un arreglo asociativo
+     * 
+     * @return array
+     */
+    public function obtenerInfo(){
+
+        $info = [];
+        $info['idusuario'] = $this->getIdUsuario();
+        $info['usnombre'] = $this->getUsNombre();
+        $info['modelo'] = $this->getUsPass();
+        $info['usmail'] = $this->getUsMail();
+
+        return $info;
+    }
+
 }
 
 ?>

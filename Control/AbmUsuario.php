@@ -160,8 +160,37 @@ class AbmUsuario{
         
         return $arreglo;
     }
-} 
+    
+    /**
+     * Recibe un arreglo indexado que contiene los criterios de busqueda
+     * Devuelve un arreglo con la información de todos los objetos que cumplan la condición
+     * recibida por parámetro
+     * 
+     * @param array $param
+     * @return array
+     */
+    public function buscarColInfo($param){
 
+        $colInfo = array();
+        $arregloObj = $this->buscar($param);
 
+        if (count($arregloObj) > 0){
+
+            for ($i = 0; $i < count($arregloObj); $i++){
+                $colInfo[$i] = $arregloObj[$i]->obtenerInfo();
+            }
+        }
+
+        return $colInfo;
+    }
+
+    /**
+     * Función de prueba
+     */
+    public function darValor(){
+
+        return ["Sultano"];
+    }
+}
 
 ?>

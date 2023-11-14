@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     /*Función que valida si los datos son correctos, en caso de serlo
     se creara una cuenta de usuario sin rol que deberá asignar un admin */
-    $("#formCrearCuenta").submit(function(event) {
+    /*$("#formCrearCuenta").submit(function(event) {
 
         //event.preventDefault();
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
             }
           }
         });
-    });
+    });*/
 
     $("#actualizarCaptchaCrearCuenta").on("click", function() {
         $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
@@ -96,7 +96,8 @@ function nombreNoRepetido(value){
     var formData = {'usnombreCrearCuenta': value};
     var ruta = "../../Control/Ajax/nombreNoRepetido.php";
     var resultado = false;
-        
+
+    console.log("Previo al Ajax");    
     $.ajax({
 
         url: ruta,
@@ -108,12 +109,14 @@ function nombreNoRepetido(value){
         success: function(respuesta) {
 
             if (respuesta.validacion == "exito"){
+                console.log(respuesta.validacion);
                 resultado = true;
             }
-
         }
 
     });
+
+    console.log(resultado);
 
     return resultado;
 }

@@ -1,16 +1,15 @@
 <?php
+require_once "../../configuracion.php";
 
-include_once "../../configuracion.php";
 $datos = data_submitted();
 
-$usnombreCrearCuenta = $datos["usnombreCrearCuenta"];
-
-$parametros['usnombre'] = $usnombreCrearCuenta;
+$usnombre = $datos["usnombreCrearCuenta"];
+$param['usnombre'] = $usnombre;
 
 $objUsuario = new AbmUsuario();
-$colUsuarios = $objUsuario->buscar($parametros);
+//$colUsuarios = $objUsuario->buscar($param);
 
-if (count($colUsuarios) == 0){
+if (count($objUsuario->darValor($param)) == 1){
     $respuesta = array("validacion" => "exito");
     
 } else {
@@ -19,5 +18,4 @@ if (count($colUsuarios) == 0){
 }
 
 echo json_encode($respuesta);
-
 ?>
