@@ -171,7 +171,7 @@ INSERT INTO compraestadotipo (idcompraestadotipo, cetdescripcion, cetdetalle) VA
 --
 CREATE TABLE menu (
   idmenu bigint(20) NOT NULL,
-  menombre varchar(50) NOT NULL COMMENT 'Nombre del item del menu',
+  menombre varchar(100) NOT NULL COMMENT 'Nombre del item del menu',
   medescripcion varchar(124) NOT NULL COMMENT 'Descripcion mas detallada del item del menu',
   idpadre bigint(20) DEFAULT NULL COMMENT 'Referencia al id del menu que es subitem',
   medeshabilitado timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha en la que el menu fue deshabilitado por ultima vez'
@@ -214,16 +214,12 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 (12, 'Mi cuenta', '../cliente/miCuenta.php', 2, NULL),
 
 /*seccion deposito*/
-(13, 'Cargar Producto', '../deposito/cargarProduc.php', 3, NULL),
-(14, 'Administar Producto', '../deposito/admProduc.php', 3, NULL),
-(15, 'Stock', '../deposito/stock.php', 3, NULL),
-(16, 'Mi cuenta', '../cliente/miCuenta.php', 3, NULL),
+(13, 'Ha ingresado a Deposito', 'homeDeposito.php', 3, NULL),
+(14, 'Mi cuenta', '../cliente/miCuenta.php', 3, NULL),
+
 /*seccion administrador*/
-(17, 'Crear usuarios', '../administrador/crearUsuarios.php', 4, NULL),
-(18, 'Asignar Roles', '../administrador/asignarRoles.php', 4, NULL),
-(19, 'Actualizar Informacion', '../administrador/actualizarInf.php', 4, NULL),
-(20, 'Gestionar menu', '../administrador/gestionMenu.php', 4, NULL),
-(21, 'Mi cuenta', '../cliente/miCuenta.php', 4, NULL)
+(15, 'Ha ingresado como administrador', 'homeAdministrador.php', 4, NULL),
+(16, 'Mi cuenta', '../cliente/miCuenta.php', 4, NULL)
 ;
 
 -- ----------------------------------------------------------------------------------

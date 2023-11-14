@@ -41,7 +41,6 @@ include_once("../../configuracion.php");
     </div>
 </div>
 
-
 <?php
 include_once '../estructura/secciones/footer.php';
 ?>
