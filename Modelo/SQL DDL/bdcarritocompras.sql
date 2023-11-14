@@ -12,6 +12,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+DROP DATABASE bdcarritocompras;
 CREATE DATABASE bdcarritocompras;
 USE bdcarritocompras;
 
@@ -130,23 +131,30 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`idmenu`, `menombre`, `medescripcion`, `idpadre`, `medeshabilitado`) VALUES
-(1, 'MenuPublico', '#', NULL, NULL),
-(2, 'Home', 'home', 1, NULL),
-(3, 'Iniciar Sesion', 'inicarSesion', 1, NULL),
-(4, 'Registrarse', 'registrar', 1, NULL),
-(5, 'Cliente', '#', NULL, NULL),
-(6, 'Cambiar E-Mail','cambioEmail',5,NULL ),
-(7, 'Cambiar Contraseña', 'cambioContrasenia', 5, NULL),
-(8, 'Administrar Compras', 'compras', 5, NULL),
-(9, 'Deposito','#',NULL,NULL),
-(10,'Crear Producto', 'agregarProducto',9,NULL),
-(11,'Administrar Productos', 'administrarProductos',9, NULL),
-(12,'Administrar Compras', 'administrarCompras',9,NULL),
-(13, 'Administrador', '#', NULL,NULL),
-(14, 'Crear Usuario', 'crearUsuario',13,NULL), -- Habilita un usuario nuevo
-(15, 'Administrar Usuarios', 'administrarUsuarios',13,NULL), -- asigna los roles correspondientes y actualiza la información que se requiera.
-(16,'Crear Menu', 'crearMenu', 13, NULL), -- crea un rol con su respectivo menu
-(17, 'Administrar Menu', 'administrarMenu',13,NULL); -- los gestiona
+(2, '','nav-bar-2', NULL, NULL),
+(3, '', 'nav-bar-3', NULL, NULL),
+(4, '', 'nav-bar-4', NULL, NULL),
+(5, 'Inicio', 'home.php', 2, NULL),
+(6, 'Mates', 'mostrarProd.php?nombre=Mates', 2, NULL),
+(7, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 2, NULL),
+(8, 'Bombillas','mostrarProd.php?nombre=Bombillas', 2, NULL),
+(9, 'Termos', 'mostrarProd.php?nombre=Termos', 2,NULL),
+(10, 'SETS', 'mostrarProd.php?nombre=SETS', 2, NULL),
+(11, 'iconoCarrito', '../cliente/carrito.php', 2, NULL),
+(12, 'Mi cuenta', '../cliente/miCuenta.php', 2, NULL),
+
+/*seccion deposito*/
+(13, 'Cargar Producto', '../deposito/cargarProduc.php', 3, NULL),
+(14, 'Administar Producto', '../deposito/admProduc.php', 3, NULL),
+(15, 'Stock', '../deposito/stock.php', 3, NULL),
+(16, 'Mi cuenta', '../cliente/miCuenta.php', 3, NULL),
+/*seccion administrador*/
+(17, 'Crear usuarios', '../administrador/crearUsuarios.php', 4, NULL),
+(18, 'Asignar Roles', '../administrador/asignarRoles.php', 4, NULL),
+(19, 'Actualizar Informacion', '../administrador/actualizarInf.php', 4, NULL),
+(20, 'Gestionar menu', '../administrador/gestionMenu.php', 4, NULL),
+(21, 'Mi cuenta', '../cliente/miCuenta.php', 4, NULL)
+;
 
 -- --------------------------------------------------------
 

@@ -47,7 +47,7 @@ $captcha =  generaCaptcha (array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "H", "m", "F", "q
 /*crear la cooki para almacenar el codigo captcha y enciptar con la funcion sha1() y endicarle un tiempo*/
 
 setcookie ('captchaCrearCuenta', sha1($captcha), time()+60*1);
-setcookie ('tiempoCaptchaCrearCuenta', date('Y-m-d H:i:s'));
+setcookie ('fechaCaptchaCrearCuenta', date('Y-m-d H:i:s'));
 
 /*ingresar el texto de la imagen */ 
 

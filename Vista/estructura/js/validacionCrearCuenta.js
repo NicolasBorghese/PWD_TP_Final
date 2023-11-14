@@ -4,15 +4,16 @@ $(document).ready(function () {
         rules: {
             usnombreCrearCuenta: {
                 required: true,
-                nombreNoRepetido: {nombreNoRpetido: true}
+                nombreNoRepetido: {nombreNoRepetido: true}
             },
             usmailCrearCuenta: {
                 required: true,
                 mailValido: {mailValido: true}
             },
             captchaCrearCuenta: {
+                captchaCrearCuentaSinExpirar: {captchaCrearCuentaSinExpirar: true},
                 required: true,
-                captchaCrearCuentaValido: {captchaCrearCuentaValido: true}
+                captchaCrearCuentaCorrecto: {captchaCrearCuentaCorrecto: true}
             }
         },
         messages: {
@@ -42,7 +43,7 @@ $(document).ready(function () {
 
     /*Función que valida si los datos son correctos, en caso de serlo
     se creara una cuenta de usuario sin rol que deberá asignar un admin */
-    $("#formCrearCuenta").submit(function(event) {
+    /*$("#formCrearCuenta").submit(function(event) {
 
         //event.preventDefault();
 
@@ -67,102 +68,135 @@ $(document).ready(function () {
             }
           }
         });
-    });
+    });*/
 
     $("#actualizarCaptchaCrearCuenta").on("click", function() {
         $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
     });
 });
 
-jQuery.validator.addMethod("captchaCrearCuentaValido", function (value, element) {
-    return this.optional(element) || validarCaptchaCrearCuenta(value, element);
-}, "Captcha incorrecto");
-
 jQuery.validator.addMethod("nombreNoRepetido", function (value, element) {
-    return this.optional(element) || validarNombre(value, element);
+    return this.optional(element) || nombreNoRepetido(value);
 }, "Nombre de usuario en uso");
 
 jQuery.validator.addMethod("mailValido", function (value, element) {
     return this.optional(element) || (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value));
 }, "Mail ingresado no válido");
 
-function validarCaptchaCrearCuenta(value, element){
+jQuery.validator.addMethod("captchaCrearCuentaSinExpirar", function (value, element) {
+    return this.optional(element) || captchaCrearCuentaSinExpirar(value);
+}, "El captcha ha expirado, por favor actualícelo");
 
-    var formData = {'captchaCrearCuenta': value};
-    var ruta = "../../Control/Ajax/ajaxCaptchaCrearCuenta.php";
+jQuery.validator.addMethod("captchaCrearCuentaCorrecto", function (value, element) {
+    return this.optional(element) || captchaCrearCuentaCorrecto(value);
+}, "El captcha ingresado es incorrecto");
+
+
+function nombreNoRepetido(value){
+
+    var formData = {'usnombreCrearCuenta': value};
+    var ruta = "../../Control/Ajax/nombreNoRepetido.php";
+    var resultado = false;
 
     $.ajax({
-      url: ruta,
-      type: "POST",
-      data: formData,
-      dataType: "json",
 
-      success: function(respuesta) {
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        async: false,
 
-        if (respuesta.validacion == "exito"){
+        success: function(respuesta) {
 
-            var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
-            elementosRepetidos.forEach(function(elemento) {
-                elemento.remove();
-            });
-
-            var contenedorMensaje = document.createElement("span");
-            mensaje = "Captcha ingresado correctamente";
-            contenedorMensaje.textContent = mensaje;
-            $(contenedorMensaje).addClass("valid-feedback");
-            $(contenedorMensaje).addClass("captcha-correcto");
-            $(element).removeClass("is-invalid").addClass("is-valid");
-            element.closest(".contenedor-dato").append(contenedorMensaje);
-
-        } else {
-
-            var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
-            elementosRepetidos.forEach(function(elemento) {
-                elemento.remove();
-            });
-
+            if (respuesta.validacion == "exito"){
+                resultado = true;
+            }
         }
-      }
+
+    });
+
+    return resultado;
+}
+
+/**
+ * GUARDAR ESTA FUNCIÓN, DEVUELVE LOS ERRORES
+ */
+function nombreNoRepetido2(value) {
+
+    var formData = {'usnombreCrearCuenta': value};
+    var ruta = "../../Control/Ajax/nombreNoRepetido.php";
+
+    console.log("Previo al Ajax");
+
+    return $.ajax({
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json"
+    }).then(function(respuesta) {
+        console.log("Hubo éxito en la consulta Ajax");
+        console.log(respuesta.validacion);
+        return respuesta.validacion === "exito";
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
+        return false;
     });
 }
 
-function validarNombre(value, element){
+// Ejemplo de uso
+nombreNoRepetido("nombreUsuario").then(function(resultado) {
+    console.log(resultado);
+});
 
-    var formData = {'usnombre': value};
-    var ruta = "../../Control/Ajax/ajaxValidarNombre.php";
+function captchaCrearCuentaSinExpirar(value){
 
+    var formData = {'captchaCrearCuenta': value};
+    var ruta = "../../Control/Ajax/captchaCrearCuentaSinExpirar.php";
+    var resultado = false;
+        
     $.ajax({
-      url: ruta,
-      type: "POST",
-      data: formData,
-      dataType: "json",
 
-      success: function(respuesta) {
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        async: false,
 
-        if (respuesta.validacion == "exito"){
+        success: function(respuesta) {
 
-            var elementosRepetidos = document.querySelectorAll(".nombre-disponible");
-            elementosRepetidos.forEach(function(elemento) {
-                elemento.remove();
-            });
-
-            var contenedorMensaje = document.createElement("span");
-            mensaje = "Nombre de usuario disponible";
-            contenedorMensaje.textContent = mensaje;
-            $(contenedorMensaje).addClass("valid-feedback");
-            $(contenedorMensaje).addClass("nombre-disponible");
-            $(element).removeClass("is-invalid").addClass("is-valid");
-            element.closest(".contenedor-dato").append(contenedorMensaje);
-
-        } else {
-
-            var elementosRepetidos = document.querySelectorAll(".nombre-disponible");
-            elementosRepetidos.forEach(function(elemento) {
-                elemento.remove();
-            });
-
+            if (respuesta.validacion == "exito"){
+                resultado = true;
+            }
         }
-      }
+
     });
+
+    return resultado;
+}
+
+function captchaCrearCuentaCorrecto(value){
+
+    var formData = {'captchaCrearCuenta': value};
+    var ruta = "../../Control/Ajax/captchaCrearCuentaCorrecto.php";
+    var resultado = false;
+        
+    $.ajax({
+
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        async: false,
+
+        success: function(respuesta) {
+
+            if (respuesta.validacion == "exito"){
+                resultado = true;
+            }
+        }
+
+    });
+
+    return resultado;
 }
 

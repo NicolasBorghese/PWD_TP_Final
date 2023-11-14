@@ -9,8 +9,9 @@ $(document).ready(function () {
                 required: true
             },
             captchaLogin: {
+                captchaLoginSinExpirar: {captchaLoginSinExpirar: true},
                 required: true,
-                captchaLoginValido: {captchaLoginValido: true}
+                captchaLoginCorrecto: {captchaLoginCorrecto: true}
             }
         },
         messages: {
@@ -27,6 +28,12 @@ $(document).ready(function () {
         errorElement: "span",
 
         errorPlacement: function (error, element) {
+
+            var elementosRepetidos2 = document.querySelectorAll(".captcha-incorrecto");
+            elementosRepetidos2.forEach(function(elemento2) {
+                elemento2.remove();
+            });
+
             error.addClass("invalid-feedback");
             element.closest(".contenedor-dato").append(error);
         },
@@ -34,7 +41,7 @@ $(document).ready(function () {
             $(element).addClass("is-invalid").removeClass("is-valid");
         },
         unhighlight: function (element) {
-            $(element).removeClass("is-invalid")/*.addClass("is-valid")*/;
+            $(element).removeClass("is-invalid").addClass("is-valid");
         }
     });
 
@@ -72,47 +79,63 @@ $(document).ready(function () {
     });
 });
 
-jQuery.validator.addMethod("captchaLoginValido", function (value, element) {
-    return this.optional(element) || validarCaptchaLogin(value, element);
-}, "Captcha incorrecto");
+jQuery.validator.addMethod("captchaLoginSinExpirar", function (value, element) {
+    return this.optional(element) || captchaLoginSinExpirar(value);
+}, "El captcha ha expirado, por favor actualícelo");
 
-function validarCaptchaLogin(value, element){
+jQuery.validator.addMethod("captchaLoginCorrecto", function (value, element) {
+    return this.optional(element) || captchaLoginCorrecto(value);
+}, "El captcha ingresado es incorrecto");
+
+function captchaLoginSinExpirar(value){
 
     var formData = {'captchaLogin': value};
-    var ruta = "../../Control/Ajax/ajaxCaptchaLogin.php";
-    
-    $.ajax({
-      url: ruta,
-      type: "POST",
-      data: formData,
-      dataType: "json",
-
-      success: function(respuesta) {
+    var ruta = "../../Control/Ajax/captchaLoginSinExpirar.php";
+    var resultado = false;
         
-        if (respuesta.validacion == "exito"){
+        $.ajax({
 
-            var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
-            elementosRepetidos.forEach(function(elemento) {
-                elemento.remove();
-            });
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        async: false,
 
-            var contenedorMensaje = document.createElement("span");
-            mensaje = "Captcha ingresado correctamente";
-            contenedorMensaje.textContent = mensaje;
-            $(contenedorMensaje).addClass("valid-feedback");
-            $(contenedorMensaje).addClass("captcha-correcto");
-            $(element).removeClass("is-invalid").addClass("is-valid");
-            element.closest(".contenedor-dato").append(contenedorMensaje);
+        success: function(respuesta) {
 
-        } else {
-            
-            var elementosRepetidos = document.querySelectorAll(".captcha-correcto");
-            elementosRepetidos.forEach(function(elemento) {
-                elemento.remove();
-            });
-
+            if (respuesta.validacion == "exito"){
+                resultado = true;
+            }
         }
-      }
-    });
+
+        });
+
+    return resultado;
+}
+
+function captchaLoginCorrecto(value){
+
+    var formData = {'captchaLogin': value};
+    var ruta = "../../Control/Ajax/captchaLoginCorrecto.php";
+    var resultado = false;
+        
+        $.ajax({
+
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        async: false,
+
+        success: function(respuesta) {
+
+            if (respuesta.validacion == "exito"){
+                resultado = true;
+            }
+        }
+
+        });
+
+    return resultado;
 }
 

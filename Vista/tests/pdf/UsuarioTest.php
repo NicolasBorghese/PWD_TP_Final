@@ -1,6 +1,6 @@
 <?php
-
-class Usuario extends BaseDatos{
+include_once '../../../Modelo/Conector/BaseDatos.php';
+class UsuarioTest extends BaseDatos{
     private $idusuario;
     private $usnombre;
     private $uspass;
@@ -196,13 +196,13 @@ class Usuario extends BaseDatos{
         if ($parametro!="") {
             $sql.='WHERE '.$parametro;
         }
-        
+        // echo $sql;
         $res = $base->Ejecutar($sql);
         if($res>-1){
             if($res>0){
                 
                 while ($row = $base->Registro()){
-                    $obj= new Usuario();
+                    $obj= new UsuarioTest();
                     $obj->setear($row['idusuario'],$row['usnombre'],$row['uspass'],$row['usmail'],$row['usdeshabilitado']);
                     array_push($arreglo, $obj);
                 }               
@@ -228,7 +228,7 @@ class Usuario extends BaseDatos{
     
         // Actualiza el valor de usdeshabilitado
         $sql = "UPDATE usuario SET usdeshabilitado = '".$fechaBaja."' WHERE idusuario = '" . $this->getIdUsuario(). "'";
-        echo $sql;
+        // echo $sql;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
@@ -253,24 +253,6 @@ class Usuario extends BaseDatos{
         "\nMail: ".$this->getUsMail()."\nDeshabilitado: ".$this->getUsDeshabilitado()."\n\n";
 			
 	}
-
-    /**
-     * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
-     * en un arreglo asociativo
-     * 
-     * @return array
-     */
-    public function obtenerInfo(){
-
-        $info = [];
-        $info['idusuario'] = $this->getIdUsuario();
-        $info['usnombre'] = $this->getUsNombre();
-        $info['modelo'] = $this->getUsPass();
-        $info['usmail'] = $this->getUsMail();
-
-        return $info;
-    }
-
 }
 
 ?>

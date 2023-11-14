@@ -1,4 +1,5 @@
 <?php
+
 class BaseDatos extends PDO {
 
     //ATRIBUTOS
@@ -274,4 +275,6 @@ class BaseDatos extends PDO {
         return $resultado;
     }
    
-} 
+}
+
+?>

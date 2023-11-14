@@ -12,6 +12,10 @@
     text-decoration: none;
 }
 
+body {
+    color: var(--fuentes);
+}
+
 /* -------------------- DEFINICIÓN DE VARIABLES -------------------- */
 :root {
     --estructura: #0C0C0D;
@@ -46,6 +50,7 @@
     font-size: 35px;
 }
 
+
 /* -------------------- ESTILOS FOOTER -------------------- */
 .footer {
     padding: 70px;
@@ -73,7 +78,7 @@
     font-size: 20px;
     background-color: var(--estructura);
     color: var(--fuentes);
-  
+
 }
 
 /* -------------------- DECORACIONES/DETALLES -------------------- */
@@ -95,7 +100,7 @@ a:hover {
     cursor: pointer;
 }
 
-/* -------------------- CONTENIDO DE LA PÁGINA -------------------- */
+/* -------------------- CONTENIDO DE LA PÁGINA INICIO -------------------- */
 
 .contenido-pagina {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7),
@@ -112,13 +117,78 @@ a:hover {
 .carousel-inner {
     padding: 50px;
 }
+
 /* -------------------- Modal crear cuenta e iniciar sesion-------------------- */
 .modal-title {
     text-align: center;
-  }
+}
 
 /********************************* efecto de la card *****************/
 
 .sombraCarta:hover {
     box-shadow: 0px 0px 20px rgba(156, 154, 154, 0.918);
+}
+
+/* -------------------- CONTENIDO DE LA VISTA ADMINISTRADOR -------------------- */
+
+/* -------------------- ICONOS DE ACCIONES -------------------- */
+.imagen-accion {
+    width: 320px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+    background-color: white;
+    background: linear-gradient(180deg, white, rgb(102, 102, 102));
+}
+
+/* -------------------- CARDS DE OPCIONES -------------------- */
+.contenedor-acciones {
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.contenedor-acciones>div {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    background-color: rgb(32, 32, 32);
+    border-radius: 20px;
+}
+
+.contenedor-acciones>div:hover {
+    background-color: rgb(37, 37, 37);
+}
+
+/* -------------------- TEXTO DE LA ACCIÓN -------------------- */
+.informacion-accion {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.informacion-accion>p:first-child {
+    font-weight: 30px;
+    color: var(--fuentes);
+}
+
+/* -------------------- BOTÓN DE LA CARD -------------------- */
+
+.informacion-accion button {
+    background-color: white;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    color: var(--estructura);
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    font-weight: 300px;
+    cursor: pointer;
+}
+
+.informacion-accion button:hover {
+    background-color: lightgrey;
 }

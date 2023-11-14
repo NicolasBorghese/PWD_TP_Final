@@ -1,6 +1,6 @@
 <?php
 
-class AbmUsuario{
+class AbmUsuarioTest{
 
      /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
@@ -11,7 +11,7 @@ class AbmUsuario{
         $obj = null;
         if( array_key_exists('idusuario',$param) and array_key_exists('usnombre',$param) and array_key_exists('uspass',$param)
         and array_key_exists('usmail',$param) and array_key_exists('usdeshabilitado',$param)){
-            $obj = new Usuario();
+            $obj = new UsuarioTest();
             $obj->setear($param['idusuario'], $param['usnombre'], $param['uspass'], $param['usmail'], $param['usdeshabilitado']);
         }
         return $obj;
@@ -26,7 +26,7 @@ class AbmUsuario{
     private function cargarObjetoConClave($param){
         $obj = null;
         if(isset($param['idusuario']) ){
-            $obj = new Usuario();
+            $obj = new UsuarioTest();
             $obj->setear($param['idusuario'],null,null,null,null);
         }
         return $obj;
@@ -132,10 +132,9 @@ class AbmUsuario{
         return $resp;
     }
     
+    
     /**
-     * Permite buscar un objeto según distintos criterios.
-     * Recibe un arreglo indexado que contiene los criterios de busqueda.
-     * Retorna un arreglo compuesto por los objetos que cumplen el criterio indicado.
+     * permite buscar un objeto
      * @param array $param
      * @return array
      */
@@ -153,43 +152,14 @@ class AbmUsuario{
             if  (isset($param['usdeshabilitado']))
                 $where.=" and usdeshabilitado = ".$param['usdeshabilitado'];
         }
-
-        $obj = new Usuario();
+        // echo $where;
+        $obj = new UsuarioTest();
         $arreglo = $obj->listar($where);
-        
+        // print_r($arreglo);
         return $arreglo;
     }
-    
-    /**
-     * Recibe un arreglo indexado que contiene los criterios de busqueda
-     * Devuelve un arreglo con la información de todos los objetos que cumplan la condición
-     * recibida por parámetro
-     * 
-     * @param array $param
-     * @return array
-     */
-    public function buscarColInfo($param){
+} 
 
-        $colInfo = array();
-        $arregloObj = $this->buscar($param);
 
-        if (count($arregloObj) > 0){
-
-            for ($i = 0; $i < count($arregloObj); $i++){
-                $colInfo[$i] = $arregloObj[$i]->obtenerInfo();
-            }
-        }
-
-        return $colInfo;
-    }
-
-    /**
-     * Función de prueba
-     */
-    public function darValor(){
-
-        return ["Sultano"];
-    }
-}
 
 ?>
