@@ -12,6 +12,7 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+DROP DATABASE bdcarritocompras;
 CREATE DATABASE bdcarritocompras;
 USE bdcarritocompras;
 
@@ -152,7 +153,7 @@ INSERT INTO `menu` (`idmenu`, `menombre`, `medescripcion`, `idpadre`, `medeshabi
 (18, 'Asignar Roles', '../administrador/asignarRoles.php', 4, NULL),
 (19, 'Actualizar Informacion', '../administrador/actualizarInf.php', 4, NULL),
 (20, 'Gestionar menu', '../administrador/gestionMenu.php', 4, NULL),
-(21, 'Mi cuenta', '../cliente/miCuenta.php', 4, NULL),
+(21, 'Mi cuenta', '../cliente/miCuenta.php', 4, NULL)
 ;
 
 -- --------------------------------------------------------

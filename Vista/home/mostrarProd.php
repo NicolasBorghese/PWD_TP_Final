@@ -1,6 +1,6 @@
 
 <?php
- $texto = $_GET["nombre"];
+$texto = $_GET["nombre"];
 $tituloPagina = "TechnoMate | ". $texto;
 include_once '../estructura/secciones/head.php';
 include("../estructura/secciones/nav-bar-1.php");

@@ -134,12 +134,14 @@ class AbmUsuario{
     
     
     /**
-     * permite buscar un objeto
+     * Permite buscar un objeto según distintos criterios.
+     * Recibe un arreglo indexado que contiene los criterios de busqueda.
+     * Retorna un arreglo compuesto por los objetos que cumplen el criterio indicado.
      * @param array $param
      * @return array
      */
     public function buscar($param){
-        $where = " true ";
+        $where = " true";
         if ($param<>null){
             if  (isset($param['idusuario']))
                 $where.=" and idusuario = ".$param['idusuario'];
@@ -152,10 +154,10 @@ class AbmUsuario{
             if  (isset($param['usdeshabilitado']))
                 $where.=" and usdeshabilitado = ".$param['usdeshabilitado'];
         }
-        echo $where;
+
         $obj = new Usuario();
         $arreglo = $obj->listar($where);
-        print_r($arreglo);
+        
         return $arreglo;
     }
 } 

@@ -1,6 +1,6 @@
 <?php
 
-class Usuario extends BaseDatos{
+class Usuario {
     private $idusuario;
     private $usnombre;
     private $uspass;
@@ -75,7 +75,7 @@ class Usuario extends BaseDatos{
     }
 
 
-   /**
+    /**
 	 * Recupera los datos del usuario por idusuario
 	 * @param int $idusuario
 	 * @return true en caso de encontrar los datos, false en caso contrario 
@@ -100,7 +100,7 @@ class Usuario extends BaseDatos{
       
     }
 
- /**
+    /**
      * Esta función lee los valores actuales de los atributos del objeto e inserta un nuevo
      * registro en la base de datos a partir de ellos.
      * Retorna un booleano que indica si le operación tuvo éxito
@@ -128,7 +128,7 @@ class Usuario extends BaseDatos{
         return $resp;
     }
 
- /**
+    /**
      * Esta función lee los valores actuales de los atributos del objeto y los actualiza en la
      * base de datos.
      * Retorna un booleano que indica si le operación tuvo éxito
@@ -154,7 +154,7 @@ class Usuario extends BaseDatos{
         return $resp;
     }
 
-  /**
+    /**
      * Esta función lee el id actual del objeto y si puede lo borra de la base de datos
      * Retorna un booleano que indica si le operación tuvo éxito
      * 
@@ -177,7 +177,7 @@ class Usuario extends BaseDatos{
     }
    
 
-  /**
+    /**
      * Esta función recibe condiciones de busqueda en forma de consulta sql para obtener
      * los registros requeridos.
      * Si por parámetro se envía el valor "" se devolveran todos los registros de la tabla
@@ -187,7 +187,7 @@ class Usuario extends BaseDatos{
      * 
      * @return array
      */
-    public function listar($parametro ){
+    public function listar($parametro){
         $arreglo = array();
         $base=new BaseDatos();
 
@@ -215,11 +215,11 @@ class Usuario extends BaseDatos{
         return $arreglo;
     }
  
-     /**
-      * Funcion desabilitar
-      * Esta función Actualiza el valor de usdeshabilitado por un string fecha actual
-      *
-     **/
+    /**
+     * Funcion desabilitar
+     * Esta función Actualiza el valor de usdeshabilitado por un string fecha actual
+     *
+     */
      public function desabilitar(){
         $resp = false;
         $base = new BaseDatos();
