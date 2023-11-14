@@ -1,21 +1,39 @@
 
 <!-- ____________________________________ NAV BAR 1 ________________________________ -->
-<header class="header">
-    <div class="menu-opciones">
-        <div class="logo-nav">
-            <img src="../../Archivos/Imagenes/logoBlanco.png">
-        </div>
-        <div class="navbar">
-            <a class="nav-link active" aria-current="page" href="../home">Inicio</a>
-        </div>
-        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Mates">Mates</a></div>
-        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Yerbas">Yerbas</a></div>
-        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Bombillas">Bombillas</a></div>
-        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=Termos">Termos</a></div>
-        <div class="navbar"><a class="nav-link" href="mostrarProd.php?nombre=SETS">SETS</a></div>
-        
+<nav class="navbar navbar-expand-md navbar-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-Toggler" aria-controls="navbar-Toggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-Toggler">
+      <div class="navbar-brand">
+        <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110">
+</div>
+      <ul class="navbar-nav d-flex justify-content-center align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="../home">Inicio</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="mostrarProd.php?nombre=Mates">Mates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mostrarProd.php?nombre=Yerbas">Yerbas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mostrarProd.php?nombre=Bombillas">Bombillas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mostrarProd.php?nombre=Termos">Termos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mostrarProd.php?nombre=SETS">Sets</a>
+        </li>
+        <li class="login logo">
+           <i class="bi bi-person-fill fa-3x zoom-icon" data-bs-toggle="modal" data-bs-target="#modalLogin" tabindex="-1"></i>
+        </li>
+
+      </ul>
+     
     </div>
-    <div class="login logo">
-        <i class="bi bi-person-fill fa-user" data-bs-toggle="modal" data-bs-target="#modalLogin" tabindex="-1"></i>
-    </div>
-</header>
+  </div>
+</nav>
