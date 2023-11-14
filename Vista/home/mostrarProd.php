@@ -1,6 +1,5 @@
-
 <?php
- $texto = $_GET["nombre"];
+$texto = $_GET["nombre"];
 $tituloPagina = "TechnoMate | ". $texto;
 include_once '../estructura/secciones/head.php';
 include("../estructura/secciones/nav-bar-1.php");
@@ -44,5 +43,5 @@ $objProduc = new AbmProducto();
     
  include_once '../estructura/secciones/footer.php';
  require_once("../login/login.php");
- require_once("../crearCuenta/formCrearCuent.php"); 
+ require_once("../crearCuenta/formCrearCuenta.php"); 
 ?>
