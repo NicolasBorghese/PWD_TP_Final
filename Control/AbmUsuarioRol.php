@@ -47,7 +47,6 @@ class AbmUsuarioRol{
          return $objUsuarioRol;
      }
 
-
      /**
      * Corrobora que dentro del arreglo asociativo estan seteados los campos claves
      * @param array $param
@@ -62,7 +61,6 @@ class AbmUsuarioRol{
         $resp = true;
         return $resp;
      }
-
 
     /**
      * 

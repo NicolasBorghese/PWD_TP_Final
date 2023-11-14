@@ -1,4 +1,3 @@
-
 <?php
 $texto = $_GET["nombre"];
 $tituloPagina = "TechnoMate | ". $texto;

@@ -36,20 +36,61 @@ body {
     justify-content: flex-start;
 }
 
-.menu-opciones a {
+/* .menu-opciones a {
     margin: 50px;
     font-family: 'Titillium_Web', sans-serif;
     font-size: 18px;
-}
+} */
 
-.login {
+/* .login {
     margin-top: auto;
-}
+} */
 
 .login i {
     font-size: 35px;
 }
+.navbar-collapse{
+ 
+  align-items:center;
+  justify-content: flex-start;
 
+}
+@media screen and (max-width:767px){
+  .navbar-brand{
+    display: none;
+  }
+}
+.navbar {
+  background-color: var(--estructura);
+  color: var(--fuentes);
+}
+
+.navbar-collapse a{
+    padding: 5px;
+    font-family: 'Titillium_Web', sans-serif;
+    font-size: 25px;
+}
+.logo:hover {
+  transform: scale(1.5);
+  transition: transform 0.3s ease;
+  
+}
+.navbar-brand{
+    margin-left: 20px;
+}
+.navbar-brand:hover{
+  box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7);
+  border-radius: 85px;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 75px;
+    /* padding: 30px 0; */
+    float: left;
+    position: relative;
+}
+ 
 
 /* -------------------- ESTILOS FOOTER -------------------- */
 .footer {
@@ -92,7 +133,7 @@ a:hover {
     bottom: 20px;
 }
 
-.navbar:hover {
+.navbar a:hover {
     background-color: rgb(36, 36, 36);
 }
 
