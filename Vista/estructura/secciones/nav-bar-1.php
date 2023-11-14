@@ -7,8 +7,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbar-Toggler">
       <div class="navbar-brand">
-        <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="120">
-      </div>
+        <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110">
+</div>
       <ul class="navbar-nav d-flex justify-content-center align-items-center">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="../home">Inicio</a>
