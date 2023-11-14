@@ -36,11 +36,11 @@ body {
     justify-content: flex-start;
 }
 
-.menu-opciones a {
+/* .menu-opciones a {
     margin: 50px;
     font-family: 'Titillium_Web', sans-serif;
     font-size: 18px;
-}
+} */
 
 .login {
     margin-top: auto;
@@ -49,7 +49,37 @@ body {
 .login i {
     font-size: 35px;
 }
+.navbar-collapse{
+ 
+  align-items:center;
+  justify-content: flex-start;
+  /* display: flex; */
+}
+@media screen and (max-width:767px){
+  .navbar-brand{
+    display: none;
+  }
+}
+.navbar {
+  font-size: 20px;
+  background-color: var(--estructura);
+  color: var(--fuentes);
+}
 
+.navbar-collapse a{
+    padding: 5px;
+    font-family: 'Titillium_Web', sans-serif;
+    font-size: 18px;
+}
+.logo:hover {
+  transform: scale(1.5);
+      transition: transform 0.3s ease;
+  
+}
+.navbar-brand:hover{
+  box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7);
+  border-radius: 85px;
+}
 
 /* -------------------- ESTILOS FOOTER -------------------- */
 .footer {
@@ -92,7 +122,7 @@ a:hover {
     bottom: 20px;
 }
 
-.navbar:hover {
+.navbar a:hover {
     background-color: rgb(36, 36, 36);
 }
 
