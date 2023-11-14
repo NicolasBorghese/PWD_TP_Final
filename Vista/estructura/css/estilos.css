@@ -12,6 +12,10 @@
     text-decoration: none;
 }
 
+body {
+    color: var(--fuentes);
+}
+
 /* -------------------- DEFINICIÓN DE VARIABLES -------------------- */
 :root {
     --estructura: #0C0C0D;
