@@ -13,32 +13,28 @@ include_once("../../configuracion.php");
         <a data-bs-target="#modalNuevoUsuario" tabindex="-1" data-bs-toggle="modal">
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionAdmin1.png" alt="Crear nuevo usuario">
             <div class="informacion-accion">
-                <p>NUEVOS USUARIOS</p>
-                <button>Crear</button>
+                <p>CREAR NUEVOS USUARIOS</p>
             </div>
             </a>
         </div>
         <div class="accion-admin">
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionAdmin2.png" alt="Actualizar información de usuario">
             <div class="informacion-accion">
-                <p>INFORMACIÓN DE USUARIOS</p>
-                <button>Actualizar</button>
+                <p>ACTUALIZAR INFORMACIÓN DE USUARIOS</p>
             </div>
         </div>
 
         <div class="accion-admin">
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionAdmin3.png" alt="Administrar roles">
             <div class="informacion-accion">
-                <p>ROLES DE USUARIOS</p>
-                <button>Administrar</button>
+                <p>ADMINISTRAR ROLES DE USUARIOS</p>
             </div>
         </div>
 
         <div class="accion-admin">
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionAdmin4.png" alt="Crear nuevo rol">
             <div class="informacion-accion">
-                <p>NUEVOS ROLES E ÍTEMS DE MENÚ</p>
-                <button>Crear</button>
+                <p>CREAR NUEVOS ROLES E ÍTEMS DE MENÚ</p>
             </div>
         </div>
     </div>
