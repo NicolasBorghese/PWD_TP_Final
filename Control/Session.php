@@ -4,9 +4,7 @@ class Session{
     /*_ _construct(). Constructor que. Inicia la sesión.*/
     public function __construct()
     {
-        if (!session_start()){
-
-        }
+        session_start();
     }
 
     /* iniciar($nombreUsuario,$psw). Actualiza las variables de sesión con los valores ingresados.
@@ -21,8 +19,6 @@ class Session{
         $param['usnombre'] = $nombreUsuario;
         $param['uspass'] = $psw;
         //$param['usdeshabilitado'] = 'null'; //volver a abilitar
-
-    
 
         $resultado = $obj->buscar($param);
         

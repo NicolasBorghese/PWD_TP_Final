@@ -18,6 +18,11 @@ if (count($colUsuarios) == 1){
 
     if (count($colUsuarios) == 1){
         $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso");
+
+        $objSesion = new Session();
+        $objSesion->iniciar();
+
+
     } else {
         $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario y contraseña no coinciden");
     }

@@ -1,8 +1,4 @@
 -- BD RÁPIDA
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
 
 DROP DATABASE bdcarritocompras;
 
@@ -393,12 +389,10 @@ ALTER TABLE `usuariorol`
   ADD CONSTRAINT `fkmovimiento_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON UPDATE CASCADE,
   ADD CONSTRAINT `usuariorol_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON UPDATE CASCADE;
 
-
 -- Índices para tablas volcadas
 INSERT INTO usuariorol (idusuario, idrol) VALUES
 (1,1), -- Admin
 (2,2), -- Deposito
 (3,3), -- Cliente
-(4,3); -- Cliente
-
+(4,3) -- Cliente;
 -- ----------------------------------------------------------------------------------
