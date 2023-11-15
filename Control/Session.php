@@ -4,7 +4,9 @@ class Session{
     /*_ _construct(). Constructor que. Inicia la sesión.*/
     public function __construct()
     {
-        session_start();
+        if(!session_start()){
+            session_start();
+        }
     }
 
     /* iniciar($nombreUsuario,$psw). Actualiza las variables de sesión con los valores ingresados.

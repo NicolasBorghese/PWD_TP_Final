@@ -32,7 +32,7 @@
                 <li><a class="text-black text-decoration-none " data-bs-toggle="modal" data-bs-target="#modalCambiarUsuario" tabindex="-1">Cambiar Usuario</a></li>
                 <li><a class="text-black text-decoration-none " data-bs-toggle="modal" data-bs-target="#modalCambiarContra" tabindex="-1">Cambiar Contraseña</a></li>
                 <hr class="dropdown-divider">
-                 <li><a  class="text-black text-decoration-none " href="../../accionesDeCuenta/cerrarSession.php">Cerrar Sesion</a></li>
+                <li><a  class="text-black text-decoration-none " href="home.php" >Cerrar Sesion</a></li>
               </ul>
            </li>
         </ul> 
