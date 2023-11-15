@@ -5,7 +5,7 @@ class Producto extends BaseDatos{
     private $prodetalle; // aca iria el precio
     private $procantstock;
     private $tipo;// si es yerba, mate o bobilla
-    private $imagenProducto; //url de imagen
+    private $imagenproducto; //url de imagen
     private $mensajeoperacion;
 
     public function __contruct(){
@@ -116,7 +116,7 @@ public function setImagenProducto($valor){
         $resp = false;
         $base=new BaseDatos();
         $sql="INSERT INTO producto (pronombre, prodetalle, procantstock, tipo, imagenproducto)
-        VALUES ('".$this->getProNombre()."','".$this->getProDetalle()."','".$this->getProCantstock()."','".$this->getTipo()."','".$this->getImagenProduco()."')";
+        VALUES ('".$this->getProNombre()."','".$this->getProDetalle()."','".$this->getProCantstock()."','".$this->getTipo()."','".$this->getImagenProducto()."')";
       if ($base->Iniciar()) {
         if ($elid = $base->Ejecutar($sql)){
             $this->setIdProducto($elid);
@@ -142,7 +142,7 @@ public function setImagenProducto($valor){
         $resp = false;
         $base = new BaseDatos();
         $sql = "UPDATE producto SET pronombre = '".$this->getProNombre()."',prodetalle = '".$this->getProDetalle()."',procantstock = '".$this->getProCantStock().
-        "',tipo= '".$this->getTipo()."', imagenproducto='".$this->getImagenProduco()."' WHERE idproducto = '". $this->getIdProducto()."' ";
+        "',tipo= '".$this->getTipo()."', imagenproducto='".$this->getImagenProducto()."' WHERE idproducto = '". $this->getIdProducto()."' ";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

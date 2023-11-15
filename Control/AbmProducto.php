@@ -13,7 +13,7 @@ class AbmProducto
         if (array_key_exists('idproducto', $param)) {
 
             $obj = new Producto();
-            $obj->setear( $param['idproducto'],$param['proNombre'],$param['prodetalle'],$param['procantstock'],$param['tipo'],$param['imagenproducto']);
+            $obj->setear( $param['idproducto'],$param['pronombre'],$param['prodetalle'],$param['procantstock'],$param['tipo'],$param['imagenproducto']);
         }
         return $obj;
     }
