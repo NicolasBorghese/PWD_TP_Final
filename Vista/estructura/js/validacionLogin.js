@@ -42,37 +42,61 @@ $(document).ready(function () {
         },
         unhighlight: function (element) {
             $(element).removeClass("is-invalid").addClass("is-valid");
+        },
+
+        submitHandler: function(form){
+
+            // Obtiene el valor de uspassLogin del formulario
+            var uspassLoginValue = $("#uspassLogin").val();
+            // Aplica la función MD5 a la cadena
+            var uspass = CryptoJS.MD5(uspassLoginValue).toString();
+            var usnombre = $("#usnombreLogin").val();
+
+            var formData = {
+                'usnombreLogin': usnombre,
+                'uspassLogin': uspass
+            };
+            
+            $.ajax({ 
+                url: "../../Control/Ajax/login.php",
+                type: "POST",
+                dataType: "json",
+                data: formData,
+                async: false,
+
+                complete: function(xhr, textStatus) {
+                    //se llama cuando se recibe la respuesta (no importa si es error o éxito)
+                    console.log("La respuesta regreso");
+                },
+                success: function(respuesta, textStatus, xhr) {
+                    //se llama cuando tiene éxito la respuesta
+                    if (respuesta.resultado == "exito"){
+
+                        console.log(respuesta.resultado);
+                        $(form).find('.is-valid').removeClass('is-valid');
+                        $("#formLogin")[0].reset();
+                        $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
+                        alert(respuesta.mensaje);
+                        $("#modalLogin").modal("hide");
+
+                    } else {
+                        console.log(respuesta.resultado);
+                        $(form).find('.is-valid').removeClass('is-valid');
+                        $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
+                        alert(respuesta.mensaje);
+                        
+                    }
+
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    //called when there is an error
+                    console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown)
+                }
+            });
         }
     });
 
-    /*Función que valida si los datos son correctos, en caso de serlo
-    el usuario ingresará a su cuenta */
-    $("#formLogin").submit(function(event) {
 
-        //event.preventDefault();
-
-        var formData = $("#formLogin").serialize();
-        var ruta = "../../Control/Ajax/ajaxLogin.php";
-
-        $.ajax({
-          url: ruta,
-          type: "POST",
-          data: formData,
-          dataType: "json",
-  
-          success: function(respuesta) {
-
-            if (respuesta.validacion == "exito"){
-
-                //Resultado de loguearse correctamente
-                window.location.href = "../home/home.php";
-
-            } else if (respuesta.validacion == "captcha") {
-
-            }
-          }
-        });
-    });
 
     $("#actualizarCaptchaLogin").on("click", function() {
         $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());

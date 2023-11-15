@@ -19,6 +19,9 @@
     <script src="../../Utiles/librerias/jquery/jquery.validate.min.js"></script>
     <script src="../../Utiles/librerias/jquery/messages_es_PE.js"></script>
 
+    <!-- link a librería JS para encriptar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+
     <!-- link a css propio -->
     <link rel="stylesheet" href="../estructura/css/estilos.css">
     <!-- link a js propio -->
