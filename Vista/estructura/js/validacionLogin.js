@@ -78,6 +78,7 @@ $(document).ready(function () {
                         $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
                         alert(respuesta.mensaje);
                         $("#modalLogin").modal("hide");
+                        window.location.href = "home.php";
 
                     } else {
                         console.log(respuesta.resultado);

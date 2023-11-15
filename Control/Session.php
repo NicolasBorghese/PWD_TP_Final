@@ -23,8 +23,8 @@ class Session{
         $resultado = $obj->buscar($param);
         
         if (count($resultado) > 0){
-            $usuario = $resultado [0];
-            $_SESSION['idusuario']=$usuario->getIdUsuario();
+            $usuario = $resultado[0];
+            $_SESSION['idusuario'] = $usuario->getIdUsuario();
             $resp = true;
         }else{
             $this->cerrar();
@@ -33,7 +33,6 @@ class Session{
     }
 
     /*validar(). Valida si la sesión actual tiene usuario y psw válidos. Devuelve true o false.*/
-
     public function validar()
     {
         $resp = false;

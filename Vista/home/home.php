@@ -2,10 +2,12 @@
 include_once '../../configuracion.php';
 $datos = data_submitted();
 
-if (!array_key_exists('usnombre', $datos)){
-    include_once '../estructura/secciones/nav-bar-1.php';
-} else {
+$objSesion = new Session();
+
+if ($objSesion->validar()){
     include_once '../estructura/secciones/nav-bar-2.php';
+} else {
+    include_once '../estructura/secciones/nav-bar-1.php';
 }
 
 $tituloPagina = "TechnoMate | Inicio";
@@ -45,11 +47,11 @@ include_once '../estructura/secciones/head.php';
 
 <div>
     <?php
-        if (!array_key_exists('usnombre', $datos)){
+        if ($objSesion->validar()){
+
+        } else {
             require_once("../login/login.php");
             require_once("../crearCuenta/formCrearCuenta.php"); 
-        } else {
-
         }
     ?>
 </div>
