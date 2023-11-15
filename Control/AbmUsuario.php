@@ -2,22 +2,27 @@
 
 class AbmUsuario{
 
-     /**
+    /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param array $param
      * @return Usuario
      */
     private function cargarObjeto($param){
         $obj = null;
-        if( array_key_exists('idusuario',$param) and array_key_exists('usnombre',$param) and array_key_exists('uspass',$param)
-        and array_key_exists('usmail',$param) and array_key_exists('usdeshabilitado',$param)){
+        if(
+        array_key_exists('idusuario',$param) and
+        array_key_exists('usnombre',$param) and
+        array_key_exists('uspass',$param) and
+        array_key_exists('usmail',$param) and
+        array_key_exists('usdeshabilitado',$param)
+        ){
             $obj = new Usuario();
             $obj->setear($param['idusuario'], $param['usnombre'], $param['uspass'], $param['usmail'], $param['usdeshabilitado']);
         }
         return $obj;
     }
 
-     /**
+    /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      *  que son claves
      * @param array $param
@@ -32,13 +37,11 @@ class AbmUsuario{
         return $obj;
     }
 
-
-     /**
+    /**
      * Corrobora que dentro del arreglo asociativo estan seteados los campos claves
      * @param array $param
      * @return boolean
      */
-    
     private function seteadosCamposClaves($param){
         $resp = false;
         if (isset($param['idusuario']))
@@ -46,19 +49,19 @@ class AbmUsuario{
         return $resp;
     }
 
-
     /**
+     * Esta función carga la información de un objeto a la base de datos
      * 
      * @param array $param
+     * @return boolean
      */
     public function alta($param){
         $resp = false;
-        $unObjUsuario = $this->cargarObjeto($param);
-        if ($unObjUsuario!=null && $unObjUsuario->insertar()){
+        $objUsuario = $this->cargarObjeto($param);
+        if ($objUsuario != null && $objUsuario->insertar()){
             $resp = true;
         }
         return $resp;
-        
     }
 
     /**
@@ -74,11 +77,9 @@ class AbmUsuario{
                 $resp = true;
             }
         }
-        
         return $resp;
     }
     
-
     /**
      * permite modificar un objeto
      * @param array $param
@@ -181,14 +182,6 @@ class AbmUsuario{
         }
 
         return $colInfo;
-    }
-
-    /**
-     * Función de prueba
-     */
-    public function darValor(){
-
-        return ["Sultano"];
     }
 }
 

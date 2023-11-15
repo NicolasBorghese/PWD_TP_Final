@@ -38,37 +38,46 @@ $(document).ready(function () {
         },
         unhighlight: function (element) {
             $(element).removeClass("is-invalid").addClass("is-valid");
+        },
+
+        submitHandler: function(form){
+
+            var formData = $(form).serialize()
+            
+            $.ajax({ 
+                url: "../../Control/Ajax/crearCuenta.php",
+                type: "POST",
+                dataType: "json",
+                data: formData,
+                async: false,
+
+                complete: function(xhr, textStatus) {
+                    //se llama cuando se recibe la respuesta (no importa si es error o éxito)
+                    console.log("La respuesta regreso");
+                },
+                success: function(respuesta, textStatus, xhr) {
+                    //se llama cuando tiene éxito la respuesta
+                    if (respuesta.resultado == "exito"){
+                        console.log(respuesta.resultado);
+
+                    } else {
+                        console.log(respuesta.resultado);
+                    }
+
+                    $(form).find('.is-valid').removeClass('is-valid');
+                    $("#formCrearCuenta")[0].reset();
+                    $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
+                    alert(respuesta.mensaje);
+                    //$("#modalCrearCuenta").modal("hide");
+
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    //called when there is an error
+                    console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown)
+                }
+            });
         }
     });
-
-    /*Función que valida si los datos son correctos, en caso de serlo
-    se creara una cuenta de usuario sin rol que deberá asignar un admin */
-    /*$("#formCrearCuenta").submit(function(event) {
-
-        //event.preventDefault();
-
-        var formData = $("#formCrearCuenta").serialize();
-        var ruta = "../../Control/Ajax/ajaxCrearCuenta.php";
-
-        $.ajax({
-          url: ruta,
-          type: "POST",
-          data: formData,
-          dataType: "json",
-  
-          success: function(respuesta) {
-
-            if (respuesta.validacion == "exito"){
-
-                //Resultado de crear la cuenta correctamente
-                window.location.href = "../home/home.php";
-
-            } else if (respuesta.validacion == "captcha") {
-
-            }
-          }
-        });
-    });*/
 
     $("#actualizarCaptchaCrearCuenta").on("click", function() {
         $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
@@ -117,36 +126,6 @@ function nombreNoRepetido(value){
 
     return resultado;
 }
-
-/**
- * GUARDAR ESTA FUNCIÓN, DEVUELVE LOS ERRORES
- */
-function nombreNoRepetido2(value) {
-
-    var formData = {'usnombreCrearCuenta': value};
-    var ruta = "../../Control/Ajax/nombreNoRepetido.php";
-
-    console.log("Previo al Ajax");
-
-    return $.ajax({
-        url: ruta,
-        type: "POST",
-        data: formData,
-        dataType: "json"
-    }).then(function(respuesta) {
-        console.log("Hubo éxito en la consulta Ajax");
-        console.log(respuesta.validacion);
-        return respuesta.validacion === "exito";
-    }).fail(function(jqXHR, textStatus, errorThrown) {
-        console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-        return false;
-    });
-}
-
-// Ejemplo de uso
-nombreNoRepetido("nombreUsuario").then(function(resultado) {
-    console.log(resultado);
-});
 
 function captchaCrearCuentaSinExpirar(value){
 
@@ -200,3 +179,63 @@ function captchaCrearCuentaCorrecto(value){
     return resultado;
 }
 
+/*
+console.log("Este es un mensaje de registro normal");
+Se utiliza para imprimir mensajes de registro normales. 
+Los mensajes aparecerán en la consola sin ningún resaltado especial y 
+se consideran información general o mensajes de depuración.
+
+console.error("Esto es un mensaje de error");
+Se utiliza para imprimir mensajes de error. En muchas consolas de desarrollo, 
+los mensajes de error se resaltan en rojo o de alguna manera diferente para indicar que hay un problema.
+
+console.warn("Esto es una advertencia");
+Se utiliza para imprimir advertencias. Similar a console.error, 
+pero suele tener un resaltado amarillo en algunas consolas.
+
+console.info("Esto es un mensaje informativo");
+Se utiliza para imprimir mensajes informativos. Similar a console.log, 
+pero puede tener un formato o resaltado específico en algunas consolas.
+
+console.debug("Esto es un mensaje de depuración");
+Se utiliza para imprimir mensajes de depuración. No todos los navegadores lo admiten, 
+y su comportamiento puede variar.
+*/
+
+/**
+ * GUARDAR ESTA FUNCIÓN, DEVUELVE LOS ERRORES
+ *
+function nombreNoRepetido2(value) {
+
+    var formData = {'usnombreCrearCuenta': value};
+    var ruta = "../../Control/Ajax/nombreNoRepetido.php";
+
+    console.log("Previo al Ajax");
+
+    return $.ajax({
+        url: ruta,
+        type: "POST",
+        data: formData,
+        dataType: "json"
+    }).then(function(respuesta) {
+        console.log("Hubo éxito en la consulta Ajax");
+        console.log(respuesta.validacion);
+        return respuesta.validacion === "exito";
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
+        return false;
+    });
+}
+
+// Ejemplo de uso
+nombreNoRepetido("nombreUsuario").then(function(resultado) {
+    console.log(resultado);
+});*/
+
+/*
+Manejo de Promesas vs. Devoluciones de llamada:
+La primera estructura utiliza promesas (then y fail), lo que facilita 
+el manejo de código asíncrono y encadenamiento de operaciones.
+La segunda estructura utiliza devoluciones de llamada directas (complete, success, error), 
+que es un enfoque más antiguo y puede llevar a un código más anidado en situaciones complejas.
+*/

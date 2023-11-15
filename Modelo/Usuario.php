@@ -1,6 +1,6 @@
 <?php
 
-class Usuario extends BaseDatos{
+class Usuario {
     private $idusuario;
     private $usnombre;
     private $uspass;
@@ -74,8 +74,7 @@ class Usuario extends BaseDatos{
         $this->mensajeoperacion = $valor;
     }
 
-
-   /**
+    /**
 	 * Recupera los datos del usuario por idusuario
 	 * @param int $idusuario
 	 * @return true en caso de encontrar los datos, false en caso contrario 
@@ -100,7 +99,7 @@ class Usuario extends BaseDatos{
       
     }
 
- /**
+    /**
      * Esta función lee los valores actuales de los atributos del objeto e inserta un nuevo
      * registro en la base de datos a partir de ellos.
      * Retorna un booleano que indica si le operación tuvo éxito
@@ -108,17 +107,16 @@ class Usuario extends BaseDatos{
      * @return boolean
      */
     public function insertar(){
-        //echo "insertar";
-        $resp = false;
-        $base=new BaseDatos();
-        $sql="INSERT INTO usuario(idusuario,usnombre,uspass,usmail,usdeshabilitado) 
-		 VALUES('".$this->getIdUsuario()."','".$this->getUsNombre()."','".$this->getUsPass()."','".$this->getUsPass()."','".
-         $this->getUsMail()."','".$this->getUsDeshabilitado()."');";
 
-         if ($base->Iniciar()){
-            if ($elId = $base->Ejecutar($sql)) {
-              $this->setIdUsuario($elId);
-              $resp = true;
+        $resp = false;
+        $base = new BaseDatos();
+        $sql = "INSERT INTO usuario (usnombre, uspass, usmail) 
+        VALUES('".$this->getUsNombre()."','".$this->getUsPass()."','".$this->getUsMail()."');";
+
+        if ($base->Iniciar()){
+            if ($id = $base->Ejecutar($sql)) {
+                $this->setIdUsuario($id);
+                $resp = true;
             } else {
                 $this->setMensajeoperacion("Usuario->insertar: ".$base->getError());
             }
@@ -128,7 +126,7 @@ class Usuario extends BaseDatos{
         return $resp;
     }
 
- /**
+    /**
      * Esta función lee los valores actuales de los atributos del objeto y los actualiza en la
      * base de datos.
      * Retorna un booleano que indica si le operación tuvo éxito
@@ -154,7 +152,7 @@ class Usuario extends BaseDatos{
         return $resp;
     }
 
-  /**
+    /**
      * Esta función lee el id actual del objeto y si puede lo borra de la base de datos
      * Retorna un booleano que indica si le operación tuvo éxito
      * 
@@ -162,8 +160,8 @@ class Usuario extends BaseDatos{
      */
     public function eliminar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="DELETE FROM usuario WHERE idusuario='".$this->getIdUsuario()."'";
+        $base = new BaseDatos();
+        $sql = "DELETE FROM usuario WHERE idusuario = '".$this->getIdUsuario()."'";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
@@ -177,7 +175,7 @@ class Usuario extends BaseDatos{
     }
    
 
-  /**
+    /**
      * Esta función recibe condiciones de busqueda en forma de consulta sql para obtener
      * los registros requeridos.
      * Si por parámetro se envía el valor "" se devolveran todos los registros de la tabla
@@ -189,9 +187,9 @@ class Usuario extends BaseDatos{
      */
     public function listar($parametro ){
         $arreglo = array();
-        $base=new BaseDatos();
+        $base = new BaseDatos();
 
-        $sql="SELECT * FROM usuario ";
+        $sql = "SELECT * FROM usuario ";
 
         if ($parametro!="") {
             $sql.='WHERE '.$parametro;
@@ -215,11 +213,11 @@ class Usuario extends BaseDatos{
         return $arreglo;
     }
  
-     /**
-      * Funcion desabilitar
-      * Esta función Actualiza el valor de usdeshabilitado por un string fecha actual
-      *
-     **/
+    /**
+     * Funcion desabilitar
+     * Esta función Actualiza el valor de usdeshabilitado por un string fecha actual
+     *
+     */
      public function desabilitar(){
         $resp = false;
         $base = new BaseDatos();
@@ -242,7 +240,7 @@ class Usuario extends BaseDatos{
         return $resp;
     }
        
-     /**
+    /**
      * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
      * en un arreglo asociativo
      * 
@@ -250,8 +248,7 @@ class Usuario extends BaseDatos{
      */
     public function __toString(){
 	    return "IdUsuario: ".$this->getIdUsuario()."\nNombre: ".$this->getUsNombre()."\nPass: ".$this->getUsPass().
-        "\nMail: ".$this->getUsMail()."\nDeshabilitado: ".$this->getUsDeshabilitado()."\n\n";
-			
+        "\nMail: ".$this->getUsMail()."\nDeshabilitado: ".$this->getUsDeshabilitado()."\n\n";		
 	}
 
     /**
