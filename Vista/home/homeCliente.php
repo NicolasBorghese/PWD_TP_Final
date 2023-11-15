@@ -1,7 +1,7 @@
 <?php 
 $tituloPagina = "TechnoMate | Inicio";
 include_once '../estructura/secciones/head.php';
-include_once '../estructura/secciones/cargarMenues.php';
+include_once '../estructura/secciones/nav-bar-2.php';
 ?>
 
 <div class="contenido-pagina">

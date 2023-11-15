@@ -38,13 +38,15 @@ $objProduc = new AbmProducto();
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'>" .$listaProd[$i]->getProNombre() . "</h5>";
         echo "<p class='card-text'>Precio: $" . $listaProd[$i]->getProDetalle() . "</p>";
-        echo "<a href='#' class='btn'><i class='bi bi-cart-plus-fill text-start'></i></a>";
+        ?>
+        <button type='button' class='btn' onclick='enviar( <?php echo $listaProd[$i]->getIdProducto()?>)'><i class='bi bi-cart-plus-fill text-start'></i></button>
+        <?php
         echo "</div>";
         echo "</div>";
    echo "</div>";
    echo "</div>";
     }
- 
+  //  <i class='bi bi-cart-plus-fill text-start'></i>
     echo "</div>";
     echo "</div>";
     echo "</div>";
@@ -53,3 +55,9 @@ $objProduc = new AbmProducto();
  require_once("../login/login.php");
  require_once("../crearCuenta/formCrearCuenta.php"); 
 ?>
+
+<script>
+   function enviar(codigo){
+        location.href="detalle.php?codigo="+codigo;
+    }
+    </script>

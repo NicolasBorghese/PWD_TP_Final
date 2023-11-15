@@ -3,7 +3,7 @@
     
 
     $objSession= new Session();
-    $rol=$_SESSION['rol'];
+   // $rol=$_SESSION['rol'];
        /* $menuRoles = [];
     if ($objSession->activa()){
     $idRol = $objSession->getRol();*/
@@ -12,7 +12,7 @@
     $objRol = new AbmRol();*/
 
     $menu = new AbmMenu();
-    $param['idpadre']= $rol;/* el 2 corresponde a clientes,3 a deposito,4 a administrador*/
+    $param['idpadre']= 3;/* el 3corresponde a clientes,2 a deposito,1 a administrador*/
     $listaMenu= $menu->buscar($param);
     //print_r($listaMenu);
     require_once("cargarMenues.php");
