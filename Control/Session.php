@@ -4,7 +4,7 @@ class Session{
     /*_ _construct(). Constructor que. Inicia la sesión.*/
     public function __construct()
     {
-        if(!session_start()){
+        if(!array_key_exists('idusuario', $_SESSION)){
             session_start();
         }
     }
@@ -16,22 +16,37 @@ class Session{
     public function iniciar($nombreUsuario, $psw)
     {
         $resp = false;
-        $obj = new AbmUsuario();
+        $objAbmUsuario = new AbmUsuario();
         //if ($nombreUsuario!= null && $psw != null) {
         $param['usnombre'] = $nombreUsuario;
         $param['uspass'] = $psw;
-        //$param['usdeshabilitado'] = 'null'; //volver a abilitar
+        //$param['usdeshabilitado'] = NULL; //volver a abilitar
 
-        $resultado = $obj->buscar($param);
+        //Buscamos la colección de usuarios que cumplen con usuario y contraseña
+        $colUsuarios = $objAbmUsuario->buscar($param);
         
-        if (count($resultado) > 0){
-            $usuario = $resultado[0];
-            $colRoles= $usuario->darRoles();
-            if(count($colRoles) > 0){
+        //Si existe al menos uno se procede...
+        if (count($colUsuarios) > 0){
+
+            //Como existe al menos 1 lo aislamos
+            $usuario = $colUsuarios[0];
+
+            //Tomamos su id y lo guardamos como parámetro para comparar despues
+            $idusuario = $usuario->getIdUsuario();
+            $param2['idusuario'] = $idusuario;
+
+            //Obtenemos toda la colección de roles que tiene ese usuario a partir
+            //de los parámetros que enviemos
+            $colUsuarioRol = $objAbmUsuario->darRoles($param2);
+
+            //Si tiene al menos 1 rol podrá iniciar sesión en la página y podrá
+            //visualizarla con la vista de su rol de mayor categoría
+            if(count($colUsuarioRol) > 0){
                 $_SESSION['idusuario'] = $usuario->getIdUsuario();
-                $_SESSION ['rol']= $colRoles[0]->getObjRol()->getIdRol();
+                $_SESSION ['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol();
                 $resp = true;
             }
+
         }else{
             $this->cerrar();
         }

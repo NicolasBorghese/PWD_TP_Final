@@ -236,9 +236,9 @@ class BaseDatos extends PDO {
         $e = $this->errorInfo();
         $this->setError($e);
         if($this->getDebug()){
-            echo "<pre>";
+            /*echo "<pre>";
             print_r($e);
-            echo "</pre>";
+            echo "</pre>";*/
         } 
     }
    

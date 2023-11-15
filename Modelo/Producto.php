@@ -1,5 +1,6 @@
 <?php
-class Producto extends BaseDatos{
+class Producto {
+
     private $idproducto;
     private $pronombre;
     private $prodetalle; // aca iria el precio
@@ -27,62 +28,63 @@ class Producto extends BaseDatos{
         $this->setImagenProducto($imagenproducto);
         }
 
- /* Medodos get y set para iidproducto*/ 
+    /* Medodos get y set para iidproducto*/ 
     public function getIdProducto(){
-        return $this->idproducto;
-   }
-   public function setIdProducto($valor){
+         return $this->idproducto;
+    }
+    public function setIdProducto($valor){
         $this->idproducto = $valor;
-   }
+    }
 
- /* Medodos get y set para $pronombre*/ 
-   public function getProNombre(){
-       return $this->pronombre;  
-   }
-  public function setProNombre($valor){
-       $this->pronombre = $valor;
-  }
+    /* Medodos get y set para $pronombre*/ 
+    public function getProNombre(){
+        return $this->pronombre;  
+    }
+    public function setProNombre($valor){
+        $this->pronombre = $valor;
+    }
 
- /* Medodos get y set para $prodetalle*/ 
-  public function getProDetalle  (){
-     return $this->prodetalle;   
-  }
-  public function setProDetalle($valor){
-     $this->prodetalle = $valor;
-  }
+    /* Medodos get y set para $prodetalle*/ 
+    public function getProDetalle  (){
+        return $this->prodetalle;   
+    }
+    public function setProDetalle($valor){
+        $this->prodetalle = $valor;
+    }
 
- /* Medodos get y set para $procantstock*/
-  public function getProCantstock(){
-     return $this->procantstock;
-   }
-   public function setProCantstock($valor){
-    $this->procantstock = $valor;
-  }
-   /* Medodos get y set para tipo*/ 
-   public function getTipo(){
-    return $this->tipo;
-}
-public function setTipo($valor){
-    $this->tipo = $valor;
-}
+    /* Medodos get y set para $procantstock*/
+    public function getProCantstock(){
+        return $this->procantstock;
+    }
+    public function setProCantstock($valor){
+        $this->procantstock = $valor;
+    }
 
- /* Medodos get y set para getImagenProducto()*/ 
- public function getImagenProducto(){
-  return $this->imagenproducto;
-}
-public function setImagenProducto($valor){
-  $this->imagenproducto = $valor;
-}
+    /* Medodos get y set para tipo*/ 
+    public function getTipo(){
+        return $this->tipo;
+    }
+    public function setTipo($valor){
+        $this->tipo = $valor;
+    }
 
-  /* Medodos get y set para mensajeoperacion*/
-  public function getmensajeoperacion(){
-    return $this->mensajeoperacion;
-  }
-  public function setmensajeoperacion($valor){
-    $this->mensajeoperacion = $valor;
-  }
+    /* Medodos get y set para getImagenProducto()*/ 
+    public function getImagenProducto(){
+        return $this->imagenproducto;
+    }
+    public function setImagenProducto($valor){
+        $this->imagenproducto = $valor;
+    }
+
+    /* Medodos get y set para mensajeoperacion*/
+    public function getmensajeoperacion(){
+        return $this->mensajeoperacion;
+    }
+    public function setmensajeoperacion($valor){
+        $this->mensajeoperacion = $valor;
+    }
   
-   /**
+    /**
 	 * Recupera los datos del usuario por idusuario
 	 * @param int $idusuario
 	 * @return true en caso de encontrar los datos, false en caso contrario 
@@ -101,7 +103,8 @@ public function setImagenProducto($valor){
             }    
         } else {
             $this->setmensajeoperacion("Producto->listar: ". $base->getError());
-        } 
+        }
+        return $resp;
     }
 
      /**

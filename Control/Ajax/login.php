@@ -19,20 +19,21 @@ if (count($colUsuarios) == 1){
     if (count($colUsuarios) == 1){
 
         $objSesion = new Session();
-        $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso");
         $objSesion->iniciar($usnombre, $uspass);
-       /* if($objSesion ->validar()){
-            $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso");
+
+        if($objSesion ->validar()){
+            $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso.");
         }else{
-            $respuesta = array("resultado" => "error", "mensaje" => "Esta cuenta aun no tiene roles asignados.");
-        }*/
+            $respuesta = array("resultado" => "error", "mensaje" => "Esta cuenta aun no tiene roles asignados.
+            \nEspere a que un admnistrador le asigne uno.");
+        }
 
     } else {
-        $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario y contraseña no coinciden");
+        $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario y contraseña no coinciden.");
     }
     
 } else {
-    $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario no existe");
+    $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario no existe.");
     
 }
 

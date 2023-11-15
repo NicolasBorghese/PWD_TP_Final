@@ -24,7 +24,11 @@ class Usuario {
         $this->setUsDeshabilitado($des);
     }
      
-    /* Medodos get y set para idusuario*/ 
+    /* Medodos get y set para idusuario*/
+
+    /**
+     * Devuelve el id de usuario
+     */
     public function getIdUsuario(){
         return $this->idusuario;
     }
@@ -81,7 +85,7 @@ class Usuario {
 	public function cargar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="SELECT * FROM usuario WHERE idusuario = '".$this->getIdUsuario()."'";
+        $sql="SELECT * FROM usuario WHERE idusuario = ".$this->getIdUsuario();
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if($res>-1){
@@ -134,11 +138,12 @@ class Usuario {
      */
     public function modificar(){
         $resp = false;
-        $base=new BaseDatos();
-       // echo "estoy en modificar de la clse usuario";
-        $sql="UPDATE usuario SET usnombre='".$this->getUsNombre()."', uspass='".$this->getUsPass()
-        ."', usmail='".$this->getUsMail()."', usdeshabilitado='".$this->getUsDeshabilitado()
-        ."' WHERE idusuario='".$this->getIdUsuario()."'";
+        $base = new BaseDatos();
+
+        $sql = "UPDATE usuario SET usnombre = '".$this->getUsNombre()."', uspass = '".$this->getUsPass()
+        ."', usmail = '".$this->getUsMail()."', usdeshabilitado='".$this->getUsDeshabilitado()
+        ."' WHERE idusuario = ".$this->getIdUsuario();
+        
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -160,7 +165,7 @@ class Usuario {
     public function eliminar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "DELETE FROM usuario WHERE idusuario = '".$this->getIdUsuario()."'";
+        $sql = "DELETE FROM usuario WHERE idusuario = ".$this->getIdUsuario();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
@@ -184,14 +189,14 @@ class Usuario {
      * 
      * @return array
      */
-    public function listar($parametro =""){
+    public function listar($parametro){
         $arreglo = array();
         $base = new BaseDatos();
 
         $sql = "SELECT * FROM usuario ";
 
         if ($parametro!="") {
-            $sql.="WHERE".$parametro;
+            $sql .= " WHERE ".$parametro;
         }
         
         $res = $base->Ejecutar($sql);
@@ -217,15 +222,15 @@ class Usuario {
      * Esta función Actualiza el valor de usdeshabilitado por un string fecha actual
      *
      */
-     public function desabilitar(){
+    public function deshabilitar(){
         $resp = false;
         $base = new BaseDatos();
 
-       $fechaBaja= date('Y-m-d H:i:s');
-    
+        $fechaBaja = date('Y-m-d H:i:s');
+        
         // Actualiza el valor de usdeshabilitado
-        $sql = "UPDATE usuario SET usdeshabilitado = '".$fechaBaja."' WHERE idusuario = '" . $this->getIdUsuario(). "'";
-       // echo $sql;
+        $sql = "UPDATE usuario SET usdeshabilitado = '".$fechaBaja."' WHERE idusuario = " . $this->getIdUsuario();
+
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
@@ -235,7 +240,7 @@ class Usuario {
         } else {
             $this->setMensajeoperacion("Usuario->desabilitar: " . $base->getError());
         }
-    
+        
         return $resp;
     }
        

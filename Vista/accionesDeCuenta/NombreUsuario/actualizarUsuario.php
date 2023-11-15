@@ -6,9 +6,9 @@
     $listaUsuarios = $objUsuario->buscar($param);
 
     $param["usnombre"] = $datos["usnombre"]; 
-    $param  ["uspass"] =  $listaUsuarios[0]->getUsPass(); 
-    $param  ["usmail"] =  $listaUsuarios[0]->getUsMail();
-    $param  ["usdeshabilitado"] =null;
+    $param["uspass"] =  $listaUsuarios[0]->getUsPass(); 
+    $param["usmail"] =  $listaUsuarios[0]->getUsMail();
+    $param["usdeshabilitado"] =null;
 
     /*$datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
     if ($datos["usnombre"] != $listaUsuarios[0]->getUsNombre()){
@@ -16,12 +16,14 @@
     }*/
     if($objUsuario->modificar( $param)){
       $mensaje = "Datos modificados correctamente";
+      header('Location: ../../home/home.php');
     } else {
       $mensaje= "No fue posible modificar datos.";
+      header('Location: ../../home/home.php');
     }
   
 ?>
-     
+<!--    
 <div class="modal" id="modal_id" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -30,7 +32,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p> <?php echo $mensaje ?></p>
+        <p> <?php //echo $mensaje ?></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -44,3 +46,4 @@
       $('#modal_id').modal('show');
     });
 </script>
+-->

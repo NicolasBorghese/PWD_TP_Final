@@ -94,7 +94,7 @@ class AbmRol{
         return $resp;
     }
     
-   /**
+    /**
      * permite buscar un objeto
      * @param array $param
      * @return array
@@ -103,7 +103,7 @@ class AbmRol{
         $where = " true ";
         if ($param<>null){
             if  (isset($param['idrol']))
-                $where.=" and idrol ='".$param['idrol']."'";
+                $where.=" and idrol = ".$param['idrol'];
             if  (isset($param['rodescripcion']))
                 $where.=" and rodescripcion ='".$param['rodescripcion']."'";
         }
