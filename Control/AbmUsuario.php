@@ -91,7 +91,7 @@ class AbmUsuario{
        // echo "modificar";
         $respuesta = false;
         if ($this->seteadosCamposClaves($param)) {
-            echo " <br>passo por setaedoCampoClaves";
+            //echo " <br>passo por setaedoCampoClaves";
 
             $objUsuario = $this->cargarObjeto($param);
            // echo  $objUsuario->getUsNombre();
@@ -101,7 +101,6 @@ class AbmUsuario{
         }
         return $respuesta;
     }
-
 
 
     public function darRoles($param){

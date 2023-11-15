@@ -92,6 +92,7 @@ $(document).ready(function () {
                 error: function(xhr, textStatus, errorThrown) {
                     //called when there is an error
                     console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown)
+                    console.error(xhr)
                 }
             });
         }

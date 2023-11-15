@@ -17,10 +17,15 @@ if (count($colUsuarios) == 1){
     $colUsuarios = $objUsuario->buscar($param);
 
     if (count($colUsuarios) == 1){
-        $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso");
 
         $objSesion = new Session();
+        $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso");
         $objSesion->iniciar($usnombre, $uspass);
+       /* if($objSesion ->validar()){
+            $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso");
+        }else{
+            $respuesta = array("resultado" => "error", "mensaje" => "Esta cuenta aun no tiene roles asignados.");
+        }*/
 
     } else {
         $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario y contraseña no coinciden");

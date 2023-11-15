@@ -26,8 +26,12 @@ class Session{
         
         if (count($resultado) > 0){
             $usuario = $resultado[0];
-            $_SESSION['idusuario'] = $usuario->getIdUsuario();
-            $resp = true;
+            $colRoles= $usuario->darRoles();
+            if(count($colRoles) > 0){
+                $_SESSION['idusuario'] = $usuario->getIdUsuario();
+                $_SESSION ['rol']= $colRoles[0]->getObjRol()->getIdRol();
+                $resp = true;
+            }
         }else{
             $this->cerrar();
         }
@@ -91,6 +95,7 @@ class Session{
         return $rol;
     }
 
+    
     /**cierra la sesion actual */
     public function cerrar()
     {

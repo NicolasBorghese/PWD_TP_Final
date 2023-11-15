@@ -197,23 +197,23 @@ ALTER TABLE `menu`
 -- Volcado de datos para la tabla 'menu'
 --
 INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VALUES
-(2, 'cliente','nav-bar-2', NULL, NULL),
-(3, 'deposito', 'nav-bar-2', NULL, NULL),
-(4, 'administrador', 'nav-bar-2', NULL, NULL),
-(5, 'Inicio', 'home.php', 2, NULL),
-(6, '', 'homeCliente.php', 3, NULL),
-(7, 'Mates', 'mostrarProd.php?nombre=Mates', 2, NULL),
-(8, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 2, NULL),
-(9, 'Bombillas','mostrarProd.php?nombre=Bombillas', 2, NULL),
-(10, 'Termos', 'mostrarProd.php?nombre=Termos', 2,NULL),
-(11, 'SETS', 'mostrarProd.php?nombre=SETS', 2, NULL),
-(12, 'iconoCarrito', '../cliente/carrito.php', 2, NULL),
+(1, 'administrador', 'nav-bar-2', NULL, NULL),
+(2, 'deposito', 'nav-bar-2', NULL, NULL),
+(3, 'cliente','nav-bar-2', NULL, NULL),
 
 /*seccion deposito*/
-(13, 'Ha ingresado a Deposito', 'homeDeposito.php', 3, NULL),
+(4, 'Ha ingresado como administrador', 'homeAdministrador.php', 1, NULL),
+/*seccion deposito*/
+(5, 'Ha ingresado a Deposito', 'homeDeposito.php', 2, NULL),
 
-/*seccion administrador*/
-(14, 'Ha ingresado como administrador', 'homeAdministrador.php', 4, NULL)
+(6, 'Inicio', 'home.php', null, NULL),
+(7, '', 'homeCliente.php', 3, NULL),
+(8, 'Mates', 'mostrarProd.php?nombre=Mates', 3, NULL),
+(9, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 3, NULL),
+(10, 'Bombillas','mostrarProd.php?nombre=Bombillas', 3, NULL),
+(11, 'Termos', 'mostrarProd.php?nombre=Termos', 3,NULL),
+(12, 'SETS', 'mostrarProd.php?nombre=SETS', 3, NULL),
+(13, 'iconoCarrito', '../cliente/carrito.php', 3, NULL)
 ;
 
 -- ----------------------------------------------------------------------------------
@@ -359,9 +359,9 @@ ALTER TABLE `menurol`
 
 -- Volcado de datos para la tabla menurol
 INSERT INTO menurol (idmenu, idrol) VALUES
-(4, 1), -- Admin
-(3, 2), -- Deposito
-(2, 3); -- Cliente
+(1, 1), -- Admin
+(2, 2), -- Deposito
+(3, 3); -- Cliente
 
 -- ----------------------------------------------------------------------------------
 --

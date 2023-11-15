@@ -135,7 +135,7 @@ class Usuario {
     public function modificar(){
         $resp = false;
         $base=new BaseDatos();
-        echo "estoy en modificar de la clse usuario";
+       // echo "estoy en modificar de la clse usuario";
         $sql="UPDATE usuario SET usnombre='".$this->getUsNombre()."', uspass='".$this->getUsPass()
         ."', usmail='".$this->getUsMail()."', usdeshabilitado='".$this->getUsDeshabilitado()
         ."' WHERE idusuario='".$this->getIdUsuario()."'";
@@ -225,7 +225,7 @@ class Usuario {
     
         // Actualiza el valor de usdeshabilitado
         $sql = "UPDATE usuario SET usdeshabilitado = '".$fechaBaja."' WHERE idusuario = '" . $this->getIdUsuario(). "'";
-        echo $sql;
+       // echo $sql;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;

@@ -174,7 +174,7 @@ class AbmMenuRol{
 
         }
 
-        echo $where ." <br>";
+        //echo $where ." <br>";
 
         $obj = new MenuRol();
         $arreglo = $obj->listar($where);
