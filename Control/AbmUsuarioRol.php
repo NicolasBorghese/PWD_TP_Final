@@ -35,7 +35,6 @@ class AbmUsuarioRol{
      * @param array $param
      * @return UsuarioRol
      */
-
      private function cargarObjetoConClave($param)
      {
          $objUsuarioRol = null;
@@ -90,7 +89,6 @@ class AbmUsuarioRol{
                 $resp = true;
             }
         }
-        
         return $resp;
     }
  
@@ -119,23 +117,19 @@ class AbmUsuarioRol{
      */
     public function buscar($param)
     {
-        // print_R ($param);
-
         $where = " true ";
         if ($param != null) {
             if (isset($param['idusuario'])) {
-                $where .= " and idusuario ='" . $param['idusuario'] . "'";
+                $where .= " and idusuario = ".$param['idusuario'];
             }
-
             if (isset($param['idrol'])) {
-                $where .= " and idrol ='" . $param['idrol'] . "'";
+                $where .= " and idrol = ".$param['idrol'];
             }
-
         }
 
-        $arreglo = UsuarioRol::listar($where, "");
+        $obj = new UsuarioRol();
+        $arreglo = $obj->listar($where);
         return $arreglo;
-
     }
 }
 

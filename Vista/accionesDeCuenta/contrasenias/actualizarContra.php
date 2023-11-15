@@ -7,9 +7,9 @@
 
     $listaUsuarios = $objUsuario->buscar($param);
     $param["usnombre"] = $listaUsuarios[0]->getUsNombre(); 
-    $param  ["uspass"] = md5($datos["uspass"]); 
-    $param  ["usmail"] =  $listaUsuarios[0]->getUsMail();
-    $param  ["usdeshabilitado"] =null;
+    $param["uspass"] = md5($datos["uspass"]); 
+    $param["usmail"] =  $listaUsuarios[0]->getUsMail();
+    $param["usdeshabilitado"] = null;
     echo "<br>";
     
     //print_r($listaUsuarios);
@@ -20,8 +20,10 @@
         $repuesta=$objUsuario->modificar($param);
         if($repuesta == true){
           $mensaje = "Datos modificados correctamente";
+          header('Location: ../../home/home.php');
         } else {
           $mensaje= "No fue posible modificar datos.";
+          header('Location: ../../home/home.php');
         } 
     //}
  

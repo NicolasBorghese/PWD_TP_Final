@@ -1,7 +1,9 @@
 <?php
-class Rol extends BaseDatos{
+class Rol{
+
     private $idrol;
     private $roldescripcion;
+    private $mensajeoperacion;
 
     public function __construct(){
         $this->idrol = "";
@@ -37,8 +39,7 @@ class Rol extends BaseDatos{
         $this->mensajeoperacion = $valor;
     }
 
-
-   	  /**
+   	/**
 	 * Recupera los datos del usuario por idusuario
 	 * @param int $idusuario
 	 * @return true en caso de encontrar los datos, false en caso contrario 
@@ -51,9 +52,9 @@ class Rol extends BaseDatos{
             $res = $base->Ejecutar($sql);
             if($res>-1){
                 if($res>0){
+                    $resp = true;
                     $row = $base->Registro();
                     $this->setear($row['idrol'], $row['rodescripcion']);
-                    
                 }
             }
         } else {
@@ -62,7 +63,7 @@ class Rol extends BaseDatos{
         return $resp;    
     }
     
-      /**
+    /**
      * Esta función lee los valores actuales de los atributos del objeto e inserta un nuevo
      * registro en la base de datos a partir de ellos.
      * Retorna un booleano que indica si le operación tuvo éxito
@@ -89,7 +90,7 @@ class Rol extends BaseDatos{
         return $resp;
     }
 
-      /**
+    /**
      * Esta función lee los valores actuales de los atributos del objeto y los actualiza en la
      * base de datos.
      * Retorna un booleano que indica si le operación tuvo éxito
@@ -100,8 +101,9 @@ class Rol extends BaseDatos{
         $resp = false;
         $base=new BaseDatos();
         
-        $sql="UPDATE rol SET roldescripcion='".$this->getRolDescripcion()
-        ."' WHERE idrol='".$this->getIdRol()."'";
+        $sql = "UPDATE rol SET roldescripcion = '".$this->getRolDescripcion()
+        ."' WHERE idrol = ".$this->getIdRol();
+
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -122,11 +124,11 @@ class Rol extends BaseDatos{
      */
     public function eliminar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="DELETE FROM rol WHERE idrol='".$this->getIdRol()."'";
+        $base = new BaseDatos();
+        $sql = "DELETE FROM rol WHERE idrol = ".$this->getIdRol();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
-                return true;
+                $resp = true;
             } else {
                 $this->setMensajeoperacion("Rol->eliminar: ".$base->getError());
             }
@@ -136,7 +138,7 @@ class Rol extends BaseDatos{
         return $resp;
     }
 
-      /**
+    /**
      * Esta función recibe condiciones de busqueda en forma de consulta sql para obtener
      * los registros requeridos.
      * Si por parámetro se envía el valor "" se devolveran todos los registros de la tabla
@@ -146,12 +148,12 @@ class Rol extends BaseDatos{
      * 
      * @return array
      */
-	public static function listar($parametro=""){
+	public function listar($parametro=""){
         $arreglo = array();
         $base=new BaseDatos();
         $sql="SELECT * FROM rol ";
         if ($parametro!="") {
-            $sql.='WHERE '.$parametro;
+            $sql .= ' WHERE '.$parametro;
         }
         $res = $base->Ejecutar($sql);
         if($res>-1){
@@ -171,20 +173,16 @@ class Rol extends BaseDatos{
         return $arreglo;
     }
 
-     /**
+    /**
      * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
      * en un arreglo asociativo
      * 
      * @return array
      */
-
     public function __toString(){
 	    return "id rol: ".$this->getIdRol()."\nDescripcion: ".$this->getRolDescripcion()."\n\n";
 			
 	}
-   
-    
-   
 }
 
 ?>

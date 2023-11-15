@@ -87,7 +87,7 @@ class AbmUsuario{
      * @return boolean
      */
     public function modificar($param){
-       print_r($param);
+       // print_r($param);
        // echo "modificar";
         $respuesta = false;
         if ($this->seteadosCamposClaves($param)) {
@@ -103,6 +103,13 @@ class AbmUsuario{
     }
 
 
+    /**
+     * Devuelve una lista con los roles de los usuarios, espera
+     * $param['idusuario'] y $param['idrol'], retorna un
+     * arreglo de objetos objetos usuarioRol
+     * 
+     * @return array
+     */
     public function darRoles($param){
         $where = " true ";
         if ($param<>null){
@@ -133,7 +140,7 @@ class AbmUsuario{
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
             $unObjUsuario = $this->cargarObjetoConClave($param);
-            $unObjUsuario->desabilitar();
+            $unObjUsuario->deshabilitar();
         }
         return $resp;
     }
@@ -149,7 +156,7 @@ class AbmUsuario{
         $where = " true";
         if ($param<>null){
             if  (isset($param['idusuario']))
-                $where.=" and idusuario = '".$param['idusuario']."'";
+                $where.=" and idusuario = ".$param['idusuario'];
             if  (isset($param['usnombre']))
                 $where.=" and usnombre = '".$param['usnombre']."'";
             if  (isset($param['uspass']))

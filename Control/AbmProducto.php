@@ -104,7 +104,7 @@ class AbmProducto
         $where = " true ";
         if ($param<>null){
             if  (isset($param['idproducto']))
-            $where.=" and idproducto ='".$param['idproducto']."'"; 
+            $where.=" and idproducto = ".$param['idproducto']; 
         if  (isset($param['pronombre']))
                 $where.=" and pronombre ='".$param['pronombre']."'";
         if  (isset($param['prodetalle']))
