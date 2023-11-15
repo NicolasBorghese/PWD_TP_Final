@@ -2,7 +2,6 @@
 $tituloPagina = "TechnoMate | Administrador";
 include_once '../estructura/secciones/head.php';
 include("../estructura/secciones/nav-bar-2.php");
-require_once("../../Modelo/Conector/BaseDatos.php");
 include_once("../../configuracion.php");
 
 ?>
