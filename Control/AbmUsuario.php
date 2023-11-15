@@ -86,17 +86,21 @@ class AbmUsuario{
      * @return boolean
      */
     public function modificar($param){
-        // print_r($param);
-        // echo "modificar";
+        print_r($param);
+        echo "modificar";
         $respuesta = false;
         if ($this->seteadosCamposClaves($param)) {
+            echo "passo por setaedoCampoClaves";
             $objUsuario = $this->cargarObjeto($param);
+            print_r($objUsuario);
             if ($objUsuario != null and $objUsuario->modificar()) {
                 $respuesta = true;
             }
         }
         return $respuesta;
     }
+
+
 
     public function darRoles($param){
         $where = " true ";
@@ -144,7 +148,7 @@ class AbmUsuario{
         $where = " true";
         if ($param<>null){
             if  (isset($param['idusuario']))
-                $where.=" and idusuario = ".$param['idusuario'];
+                $where.=" and idusuario = '".$param['idusuario']."'";
             if  (isset($param['usnombre']))
                 $where.=" and usnombre = '".$param['usnombre']."'";
             if  (isset($param['uspass']))
@@ -152,7 +156,7 @@ class AbmUsuario{
             if  (isset($param['usmail']))
                 $where.=" and usmail = '".$param['usmail']."'";
             if  (isset($param['usdeshabilitado']))
-                $where.=" and usdeshabilitado = ".$param['usdeshabilitado'];
+                $where.=" and usdeshabilitado = '".$param['usdeshabilitado']."'";
         }
 
         $obj = new Usuario();

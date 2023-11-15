@@ -14,7 +14,6 @@ class Usuario {
         $this->uspass = "";
         $this->usmail = "";
         $this->usdeshabilitado = "";
-        $this->mensajeoperacion= "";
     }
 
     public function setear($id, $nom, $pass, $mail, $des){
@@ -136,8 +135,8 @@ class Usuario {
     public function modificar(){
         $resp = false;
         $base=new BaseDatos();
-        
-        $sql="UPDATE usuario SET usnombre='".$this->getUsNombre()."',uspass='".$this->getUsPass()
+        echo "estoy en modificar de la clse usuario";
+        $sql="UPDATE usuario SET usnombre='".$this->getUsNombre()."', uspass='".$this->getUsPass()
         ."', usmail='".$this->getUsMail()."', usdeshabilitado='".$this->getUsDeshabilitado()
         ."' WHERE idusuario='".$this->getIdUsuario()."'";
         if ($base->Iniciar()) {
@@ -185,14 +184,14 @@ class Usuario {
      * 
      * @return array
      */
-    public function listar($parametro ){
+    public function listar($parametro =""){
         $arreglo = array();
         $base = new BaseDatos();
 
         $sql = "SELECT * FROM usuario ";
 
         if ($parametro!="") {
-            $sql.='WHERE '.$parametro;
+            $sql.="WHERE".$parametro;
         }
         
         $res = $base->Ejecutar($sql);
@@ -262,7 +261,7 @@ class Usuario {
         $info = [];
         $info['idusuario'] = $this->getIdUsuario();
         $info['usnombre'] = $this->getUsNombre();
-        $info['modelo'] = $this->getUsPass();
+        $info['uspass'] = $this->getUsPass();
         $info['usmail'] = $this->getUsMail();
 
         return $info;

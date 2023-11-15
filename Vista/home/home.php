@@ -58,7 +58,6 @@ include_once '../estructura/secciones/head.php';
 
 <?php
 include_once '../accionesDeCuenta/contrasenias/cambiarContra.php';
-include_once '../accionesDeCuenta/NombreUsuario/cambiarUsuario.php';
-include_once("../accionesDeCuenta/cerrarSession.php"); 
+include_once '../accionesDeCuenta/NombreUsuario/cambiarUsuario.php'; 
 include_once '../estructura/secciones/footer.php';
 ?>
