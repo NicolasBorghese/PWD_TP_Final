@@ -197,25 +197,23 @@ ALTER TABLE `menu`
 -- Volcado de datos para la tabla 'menu'
 --
 INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VALUES
-(2, '','nav-bar-2', NULL, NULL),
-(3, '', 'nav-bar-3', NULL, NULL),
-(4, '', 'nav-bar-4', NULL, NULL),
+(2, 'cliente','nav-bar-2', NULL, NULL),
+(3, 'deposito', 'nav-bar-2', NULL, NULL),
+(4, 'administrador', 'nav-bar-2', NULL, NULL),
 (5, 'Inicio', 'home.php', 2, NULL),
-(6, 'Mates', 'mostrarProd.php?nombre=Mates', 2, NULL),
-(7, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 2, NULL),
-(8, 'Bombillas','mostrarProd.php?nombre=Bombillas', 2, NULL),
-(9, 'Termos', 'mostrarProd.php?nombre=Termos', 2,NULL),
-(10, 'SETS', 'mostrarProd.php?nombre=SETS', 2, NULL),
-(11, 'iconoCarrito', '../cliente/carrito.php', 2, NULL),
-(12, 'Mi cuenta', '../cliente/miCuenta.php', 2, NULL),
+(6, '', 'homeCliente.php', 3, NULL),
+(7, 'Mates', 'mostrarProd.php?nombre=Mates', 2, NULL),
+(8, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 2, NULL),
+(9, 'Bombillas','mostrarProd.php?nombre=Bombillas', 2, NULL),
+(10, 'Termos', 'mostrarProd.php?nombre=Termos', 2,NULL),
+(11, 'SETS', 'mostrarProd.php?nombre=SETS', 2, NULL),
+(12, 'iconoCarrito', '../cliente/carrito.php', 2, NULL),
 
 /*seccion deposito*/
 (13, 'Ha ingresado a Deposito', 'homeDeposito.php', 3, NULL),
-(14, 'Mi cuenta', '../cliente/miCuenta.php', 3, NULL),
 
 /*seccion administrador*/
-(15, 'Ha ingresado como administrador', 'homeAdministrador.php', 4, NULL),
-(16, 'Mi cuenta', '../cliente/miCuenta.php', 4, NULL)
+(14, 'Ha ingresado como administrador', 'homeAdministrador.php', 4, NULL)
 ;
 
 -- ----------------------------------------------------------------------------------
@@ -361,9 +359,9 @@ ALTER TABLE `menurol`
 
 -- Volcado de datos para la tabla menurol
 INSERT INTO menurol (idmenu, idrol) VALUES
-(13, 1), -- Admin
-(9, 2), -- Deposito
-(5, 3); -- Cliente
+(4, 1), -- Admin
+(3, 2), -- Deposito
+(2, 3); -- Cliente
 
 -- ----------------------------------------------------------------------------------
 --

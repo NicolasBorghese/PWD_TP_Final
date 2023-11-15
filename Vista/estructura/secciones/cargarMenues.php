@@ -1,15 +1,15 @@
-
-<header class="header">
-    <div class="menu-opciones">
-      <div class="logo-nav">
-            <img src="../../Archivos/Imagenes/logoBlanco.png">
-       </div>
-        <?php
-        include_once("../../configuracion.php");
-         $menu = new AbmMenu();
-         $param['idpadre']= 3;/* el 2 corresponde a clientes,3 a deposito,4 a administrador*/
-         $listaMenu= $menu->buscar($param);
-            
+<!-- ____________________________________ NAV BAR 1 ________________________________ -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-Toggler" aria-controls="navbar-Toggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-Toggler">
+            <div class="navbar-brand">
+                <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110">
+            </div>
+            <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                <?php
             for($i=0; $i<count($listaMenu);$i++){
                 if ($listaMenu[$i]->getMeDeshabilitado() == null){
 
@@ -20,14 +20,14 @@
                        if($nombre == 'iconoCarrito'){/*espara que coloque el icono carrito*/
                         $nombre= "<i class='bi bi-cart-plus-fill '></i>";
                        }
-                    echo '<div class="navbar"> <a class="nav-link"  href='.$ruta.'>'.$nombre.'</a> </div>';// acomoda los menues en lista
+                    echo '<li class="nav-item"> <a class="nav-link" aria-current="page" href='.$ruta.'>'.$nombre.'</a> </li>';// acomoda los menues en lista
             }
         }
         ?> 
-      <div class="login logo">
-         <ul class="nav navbar nav-link ">
+         <li class="">
+          <ul class="nav">
            <li class="dropdown">
-             <a href="#" class="dropdown-toggle text-white text-decoration-none" data-bs-toggle="dropdown"> Mi cuenta</a>
+             <a href="#" class="dropdown-toggle text-white text-decoration-none nav-link nav-item " data-bs-toggle="dropdown"> Mi cuenta</a>
               <ul class=" dropdown-menu dropdown-menu-down">
                 <li><a class="text-black text-decoration-none " data-bs-toggle="modal" data-bs-target="#modalCambiarUsuario" tabindex="-1">Cambiar Usuario</a></li>
                 <li><a class="text-black text-decoration-none " data-bs-toggle="modal" data-bs-target="#modalCambiarContra" tabindex="-1">Cambiar Contraseña</a></li>
@@ -36,8 +36,10 @@
               </ul>
            </li>
         </ul> 
-      </div>  
+      </li>
+
+      </ul>
+
+        </div>
     </div>
-</header>
-
-
+</nav>

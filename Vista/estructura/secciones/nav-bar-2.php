@@ -11,7 +11,7 @@
     $objRol = new AbmRol();*/
 
     $menu = new AbmMenu();
-    $param['idpadre']= 4;/* el 2 corresponde a clientes,3 a deposito,4 a administrador*/
+    $param['idpadre']= 2;/* el 2 corresponde a clientes,3 a deposito,4 a administrador*/
     $listaMenu= $menu->buscar($param);
     //print_r($listaMenu);
     require_once("cargarMenues.php");

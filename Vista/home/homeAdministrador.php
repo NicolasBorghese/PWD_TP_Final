@@ -44,6 +44,5 @@ include_once("../../configuracion.php");
  include_once '../accionesDeCuenta/contrasenias/cambiarContra.php';
  include_once '../accionesDeCuenta/nombreUsuario/cambiarUsuario.php';
  include_once("../nuevoUsuario/formNuevoUsuario.php");
- include_once("../accionesDeCuenta/cerrarSession.php");
  include_once '../estructura/secciones/footer.php';
 ?>

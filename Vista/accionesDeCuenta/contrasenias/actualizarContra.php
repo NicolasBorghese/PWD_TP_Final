@@ -1,19 +1,25 @@
 <?php
     include_once "../../../configuracion.php";
     $datos = data_submitted();
+    print_r($datos);
     $objUsuario = new AbmUsuario(); 
     $param["idusuario"] = $datos["idusuario"];
+
     $listaUsuarios = $objUsuario->buscar($param);
-    $datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
-    if ($datos["uspass"] != $listaUsuarios[0]->getUsPass()){
-        $datos["uspass"] = md5($datos["uspass"]);    
-    }
-    if($objUsuario->modificar($datos)){
-      $mensaje = "Datos modificados correctamente";
-    } else {
-      $mensaje= "No fue posible modificar datos.";
-    }
-  
+    echo "<br>";
+    //print_r($listaUsuarios);
+   // $datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
+   // if ($datos["uspass"] != $listaUsuarios[0]->getUsPass()){
+       // $datos["uspass"] = md5($datos["uspass"]); 
+
+        $repuesta=$objUsuario->modificar($datos);
+        if($repuesta == true){
+          $mensaje = "Datos modificados correctamente";
+        } else {
+          $mensaje= "No fue posible modificar datos.";
+        } 
+    //}
+ 
 ?>
      
 <div class="modal" id="modal_id" tabindex="-1">

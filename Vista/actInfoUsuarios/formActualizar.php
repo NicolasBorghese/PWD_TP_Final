@@ -16,7 +16,7 @@ $usuario = $objUsuario->buscar($idUsuario);
     <input type="text" name="usnombre" id="usnombre" value="<?php echo $usuario[0]->getUsNombre() ?>"></input><br>
 
     <label>Email</label>
-    <input type="text" name="usmail" id="usmail" value="<?php echo $usuario[0]->getUsNombre() ?>"></input><br>
+    <input type="text" name="usmail" id="usmail" value="<?php echo $usuario[0]->getUsMail() ?>"></input><br>
 
     <label>Contraseña</label>
     <input type="text" name="uspass" id="uspass" value="<?php echo $usuario[0]->getUsPass() ?>"></input><br>

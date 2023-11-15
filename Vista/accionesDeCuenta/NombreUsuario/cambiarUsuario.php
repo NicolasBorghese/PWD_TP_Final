@@ -1,10 +1,10 @@
 <?php
-include_once ("../../../configuracion.php");
+include_once ("../../configuracion.php");
    $objSession= new Session();
-   
+ /*  
 if ($objSession->activa()){
   $idRol = $objSession->getRol();
-  }
+  }*/
 ?>
 
 
@@ -19,20 +19,17 @@ if ($objSession->activa()){
       <div class="modal-body">
         <form name="formCambiarContra" id="formCambiarContra" method="POST"  action="../accionesDeCuenta/nombreUsuario/actualizarUsuario.php" class="needs-validation" novalidate>
         <div hidden class="contenedor-dato ">
-            <input  type="text" class="form-control" id="idususario" name="idususario" value="<?$idRol?>">
+            <input  type="text" class="form-control" id="idusuario" name="idusuario" value="3">
           </div>
-          <div class="contenedor-dato">
-            <label for="uspass" class="form-label"> Usuario Actual</label>
-            <input type="text" class="form-control" id="usuarioActual" name="usuarioActual">
-          </div>
+        
           <div class="contenedor-dato">
             <label for="uspass" class="form-label"> Nuevo Usuario</label>
-            <input type="text" class="form-control" id="usuarioNuevo" name="usuarioNuevo">
+            <input type="text" class="form-control" id="usnombre" name="usnombre">
           </div>
 
           <br>
           <div class="d-grid mb-3 gap-2">
-            <button type="submit" name="botonActualizarUs" id="botonActualizarUs" class="btn text-white  btn-dark">ACTUALIZAR</button>
+            <button type="submit" class="btn text-white  btn-dark">ACTUALIZAR</button>
           </div>
         </form>
       </div>

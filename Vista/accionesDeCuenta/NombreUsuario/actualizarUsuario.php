@@ -4,11 +4,12 @@
     $objUsuario = new AbmUsuario(); 
     $param["idusuario"] = $datos["idusuario"];
     $listaUsuarios = $objUsuario->buscar($param);
-    $datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
+    $param["usnombre"] = $datos["usnombre"];  
+    /*$datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
     if ($datos["usnombre"] != $listaUsuarios[0]->getUsNombre()){
         $datos["usnombre"] = $datos["usnombre"];    
-    }
-    if($objUsuario->modificar($datos)){
+    }*/
+    if($objUsuario->modificar( $param)){
       $mensaje = "Datos modificados correctamente";
     } else {
       $mensaje= "No fue posible modificar datos.";

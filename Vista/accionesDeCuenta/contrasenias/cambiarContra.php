@@ -1,10 +1,14 @@
 <?php
-include_once ("../../../configuracion.php");
+include_once ("../../configuracion.php");
    $objSession= new Session();
    
-if ($objSession->activa()){
-  $idRol = $objSession->getRol();
-  }
+   
+/*if ($objSession->activa()){
+  $objUsuario = $objSession->getUsuario();
+ }else{
+  echo "El usuario no este logeado";
+ }*/
+ /*<?echo $objUsuario->getIdUsuario()?>*/
 ?>
 
 <!-- Crea un modal con un formulaario modificar contraseña de los usuarios -->
@@ -18,15 +22,11 @@ if ($objSession->activa()){
       <div class="modal-body">
         <form name="formCambiarContra" id="formCambiarContra" method="POST"  action="../accionesDeCuenta/contrasenias/actualizarContra.php" class="needs-validation" novalidate>
            <div hidden class="contenedor-dato ">
-            <input  type="text" class="form-control" id="idususario" name="idususario" value="<?$idRol?>">
-          </div>
-          <div class="contenedor-dato">
-            <label for="uspass" class="form-label"> Contraseña Actual</label>
-            <input type="password" class="form-control" id="contraActual" name="contraActual">
+            <input  type="text" class="form-control" id="idusuario" name="idusuario" value="3">
           </div>
           <div class="contenedor-dato">
             <label for="uspass" class="form-label"> Nueva Contraseña</label>
-            <input type="password" class="form-control" id="contraNueva" name="contraNueva">
+            <input type="password" class="form-control" id="uspass" name="uspass">
           </div>
 
           <br>
