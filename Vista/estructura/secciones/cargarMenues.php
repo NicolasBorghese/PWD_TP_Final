@@ -4,11 +4,11 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-Toggler" aria-controls="navbar-Toggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbar-Toggler">
+    <div class="collapse navbar-collapse menuUsuario" id="navbar-Toggler">
             <div class="navbar-brand">
                 <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110">
             </div>
-            <ul class="navbar-nav d-flex justify-content-center align-items-center">
+        <ul class="navbar-nav d-flex justify-content-center align-items-center">
                 <?php
             for($i=0; $i<count($listaMenu);$i++){
                 if ($listaMenu[$i]->getMeDeshabilitado() == null){
@@ -24,8 +24,7 @@
             }
         }
         ?> 
-         <li class="">
-          <ul class="nav">
+        <ul class="nav">
            <li class="dropdown">
              <a href="#" class="dropdown-toggle text-white text-decoration-none nav-link nav-item " data-bs-toggle="dropdown"> Mi cuenta</a>
               <ul class=" dropdown-menu dropdown-menu-down">
@@ -36,10 +35,9 @@
               </ul>
            </li>
         </ul> 
-      </li>
 
       </ul>
 
-        </div>
     </div>
+</div>
 </nav>
