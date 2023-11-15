@@ -6,13 +6,18 @@
     $param["idusuario"] = $datos["idusuario"];
 
     $listaUsuarios = $objUsuario->buscar($param);
+    $param["usnombre"] = $listaUsuarios[0]->getUsNombre(); 
+    $param  ["uspass"] = md5($datos["uspass"]); 
+    $param  ["usmail"] =  $listaUsuarios[0]->getUsMail();
+    $param  ["usdeshabilitado"] =null;
     echo "<br>";
+    
     //print_r($listaUsuarios);
    // $datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
    // if ($datos["uspass"] != $listaUsuarios[0]->getUsPass()){
        // $datos["uspass"] = md5($datos["uspass"]); 
 
-        $repuesta=$objUsuario->modificar($datos);
+        $repuesta=$objUsuario->modificar($param);
         if($repuesta == true){
           $mensaje = "Datos modificados correctamente";
         } else {

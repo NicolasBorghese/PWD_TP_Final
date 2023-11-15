@@ -6,7 +6,7 @@ if ($objSession->activa()){
    $resp = $objSession->cerrar();
   }
   if(  $resp == true){
-    header('Location: Vista/home/home.php');
+    header('Location: ../home/home.php');
   }
     echo "entre a cerrar sesion";
 

@@ -4,7 +4,12 @@
     $objUsuario = new AbmUsuario(); 
     $param["idusuario"] = $datos["idusuario"];
     $listaUsuarios = $objUsuario->buscar($param);
-    $param["usnombre"] = $datos["usnombre"];  
+
+    $param["usnombre"] = $datos["usnombre"]; 
+    $param  ["uspass"] =  $listaUsuarios[0]->getUsPass(); 
+    $param  ["usmail"] =  $listaUsuarios[0]->getUsMail();
+    $param  ["usdeshabilitado"] =null;
+
     /*$datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
     if ($datos["usnombre"] != $listaUsuarios[0]->getUsNombre()){
         $datos["usnombre"] = $datos["usnombre"];    

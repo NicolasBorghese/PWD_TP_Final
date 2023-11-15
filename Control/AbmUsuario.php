@@ -33,6 +33,7 @@ class AbmUsuario{
         if(isset($param['idusuario']) ){
             $obj = new Usuario();
             $obj->setear($param['idusuario'],null,null,null,null);
+            $obj->cargar();
         }
         return $obj;
     }
@@ -86,13 +87,14 @@ class AbmUsuario{
      * @return boolean
      */
     public function modificar($param){
-        print_r($param);
-        echo "modificar";
+       print_r($param);
+       // echo "modificar";
         $respuesta = false;
         if ($this->seteadosCamposClaves($param)) {
-            echo "passo por setaedoCampoClaves";
+            echo " <br>passo por setaedoCampoClaves";
+
             $objUsuario = $this->cargarObjeto($param);
-            print_r($objUsuario);
+           // echo  $objUsuario->getUsNombre();
             if ($objUsuario != null and $objUsuario->modificar()) {
                 $respuesta = true;
             }

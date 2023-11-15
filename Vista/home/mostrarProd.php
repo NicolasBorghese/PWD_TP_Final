@@ -2,10 +2,18 @@
 $texto = $_GET["nombre"];
 $tituloPagina = "TechnoMate | ". $texto;
 include_once '../estructura/secciones/head.php';
-include("../estructura/secciones/nav-bar-1.php");
-require_once("../../Modelo/Conector/BaseDatos.php");
 include_once("../../configuracion.php");
-require_once("../../Control/AbmProducto.php"); 
+
+$datos = data_submitted();
+
+$objSesion = new Session();
+
+if ($objSesion->validar()){
+    include_once '../estructura/secciones/nav-bar-2.php';
+} else {
+    include_once '../estructura/secciones/nav-bar-1.php';
+}
+
 
 $objProduc = new AbmProducto();
 
