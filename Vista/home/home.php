@@ -4,14 +4,16 @@ $datos = data_submitted();
 
 $objSesion = new Session();
 
+
+$tituloPagina = "TechnoMate | Inicio";
+include_once '../estructura/secciones/head.php';
+
+
 if ($objSesion->validar()){
     include_once '../estructura/secciones/nav-bar-2.php';
 } else {
     include_once '../estructura/secciones/nav-bar-1.php';
 }
-
-$tituloPagina = "TechnoMate | Inicio";
-include_once '../estructura/secciones/head.php';
 ?>
 
 <div class="contenido-pagina">

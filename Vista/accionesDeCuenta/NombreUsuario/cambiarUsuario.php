@@ -1,6 +1,6 @@
 <?php
 include_once ("../../configuracion.php");
-   $objSession= new Session();
+/*$objSession= new Session();*/
  /*  
 if ($objSession->activa()){
   $idRol = $objSession->getRol();
