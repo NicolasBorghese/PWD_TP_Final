@@ -71,14 +71,22 @@ $(document).ready(function () {
                 success: function(respuesta, textStatus, xhr) {
                     //se llama cuando tiene éxito la respuesta
                     if (respuesta.resultado == "exito"){
-
+                        console.log("rol leido :"+ respuesta.rol)
                         console.log(respuesta.resultado);
                         $(form).find('.is-valid').removeClass('is-valid');
                         $("#formLogin")[0].reset();
                         $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
                         alert(respuesta.mensaje);
                         $("#modalLogin").modal("hide");
-                        window.location.href = "home.php";
+                       
+                        if(respuesta.rol == 1){
+                            window.location.href = "homeAdministrador.php";  
+                        } else if (respuesta.rol == 2){
+                            window.location.href = "homeDeposito.php";
+                        }else{
+                            window.location.href = "home.php";
+                        }
+                     
 
                     } else {
                         console.log(respuesta.resultado);

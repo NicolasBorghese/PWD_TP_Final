@@ -2,7 +2,7 @@
     include_once "../../../configuracion.php";
     $datos = data_submitted();
     $objUsuario = new AbmUsuario(); 
-    $param["idusuario"] = $datos["idusuario"];
+    $param["idusuario"] = $_SESSION['idusuario'];
     $listaUsuarios = $objUsuario->buscar($param);
 
     $param["usnombre"] = $datos["usnombre"]; 
@@ -10,10 +10,6 @@
     $param["usmail"] =  $listaUsuarios[0]->getUsMail();
     $param["usdeshabilitado"] =null;
 
-    /*$datos["usdeshabilitado"] = $listaUsuarios[0]->getUsDeshabilitado();
-    if ($datos["usnombre"] != $listaUsuarios[0]->getUsNombre()){
-        $datos["usnombre"] = $datos["usnombre"];    
-    }*/
     if($objUsuario->modificar( $param)){
       $mensaje = "Datos modificados correctamente";
       header('Location: ../../home/home.php');

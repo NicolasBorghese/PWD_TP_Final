@@ -1,6 +1,6 @@
 <?php
 include_once ("../../configuracion.php");
-/*$objSession = new Session();*/
+$objSession = new Session();
    
 /*if ($objSession->activa()){
   $objUsuario = $objSession->getUsuario();
@@ -21,7 +21,7 @@ include_once ("../../configuracion.php");
       <div class="modal-body">
         <form name="formCambiarContra" id="formCambiarContra" method="POST"  action="../accionesDeCuenta/contrasenias/actualizarContra.php" class="needs-validation" novalidate>
            <div hidden class="contenedor-dato ">
-            <input  type="text" class="form-control" id="idusuario" name="idusuario" value="3">
+            <input  type="text" class="form-control" id="idusuario" name="idusuario" value="">
           </div>
           <div class="contenedor-dato">
             <label for="uspass" class="form-label"> Nueva Contraseña</label>

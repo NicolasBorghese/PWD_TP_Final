@@ -22,7 +22,8 @@ if (count($colUsuarios) == 1){
         $objSesion->iniciar($usnombre, $uspass);
 
         if($objSesion ->validar()){
-            $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso.");
+            $rol = $_SESSION['rol'];
+            $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso." , "rol" => "$rol");
         }else{
             $respuesta = array("resultado" => "error", "mensaje" => "Esta cuenta aun no tiene roles asignados.
             \nEspere a que un admnistrador le asigne uno.");
