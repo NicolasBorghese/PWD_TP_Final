@@ -59,10 +59,17 @@ $(document).ready(function () {
                     //se llama cuando tiene éxito la respuesta
                     if (respuesta.resultado == "exito"){
                         console.log(respuesta.resultado);
+
                     } else {
                         console.log(respuesta.resultado);
                     }
+
+                    $(form).find('.is-valid').removeClass('is-valid');
+                    $("#formCrearCuenta")[0].reset();
+                    $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
                     alert(respuesta.mensaje);
+                    //$("#modalCrearCuenta").modal("hide");
+
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     //called when there is an error
