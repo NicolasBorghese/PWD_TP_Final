@@ -1,7 +1,15 @@
-<?php 
+<?php
+include_once '../../configuracion.php';
+$datos = data_submitted();
+
+if (!array_key_exists('usnombre', $datos)){
+    include_once '../estructura/secciones/nav-bar-1.php';
+} else {
+    include_once '../estructura/secciones/nav-bar-2.php';
+}
+
 $tituloPagina = "TechnoMate | Inicio";
 include_once '../estructura/secciones/head.php';
-include_once '../estructura/secciones/nav-bar-1.php';
 ?>
 
 <div class="contenido-pagina">
@@ -34,10 +42,15 @@ include_once '../estructura/secciones/nav-bar-1.php';
         </div>
     </div>
 </div>
+
 <div>
     <?php
-        require_once("../login/login.php");
-        require_once("../crearCuenta/formCrearCuenta.php"); 
+        if (!array_key_exists('usnombre', $datos)){
+            require_once("../login/login.php");
+            require_once("../crearCuenta/formCrearCuenta.php"); 
+        } else {
+
+        }
     ?>
 </div>
 

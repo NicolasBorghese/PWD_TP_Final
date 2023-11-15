@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<!-- ____________________________________ INICIO HEAD ______________________________ -->
 <head>
 
     <meta charset="UTF-8">
