@@ -1,7 +1,7 @@
 <?php
 $tituloPagina = "TechnoMate | Administrador";
 include_once '../estructura/secciones/head.php';
-include("../estructura/secciones/nav-bar-1.php");
+include("../estructura/secciones/cargarMenues.php");
 require_once("../../Modelo/Conector/BaseDatos.php");
 include_once("../../configuracion.php");
 
@@ -31,9 +31,14 @@ include_once("../../configuracion.php");
             </div>
         </div>
     </div>
+    <?php include_once '../accionesDeCuenta/contrasenias/cambiarContra.php';
+    include_once '../accionesDeCuenta/nombreUsuario/cambiarUsuario.php';
+    include_once("../accionesDeCuenta/cerrarSession.php");
+    ?>
 </div>
 
 
 <?php
+
 include_once '../estructura/secciones/footer.php';
 ?>
