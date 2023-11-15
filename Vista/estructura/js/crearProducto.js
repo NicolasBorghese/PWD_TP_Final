@@ -1,4 +1,4 @@
-function crearProducto(value){
+$(document).ready(function () {
 
     var formData = {'': value};//llenar con el id del formulario?
     var ruta = "../../Control/Ajax/crearNuevoProducto.php";
@@ -20,6 +20,4 @@ function crearProducto(value){
         }
 
     });
-
-    return resultado;
-}
+});
