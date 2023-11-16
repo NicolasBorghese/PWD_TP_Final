@@ -16,7 +16,6 @@ if ($objSesion->validar()){
 } else {
     header('Location: home.php');
 }
-
 ?>
 
 <div class ="contenido-pagina">
@@ -30,11 +29,14 @@ if ($objSesion->validar()){
             </div>
             </a>
         </div>
+        
         <div class="accion-admin">
+            <a href ="../actInfoUsuarios/listarUsuarios.php">
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionAdmin2.png" alt="Actualizar información de usuario">
             <div class="informacion-accion">
                 <p>ACTUALIZAR INFORMACIÓN DE USUARIOS</p>
             </div>
+            </a>
         </div>
 
         <div class="accion-admin">

@@ -88,27 +88,26 @@ body {
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7);
     border-radius: 85px;
 }
-ul li {
+
+/*ul li {
     list-style: none;
     margin-left: 75px;
     float: left;
     position: relative;
-    
-}
+}*/
 
-.menuUsuario ul li{
+/*.menuUsuario ul li{
     list-style: none;
     margin-left: 55px;
     float: left;
     position: relative;
-    
-}
+}*/
 
+/*
 .menuUsuario2 ul li{
-    
     margin-left: 0px;
-    
 }
+*/
 
 /* -------------------- ESTILOS FOOTER -------------------- */
 .footer {
@@ -157,7 +156,7 @@ a:hover {
 
 .menuUsuario2 a:hover {
     background-color: rgba(255, 0, 0, 0);
-    text-decoration-color:aquamarine;
+    text-decoration-color: aquamarine;
 }
 
 .logo {
@@ -186,10 +185,11 @@ a:hover {
 .modal-title {
     text-align: center;
 }
+
 @media screen and (max-width:1390px) {
-  .carousel-inner {
-      padding: auto;
-  }
+    .carousel-inner {
+        padding: auto;
+    }
 }
 
 /********************************* efecto de la card *****************/
@@ -226,6 +226,10 @@ a:hover {
 
 .contenedor-acciones>div:hover {
     background-color: rgb(37, 37, 37);
+}
+
+.accion-admin a {
+    text-decoration: none;
 }
 
 /* -------------------- TEXTO DE LA ACCIÓN -------------------- */

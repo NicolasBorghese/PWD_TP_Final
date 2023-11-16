@@ -206,8 +206,8 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 /*seccion deposito*/
 (5, 'Ha ingresado a Deposito', 'homeDeposito.php', 2, NULL),
 
-(6, 'Inicio', 'home.php', null, NULL),
-(7, '', 'homeCliente.php', 3, NULL),
+(6, 'Inicio', 'home.php', 3, NULL),
+-- (7, '', 'homeCliente.php', 3, NULL),
 (8, 'Mates', 'mostrarProd.php?nombre=Mates', 3, NULL),
 (9, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 3, NULL),
 (10, 'Bombillas','mostrarProd.php?nombre=Bombillas', 3, NULL),

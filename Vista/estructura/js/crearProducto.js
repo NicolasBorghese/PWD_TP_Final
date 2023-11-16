@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var formData = {'': value};//llenar con el id del formulario?
+    var value = $("#nombreEnElFormulario").val();
     var ruta = "../../Control/Ajax/crearNuevoProducto.php";
     var resultado = false;
 
@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         url: ruta,
         type: "POST",
-        data: formData,
+        data: value,
         dataType: "json",
         async: false,
 

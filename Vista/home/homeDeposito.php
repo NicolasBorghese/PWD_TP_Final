@@ -1,7 +1,7 @@
 <?php
 include_once("../../configuracion.php");
 
-$tituloPagina = "TechnoMate | Administrador";
+$tituloPagina = "TechnoMate | Deposito";
 include_once '../estructura/secciones/head.php';
 
 include_once("../estructura/secciones/nav-bar-2.php");
@@ -28,7 +28,7 @@ include_once("../estructura/secciones/nav-bar-2.php");
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionDeposito3.png" alt="Administrar roles">
             <div class="informacion-accion">
                 <p>STOCK DE PRODUCTOS</p>
-                <button>Modificar</button>
+                <button class='btn text-white btn-dark'><a style='text-decoration: none;' href="../actStock/listarProductos.php">Modificar</a> </button>
             </div>
         </div>
     </div>
