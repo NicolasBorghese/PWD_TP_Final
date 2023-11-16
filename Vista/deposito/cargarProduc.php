@@ -8,11 +8,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form name="formCrearProductos" id="formCrearProducto" method="POST" class="needs-validation"  action="../deposito/accion/altaProducto.php" novalidate>
+        <form name="formCrearProducto" id="formCrearProducto" method="POST" class="needs-validation" novalidate>
           
-           <div class="contenedor-dato">
-            <input type="hidden" class="form-control" id="idproducto" name="idproducto">
-          </div>
           <div class="contenedor-dato">
           <label for="pronombre" class="form-label">Nombre del producto</label>
             <input type="text" class="form-control" id="pronombre" name="pronombre" requerid>
@@ -37,13 +34,14 @@
           <br>
           <div class="contenedor-dato">
           <label for="formFile" class="form-label">Cargar url imagen </label>
-          <input class="form-control"   placeholder="data:image/jpeg;base64"  name="imagenproducto" required>
+          <input class="form-control"   placeholder="data:image/jpeg;base64"  id="imagenproducto"  name="imagenproducto" required>
           </div>
           <div class="d-grid mb-3 gap-2">
-          <button  type="submit"class="btn text-white  btn-dark">Cargar</button>
+          <button  type="submit" class="btn text-white  btn-dark">Cargar</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+<script src="../estructura/js/altaProducto.js"></script>
