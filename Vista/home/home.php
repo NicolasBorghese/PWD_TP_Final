@@ -50,8 +50,7 @@ if ($objSesion->validar()){
 <div>
     <?php
         if ($objSesion->validar()){
-            include_once '../accionesDeCuenta/contrasenias/cambiarContra.php';
-            include_once '../accionesDeCuenta/NombreUsuario/cambiarUsuario.php'; 
+            include_once '../accionesDeCuenta/configuracionCuenta.php';
 
         } else {
             require_once("../login/login.php");
