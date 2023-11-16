@@ -39,7 +39,21 @@ $objProduc = new AbmProducto();
         echo "<h5 class='card-title'>" .$listaProd[$i]->getProNombre() . "</h5>";
         echo "<p class='card-text'>Precio: $" . $listaProd[$i]->getProDetalle() . "</p>";
         ?>
-        <button type='button' class='btn' onclick='enviar( <?php echo $listaProd[$i]->getIdProducto()?>)'><i class='bi bi-cart-plus-fill text-start'></i></button>
+        <button type='button' class='btn' onclick='enviar( <?php echo $listaProd[$i]->getIdProducto()?>)'   data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bi bi-cart-plus-fill text-start'></i></button>
+
+            <!-- Modal detalle carrito-->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                 <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Detalle del Producto</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body" id="mostrar"></div>
+                 </div>
+                </div>
+        </div>
+
         <?php
         echo "</div>";
         echo "</div>";
@@ -58,7 +72,25 @@ include_once '../estructura/secciones/footer.php';
 ?>
 
 <script>
+    var resultado=document.getElementById("mostrar");
    function enviar(codigo){
-        location.href="detalle.php?codigo="+codigo;
+       // location.href="detalle.php?codigo="+codigo;
+       var xmlhttp;
+       if(window.XMLHttpRequest) {
+          xmlhttp=new XMLHttpRequest();
+       }else{
+        xmlhttp=new  ActiveXObject("Microsoft.XMLHTTP");
+       }
+
+       xmlhttp.onreadystatechange=function(){
+        if(xmlhttp.readyState==4 && xmlhttp.status==200 ){
+            resultado.innerHTML=xmlhttp.responseText;
+        }
+       }
+        
+       xmlhttp.open("GET","detalle.php?codigo="+codigo,true);
+       xmlhttp.send();
+
     }
     </script>
+
