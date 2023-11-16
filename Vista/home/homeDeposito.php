@@ -4,7 +4,19 @@ include_once("../../configuracion.php");
 $tituloPagina = "TechnoMate | Deposito";
 include_once '../estructura/secciones/head.php';
 
-include_once("../estructura/secciones/nav-bar-2.php");
+$objSesion = new Session();
+
+if ($objSesion->validar()){
+    if($_SESSION['rol'] == 2){
+        include_once '../estructura/secciones/nav-bar-2.php';
+    } else {
+        header('Location: home.php');
+    }
+    
+} else {
+    header('Location: home.php');
+}
+
 ?>
 
 <div class ="contenido-pagina">
