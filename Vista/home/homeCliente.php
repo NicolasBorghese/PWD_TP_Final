@@ -9,6 +9,8 @@ include_once '../estructura/secciones/nav-bar-2.php';
    </div>
 </div>
 
-<?php include_once '../accionesDeCuenta/contrasenias/cambiarContra.php';
- include_once '../accionesDeCuenta/NombreUsuario/cambiarUsuario.php';
- include_once '../estructura/secciones/footer.php'?>
+<?php
+    include_once '../accionesDeCuenta/contrasenias/cambiarContra.php';
+    include_once '../accionesDeCuenta/NombreUsuario/cambiarUsuario.php';
+    include_once '../estructura/secciones/footer.php'
+?>

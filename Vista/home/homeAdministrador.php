@@ -1,10 +1,12 @@
 <?php
-$tituloPagina = "TechnoMate | Administrador";
-include_once '../estructura/secciones/head.php';
-include("../estructura/secciones/nav-bar-2.php");
 include_once("../../configuracion.php");
 
+$tituloPagina = "TechnoMate | Administrador";
+include_once '../estructura/secciones/head.php';
+
+include_once("../estructura/secciones/nav-bar-2.php");
 ?>
+
 <div class ="contenido-pagina">
     <div class="contenedor-acciones">
         
@@ -40,8 +42,7 @@ include_once("../../configuracion.php");
 </div>
 
 <?php
- include_once '../accionesDeCuenta/contrasenias/cambiarContra.php';
- include_once '../accionesDeCuenta/nombreUsuario/cambiarUsuario.php';
- include_once("../nuevoUsuario/formNuevoUsuario.php");
- include_once '../estructura/secciones/footer.php';
+include_once '../accionesDeCuenta/configuracionCuenta.php';
+include_once("../nuevoUsuario/formNuevoUsuario.php");
+include_once '../estructura/secciones/footer.php';
 ?>

@@ -43,7 +43,10 @@ class Session{
             //visualizarla con la vista de su rol de mayor categoría
             if(count($colUsuarioRol) > 0){
                 $_SESSION['idusuario'] = $usuario->getIdUsuario();
-                $_SESSION ['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol();
+                $_SESSION['usnombre'] = $usuario->getUsNombre();
+                $_SESSION['usmail'] = $usuario->getUsMail();
+                $_SESSION['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol();
+                
                 $resp = true;
             }
 

@@ -175,4 +175,3 @@ function captchaLoginCorrecto(value){
 
     return resultado;
 }
-

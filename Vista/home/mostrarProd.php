@@ -46,14 +46,15 @@ $objProduc = new AbmProducto();
    echo "</div>";
    echo "</div>";
     }
-  //  <i class='bi bi-cart-plus-fill text-start'></i>
+    //  <i class='bi bi-cart-plus-fill text-start'></i>
     echo "</div>";
     echo "</div>";
     echo "</div>";
-    
- include_once '../estructura/secciones/footer.php';
- require_once("../login/login.php");
- require_once("../crearCuenta/formCrearCuenta.php"); 
+
+require_once("../login/login.php");
+require_once("../crearCuenta/formCrearCuenta.php"); 
+include_once '../estructura/secciones/footer.php';
+
 ?>
 
 <script>
