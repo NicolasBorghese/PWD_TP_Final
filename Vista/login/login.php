@@ -5,26 +5,31 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title ">Iniciar sesión</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         <div class="logologin">
+          <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110" class="logologin">
+        </div>
+       
+        
       </div>
+       <h5 class="modal-title ">Iniciar sesión</h5>
       <div class="modal-body">
 
         <form name="formLogin" id="formLogin" method="POST" class="needs-validation" novalidate>
 
           <div class="contenedor-dato">
-            <label for="usnombreLogin" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="usnombreLogin" name="usnombreLogin">
+            <!-- <label for="usnombreLogin" class="form-label">Usuario</label> -->
+            <input type="text" class="form-control" id="usnombreLogin" name="usnombreLogin" placeholder="Usuario">
           </div>
           <br>
           <div class="contenedor-dato">
-            <label for="uspassLogin" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="uspassLogin" name="uspassLogin">
+            <!-- <label for="uspassLogin" class="form-label">Contraseña</label> -->
+            <input type="password" class="form-control" id="uspassLogin" name="uspassLogin" placeholder="Contraseña">
           </div>
           <br>
           <div class="contenedor-dato">
-            <label for="captchaLogin" class="form-label">Captcha</label>
-            <input type="text" class="form-control" id="captchaLogin" name="captchaLogin">
+            <!-- <label for="captchaLogin" class="form-label">Captcha</label> -->
+            <input type="text" class="form-control" id="captchaLogin" name="captchaLogin" placeholder="Captcha">
           </div>
           <br>
           <div class="contenedor-dato input-group">
@@ -33,14 +38,14 @@
           </div>
           <br>
           <div class="d-grid mb-3 gap-2">
-            <button type="submit" id="botonLogin" class="btn btn-dark" name="botonLogin">INGRESAR</button>
+            <button type="submit" id="botonLogin" class="btn btn-dark ingresar" name="botonLogin">INGRESAR</button>
           </div>
 
         </form>
       </div>
       <div class="modal-footer">
         <div class="d-grid gap-2 col-6 mx-auto">
-          <a class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalCrearCuenta" tabindex="-1" data-bs-toggle="modal">Crear Cuenta</a>
+          <a class="btn btn-outline-secondary crearcta" data-bs-toggle="modal" data-bs-target="#modalCrearCuenta" tabindex="-1" data-bs-toggle="modal">Crear Cuenta</a>
         </div>
       </div>
     </div>
