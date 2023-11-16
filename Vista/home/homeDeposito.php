@@ -28,7 +28,7 @@ include_once("../estructura/secciones/nav-bar-2.php");
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionDeposito3.png" alt="Administrar roles">
             <div class="informacion-accion">
                 <p>PRODUCTOS EXISTENTES</p>
-                <button class='btn text-white btn-dark'><a style='text-decoration: none;' href="../actStock/listarProductos.php">MODIFICAR</a> </button>
+                <button><a class="btn  text-decoration-none" href="../actStock/listarProductos.php">MODIFICAR</a> </button>
             </div>
         </div>
     </div>
