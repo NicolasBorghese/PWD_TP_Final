@@ -13,7 +13,7 @@ if ($objSesion->validar()){
     if($_SESSION['rol'] == 2){
         include_once '../estructura/secciones/nav-bar-2.php';
     } else {
-        header('Location: home.php');
+        header('Location: homeDeposito.php');
     }
 } else {
     header('Location: home.php');
@@ -30,25 +30,27 @@ if ($objSesion->validar()){
 <?php
 
 if (!empty($colProductos)){
-    echo "<h4>Listado de productoss</h4>";
-    echo "<table class='table table-striped table-hover'>";
+    echo "<h4 class='text-center text-white bg-dark'>Listado de productos</h4>";
+    echo "<table class='table table-striped table-hover' >";
+    echo "<tr>";
     echo "<th>ID de producto</th>
-    <th>Descripción</th>
+     <th>Descripción</th>
     <th>Cantidad de stock</th>
     <th>Acción</th>";
-
+     
     foreach($colProductos as $producto){
+       
         echo "<tr>
-        <td>".$producto->getIdProducto()."</td>
-        <td>".$producto->getProNombre()."</td>
-        <td>".$producto->getProCantstock()."</td>
-        <td><button class='btn text-white btn-dark'><a style='text-decoration: none;' href='formActualizar.php?idproducto=" . $producto->getIdProducto()."'>Actualizar</a></button></td>>
-        </tr>";
+          <td>".$producto->getIdProducto()."</td>
+          <td>".$producto->getProNombre()."</td>
+          <td>".$producto->getProCantstock()."</td>";
+          echo'<td><a href="formActualizar.php?idproducto='.$producto->getIdProducto().'" class="btn text-white btn-dark">Actualizar</a></td>';
+         echo"</tr>";
     }
 
     echo "</table>";
 } else {
-    echo "<h4>No hay productos cargados en la Base de Datos";
+    echo "<h4>No hay productos cargados en la Base de Datos</h4>";
 }
   
 ?>

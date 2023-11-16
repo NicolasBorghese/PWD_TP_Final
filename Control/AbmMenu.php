@@ -8,11 +8,22 @@ class AbmMenu {
         $obj = null;
            
         if( array_key_exists('idmenu',$param) && array_key_exists('menombre',$param) && array_key_exists('medescripcion',$param)
-                && array_key_exists('padre',$param) && array_key_exists('medeshabilitado',$param)){
+            && array_key_exists('idpadre',$param) && array_key_exists('medeshabilitado',$param)){
             $obj = new Menu();
 
-            
-            $obj->setear($param['idmenu'], $param['menombre'],$param['medescripcion'],$param['padre'],$param['medeshabilitado']); 
+            if ($param['idpadre'] == null){
+                $objMenuPadre = null;
+            }else{
+                $objMenuPadre = new Menu();
+                $objMenuPadre->setIdMenu($param['idpadre']);
+                $objMenuPadre->cargar();
+            }
+            if ($param['medeshabilitado'] == 'null'){
+                $medeshabilitado = null;
+            }else{
+                $medeshabilitado = $param['medeshabilitado'];
+            }
+            $obj->setear($param['idmenu'], $param['menombre'],$param['medescripcion'],$objMenuPadre,$medeshabilitado); 
         }
         return $obj;
     }
@@ -86,6 +97,18 @@ class AbmMenu {
             if($menu!=null && $menu->modificar()){
                 $resp = true;
             }
+        }
+        return $resp;
+    }
+
+    /* permite actualizar la fecha de baja del usuario */
+    public function borradoLogico($param)
+    {
+
+        $resp = false;
+        if ($this->seteadosCamposClaves($param)) {
+            $unObjUsuario = $this->cargarObjetoConClave($param);
+            $unObjUsuario->deshabilitar();
         }
         return $resp;
     }
