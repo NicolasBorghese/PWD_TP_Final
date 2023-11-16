@@ -41,16 +41,16 @@ if (!empty($colProductos)){
     foreach($colProductos as $producto){
        
         echo "<tr>
-        <td>".$producto->getIdProducto()."</td>
-        <td>".$producto->getProNombre()."</td>
-        <td>".$producto->getProCantstock()."</td>
-        <td><a class='btn text-white btn-dark href='formActualizar.php?idproducto=" . $producto->getIdProducto()."'>Actualizar</a></td>
-        </tr>";
+          <td>".$producto->getIdProducto()."</td>
+          <td>".$producto->getProNombre()."</td>
+          <td>".$producto->getProCantstock()."</td>";
+          echo'<td><a href="formActualizar.php?idproducto='.$producto->getIdProducto().'" class="btn text-white btn-dark">Actualizar</a></td>';
+         echo"</tr>";
     }
 
     echo "</table>";
 } else {
-    echo "<h4>No hay productos cargados en la Base de Datos</h4>h";
+    echo "<h4>No hay productos cargados en la Base de Datos</h4>";
 }
   
 ?>
