@@ -139,9 +139,15 @@ class Menu {
     public function modificar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE menu SET menombre= '".$this->getMeNombre()."', medescripcion = '".$this->getMeDescripcion()."' 
-        ,idpadre = '".$this->getMenuPadre()->getIdMenu()."',medeshabilitado = '".$this->getMeDeshabilitado()."' WHERE idmenu = ".$this->getIdMenu()."";
+        
 
+        $deshabilitado = "'".$this->getMeDeshabilitado()."'";
+        if ($this->getMeDeshabilitado() == null){
+            $deshabilitado = 'NULL';
+        }
+
+        $sql = "UPDATE menu SET menombre= '".$this->getMeNombre()."', medescripcion = '".$this->getMeDescripcion()."' 
+        ,idpadre = '".$this->getMenuPadre()->getIdMenu()."',medeshabilitado = ".$deshabilitado." WHERE idmenu = ".$this->getIdMenu()."";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -221,26 +227,26 @@ class Menu {
 
      /**
       * Funcion desabilitar
-      * Esta función Actualiza el valor de usdeshabilitado por un string fecha actual
+      * Esta función Actualiza el valor de medeshabilitado por un string fecha actual
       *
      **/
-     public function desabilitar(){
+     public function deshabilitar(){
         $resp = false;
         $base = new BaseDatos();
 
        $fechaBaja= date('Y-m-d H:i:s');
     
         // Actualiza el valor de usdeshabilitado
-        $sql = "UPDATE menu SET usdeshabilitado = '".$fechaBaja."' WHERE idmenu = ".$this->getIdMenu(). "'";
+        $sql = "UPDATE menu SET medeshabilitado = '".$fechaBaja."' WHERE idmenu = ".$this->getIdMenu(). "'";
         echo $sql;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
             } else {
-                $this->setMensajeOperacion("Usuario->desabilitar: " . $base->getError());
+                $this->setMensajeOperacion("menu->desabilitar: " . $base->getError());
             }
         } else {
-            $this->setMensajeOperacion("Usuario->desabilitar: " . $base->getError());
+            $this->setMensajeOperacion("menu->desabilitar: " . $base->getError());
         }
     
         return $resp;
@@ -255,7 +261,7 @@ class Menu {
     public function obtenerInfo(){
         $info = [];
         $info['idmenu'] = $this->getMenuPadre()->getIdMenu();
-        $info['menombre'] = $this->getCoFecha();
+        $info['menombre'] = $this->getMeNombre();
         $info['medescripcion'] =$this->getMeDescripcion();
         $info['medeshabilitado'] =$this->getMeDeshabilitado();
         return $info;
