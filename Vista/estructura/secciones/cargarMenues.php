@@ -41,9 +41,11 @@
                             <ul class=" dropdown-menu dropdown-menu-down">
                                 <li><a class="text-black text-decoration-none " href=# data-bs-toggle="modal" data-bs-target="#modalConfiguracion" tabindex="-1" onclick="actualizarDatosUsuario()">Configuración</a></li>
                                 <?php
-                                    
+                                    if (count($_SESSION['colroles']) > 1){
+                                        echo "<li><a class='text-black text-decoration-none' href=# data-bs-toggle='modal' data-bs-target='#modalCambiarRol' tabindex='-1'>Cambiar Rol</a></li>";
+                                    }
                                 ?>
-                                <li><a class="text-black text-decoration-none " href=# data-bs-toggle="modal" data-bs-target="#modalCambiarRol" tabindex="-1">Cambiar Rol</a></li>
+                                
                                 <hr class="dropdown-divider">
                                 <li><a class="text-black text-decoration-none " href="../accionesDeCuenta/cerrarSession.php">Cerrar Sesion</a></li>
                             </ul>

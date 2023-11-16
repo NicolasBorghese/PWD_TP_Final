@@ -46,6 +46,10 @@ class Session{
                 $_SESSION['usnombre'] = $usuario->getUsNombre();
                 $_SESSION['usmail'] = $usuario->getUsMail();
                 $_SESSION['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol();
+
+                for ($i = 0; $i < count($colUsuarioRol); $i++){
+                    $_SESSION['colroles'][$i] = $colUsuarioRol[0]->getObjRol()->getIdRol();
+                }
                 
                 $resp = true;
             }

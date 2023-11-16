@@ -10,6 +10,6 @@
     if($objMenu->borradoLogico($datos)){
       header('Location: gestionMenu.php');
     } else {
-     header('Location: gestionMenu.php');
+      header('Location: gestionMenu.php');
     }
 ?>

@@ -38,7 +38,12 @@ INSERT INTO usuario (idusuario, usnombre, uspass, usmail, usdeshabilitado) VALUE
 ('1', 'Moya', '81dc9bdb52d04dc20036dbd8313ed055', 'moya@gmail.com', NULL),-- 1234
 ('2', 'Farias', '81b073de9370ea873f548e31b8adc081', 'farias@gmail.com', NULL),-- 2345
 ('3', 'Lopez', 'def7924e3199be5e18060bb3e1d547a7', 'lopez@gmail.com', NULL),-- 3456
-('4', 'Ramirez', '6562c5c1f33db6e05a082a88cddab5ea', 'ramirez@gmail.com', NULL);-- 4567
+('4', 'Ramirez', '6562c5c1f33db6e05a082a88cddab5ea', 'ramirez@gmail.com', NULL), -- 4567
+('5', 'Admin', '81dc9bdb52d04dc20036dbd8313ed055', 'admin@mail.com', NULL),-- 1234
+('6', 'Deposito', '81dc9bdb52d04dc20036dbd8313ed055', 'deposito@mail.com', NULL),-- 1234
+('7', 'Cliente', '81dc9bdb52d04dc20036dbd8313ed055', 'cliente@mail.com', NULL),-- 1234
+('8', 'Nicolas', '81dc9bdb52d04dc20036dbd8313ed055', 'nicolas@mail.com', NULL),-- 1234
+('9', 'AdminTotal', '81dc9bdb52d04dc20036dbd8313ed055', 'adminTotal@mail.com', NULL);-- 1234
 
 -- ----------------------------------------------------------------------------------
 --
@@ -207,12 +212,12 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 (5, 'Ha ingresado a Deposito', 'homeDeposito.php', 2, NULL),
 
 (6, 'Inicio', 'home.php', 3, NULL),
--- (7, '', 'homeCliente.php', 3, NULL),
-(8, 'Mates', 'mostrarProd.php?nombre=Mates', 3, NULL),
-(9, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 3, NULL),
-(10, 'Bombillas','mostrarProd.php?nombre=Bombillas', 3, NULL),
-(11, 'Termos', 'mostrarProd.php?nombre=Termos', 3,NULL),
-(12, 'SETS', 'mostrarProd.php?nombre=SETS', 3, NULL),
+(7, 'Mates', 'mostrarProd.php?nombre=Mates', 3, NULL),
+(8, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 3, NULL),
+(9, 'Bombillas','mostrarProd.php?nombre=Bombillas', 3, NULL),
+(10, 'Termos', 'mostrarProd.php?nombre=Termos', 3,NULL),
+(11, 'SETS', 'mostrarProd.php?nombre=SETS', 3, NULL),
+(12, 'Mis Compras', '../cliente/misCompras.php', 3, NULL),
 (13, 'iconoCarrito', '../cliente/carrito.php', 3, NULL)
 ;
 
@@ -392,5 +397,13 @@ INSERT INTO usuariorol (idusuario, idrol) VALUES
 (1,1), -- Admin
 (2,2), -- Deposito
 (3,3), -- Cliente
-(4,3) -- Cliente;
+(4,3), -- Cliente;
+(5,1), -- Admin (Admin/1234)
+(6,2), -- Deposito (Deposito/1234)
+(7,3), -- Cliente (Cliente/1234)
+(8,3), -- Cliente (Nicolas/1234)
+(9,1), -- Admin (AdminTotal/1234)
+(9,2), -- Deposito (AdminTotal/1234)
+(9,3); -- Cliente (AdminTotal/1234)
+
 -- ----------------------------------------------------------------------------------

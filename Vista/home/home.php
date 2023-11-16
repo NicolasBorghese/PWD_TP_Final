@@ -4,16 +4,23 @@ $datos = data_submitted();
 
 $objSesion = new Session();
 
-
 $tituloPagina = "TechnoMate | Inicio";
 include_once '../estructura/secciones/head.php';
 
-
 if ($objSesion->validar()){
-    include_once '../estructura/secciones/nav-bar-2.php';
+    if($_SESSION['rol'] == 3){
+        include_once '../estructura/secciones/nav-bar-2.php';
+    } else if ($_SESSION['rol'] == 2){
+        header('Location: homeDeposito.php');
+    } else if ($_SESSION['rol'] == 1){
+        header('Location: homeAdministrador.php');
+    } else {
+        include_once '../estructura/secciones/nav-bar-1.php';
+    }
 } else {
     include_once '../estructura/secciones/nav-bar-1.php';
 }
+
 ?>
 
 <div class="contenido-pagina">
@@ -52,6 +59,10 @@ if ($objSesion->validar()){
         if ($objSesion->validar()){
             include_once '../accionesDeCuenta/configuracionCuenta.php';
 
+            if(count($_SESSION['colroles']) > 1){
+                include_once '../accionesDeCuenta/cambiarRol.php';
+            }
+            
         } else {
             require_once("../login/login.php");
             require_once("../crearCuenta/formCrearCuenta.php"); 
