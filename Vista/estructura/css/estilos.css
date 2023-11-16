@@ -88,27 +88,26 @@ body {
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7);
     border-radius: 85px;
 }
-ul li {
+
+/*ul li {
     list-style: none;
     margin-left: 75px;
     float: left;
     position: relative;
-    
-}
+}*/
 
-.menuUsuario ul li{
+/*.menuUsuario ul li{
     list-style: none;
     margin-left: 55px;
     float: left;
     position: relative;
-    
-}
+}*/
 
+/*
 .menuUsuario2 ul li{
-    
     margin-left: 0px;
-    
 }
+*/
 
 /* -------------------- ESTILOS FOOTER -------------------- */
 .footer {

@@ -12,7 +12,7 @@ $param["cofecha"] = $_SESSION['idusuario'];
 $param["idusuario"] = $usuario->getIdUsuario;
 
 $objCompra-> alta($param);
-// ESTO LO PUSE PORQUE CUANDO TENES LA CATIDAD PODES CARGAR LA COMPRA ITEM
+// ESTO LO PUSE PORQUE CUANDO TENES LA CANTIDAD PODES CARGAR LA COMPRA ITEM
 /*
 CREATE TABLE `compraitem` (
     `idcompraitem` bigint(20) UNSIGNED NOT NULL,
