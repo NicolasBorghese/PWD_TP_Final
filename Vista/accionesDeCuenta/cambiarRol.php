@@ -1,5 +1,7 @@
 <!-- Crea un modal con un formulaario modificar nombres de los usuarios -->
 
+
+
 <div class="modal fade" id="modalConfiguracion" data-bs-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">

@@ -52,6 +52,10 @@ if ($objSesion->validar()){
         if ($objSesion->validar()){
             include_once '../accionesDeCuenta/configuracionCuenta.php';
 
+            if(count($_SESSION['colroles']) > 1){
+                include_once '../accionesDeCuenta/cambiarRol.php';
+            }
+            
         } else {
             require_once("../login/login.php");
             require_once("../crearCuenta/formCrearCuenta.php"); 
