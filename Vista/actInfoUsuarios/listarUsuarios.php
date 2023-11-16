@@ -7,6 +7,8 @@ include_once '../../Modelo/Usuario.php';
 $tituloPagina = "TechnoMate | Administrador";
 include_once '../estructura/secciones/head.php';
 
+$datos = data_submitted();
+
 $objSesion = new Session();
 
 if ($objSesion->validar()){
@@ -27,6 +29,9 @@ $colUsuarios = $objUsuario->buscar("");
 
 <?php
 if (!empty($colUsuarios)){
+    if(array_key_exists('exito', $datos)){
+        echo "<h3>Modificación realizada con éxito a: ".$datos['exito']."!</h3>";
+    }
     echo "<h4>Listado de usuarios</h4>";
     echo "<table class='table table-striped table-hover'>";
     echo "<th>#</th>

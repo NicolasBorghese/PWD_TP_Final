@@ -1,5 +1,6 @@
 <?php
     include_once '../../configuracion.php';
+    session_start();
     $datos = data_submitted();
 
     $objUsuario = new AbmUsuario();
@@ -15,11 +16,12 @@
 
     if (!empty($usuario)){
         if ($objUsuario->modificar($datos)){
-            echo "si";
-            // header ('Location:listarUsuarios.php?error=0');
+            $_SESSION['usnombre'] = $datos['usnombre'];
+            //echo "si";
+            header ('Location: ../actInfoUsuarios/listarUsuarios.php?exito='.$datos['usnombre']);
         }
     } else {
-        echo "no";
-        // header ('Location:./formActualizar.php?idusuario='.$datos['idusuario']);
+        //echo "no";
+        header ('Location: ../actInfoUsuarios/formActualizar.php?idusuario='.$datos['idusuario']);
     }
 ?>

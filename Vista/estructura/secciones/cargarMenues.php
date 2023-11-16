@@ -13,27 +13,26 @@
             <div class="collapse navbar-collapse menuUsuario" id="navbar-Toggler">
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <?php
-                    for ($i = 0; $i < count($listaMenu); $i++) {
-                        if ($listaMenu[$i]->getMeDeshabilitado() == null) {
+                        for ($i = 0; $i < count($listaMenu); $i++) {
+                            if ($listaMenu[$i]->getMeDeshabilitado() == null) {
 
-                            /*lee los datos de los menues cargados*/
-                            $ruta = $listaMenu[$i]->getMeDescripcion();
-                            $nombre = $listaMenu[$i]->getMeNombre();
+                                /*lee los datos de los menues cargados*/
+                                $ruta = $listaMenu[$i]->getMeDescripcion();
+                                $nombre = $listaMenu[$i]->getMeNombre();
 
-                            if ($nombre == 'iconoCarrito') {/*espara que coloque el icono carrito*/
-                                $nombre = "<i class='bi bi-cart-plus-fill '></i>";
+                                if ($nombre == 'iconoCarrito') {/*espara que coloque el icono carrito*/
+                                    $nombre = "<i class='bi bi-cart-plus-fill '></i>";
+                                }
+                                echo '<li class="nav-item mx-2 flex-grow-1"> <a class="nav-link" aria-current="page" href=' . $ruta . '>' . $nombre . '</a> </li>'; // acomoda los menues en lista
                             }
-                            echo '<li class="nav-item mx-2 flex-grow-1"> <a class="nav-link" aria-current="page" href=' . $ruta . '>' . $nombre . '</a> </li>'; // acomoda los menues en lista
                         }
-                    }
                     ?>
                     <ul class="nav menuUsuario2">
                         <li class="dropdown row">
 
                             <a href="#" class="text-white text-decoration-none nav-link nav-item" data-bs-toggle="dropdown">
                                 <div>
-                                    <span id="nombreUsuarioCuenta"><?php //echo $_SESSION['usnombre'] 
-                                                                    ?></span>
+                                    <span id="nombreUsuarioCuenta"><?php //echo $_SESSION['usnombre']?></span>
                                     <i class="bi bi-person-fill fa-3x zoom-icon "></i>
                                     <i class="dropdown-toggle"></i>
                                 </div>
@@ -41,6 +40,9 @@
 
                             <ul class=" dropdown-menu dropdown-menu-down">
                                 <li><a class="text-black text-decoration-none " href=# data-bs-toggle="modal" data-bs-target="#modalConfiguracion" tabindex="-1" onclick="actualizarDatosUsuario()">Configuración</a></li>
+                                <?php
+                                    
+                                ?>
                                 <li><a class="text-black text-decoration-none " href=# data-bs-toggle="modal" data-bs-target="#modalCambiarRol" tabindex="-1">Cambiar Rol</a></li>
                                 <hr class="dropdown-divider">
                                 <li><a class="text-black text-decoration-none " href="../accionesDeCuenta/cerrarSession.php">Cerrar Sesion</a></li>

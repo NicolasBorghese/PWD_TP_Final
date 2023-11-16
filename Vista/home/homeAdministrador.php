@@ -29,6 +29,7 @@ if ($objSesion->validar()){
             </div>
             </a>
         </div>
+        
         <div class="accion-admin">
             <a href ="../actInfoUsuarios/listarUsuarios.php">
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionAdmin2.png" alt="Actualizar información de usuario">
