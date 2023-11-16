@@ -47,10 +47,12 @@ if ($objSesion->validar()){
         </div>
 
         <div class="accion-admin">
+            <a href="../administrador/gestionMenu.php">
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionAdmin4.png" alt="Crear nuevo rol">
             <div class="informacion-accion">
                 <p>CREAR NUEVOS ROLES E ÍTEMS DE MENÚ</p>
             </div>
+            </a>
         </div>
     </div>
 </div>

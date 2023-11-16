@@ -11,7 +11,7 @@ $listMenu = $objMenu->buscar(null);
 ?>
 <script src="../estructura/js/menus.js"></script>
 <div class="contenido-pagina">
-    <strong>Menus</strong>
+    <button><i class="bi bi-database-fill-add"></i></button>
     <?php 
     if (count($listMenu)>0){
         echo '<table class="table">

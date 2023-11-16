@@ -22,7 +22,7 @@ if($menu[0]->getMeDeshabilitado() != NULL){
 
 ?>
 <div class="contenedor-centrado" style="padding: 50px;">
-    <form name="actualizarMenu" id="actualizarMenu" method="POST" action="actualizarMenu.php"
+    <form name="actualizarMenu" id="actualizarMenu" method="POST" action="Accion/actualizarMenu.php"
         class="needs-validation" novalidate>
         <h3>Ingrese los nuevos datos a modificar</h3>
         <br>

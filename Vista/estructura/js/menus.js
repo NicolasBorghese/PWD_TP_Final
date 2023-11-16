@@ -9,7 +9,7 @@ function abrirModal(idmenu) {
         console.log('Botón Aceptar del modal presionado');
         // Aquí puedes realizar la acción que deseas al presionar Aceptar
         // Por ejemplo, puedes redirigir a la página formEditarMenu.php con el idmenu
-        window.location.href = 'deshabilitarMenu.php?idmenu=' + idmenu;
+        window.location.href = 'Accion/deshabilitarMenu.php?idmenu=' + idmenu;
     });
 }
 
