@@ -17,18 +17,18 @@ $producto=$objProducto->buscar($param);
           
           <div class="contenedor-dato">
           <label class="form-label">ID de producto</label>
-          <input class="form-control" type="text" name="idproducto" id="idproducto" value="<?php echo $producto[0]->getIdProducto() ?>" readonly></input><br>
+          <input class="form-control" type="text" name="idproducto" id="idproducto" value="<?php echo $producto[0]->getIdProducto() ?>" ></input><br>
           </div>
           <br>
           <div class="contenedor-dato">
           <label class="form-label">Nombre</label>
-          <input  class="form-control" type="text" name="pronombre" id="pronombre" value="<?php echo $producto[0]->getProNombre() ?>" readonly></input><br>
+          <input  class="form-control" type="text" name="pronombre" id="pronombre" value="<?php echo $producto[0]->getProNombre() ?>" ></input><br>
           </div>
           <br>
 
           <div class="contenedor-dato">
           <label class="form-label">Precio</label>
-          <input  class="form-control" type="text" name="prodetalle" id="prodetalle" value="<?php echo $producto[0]->getProDetalle() ?>"readonly></input>
+          <input  class="form-control" type="text" name="prodetalle" id="prodetalle" value="<?php echo $producto[0]->getProDetalle() ?>"></input>
           </div>
           <br>
           <div class="contenedor-dato">
@@ -38,7 +38,7 @@ $producto=$objProducto->buscar($param);
           <br>
           <div class="contenedor-dato">
           <label class="form-label">Tipo</label>
-           <input  class="form-control" type="text" name="tipo" id="tipo" value="<?php echo $producto[0]->getTipo() ?>" readonly></input>
+           <input  class="form-control" type="text" name="tipo" id="tipo" value="<?php echo $producto[0]->getTipo() ?>" ></input>
           </div>
           <br>
           <div class="d-grid mb-3 gap-2">
