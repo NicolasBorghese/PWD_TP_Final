@@ -54,9 +54,11 @@ class AbmProducto
      * @param array $param
      */
     public function alta($param){
+   
         $resp = false;
         $param['idproducto'] = null;
         $obj = $this->cargarObjeto($param);
+           //verEstructura($obj);
         if ($obj != null and $obj->insertar()) {
             $resp = true;
         }
@@ -103,14 +105,14 @@ class AbmProducto
     public function buscar($param){
         $where = " true ";
         if ($param<>null){
-            if  (isset($param['idproducto']))
-            $where.=" and idproducto = ".$param['idproducto']; 
+          /*  if  (isset($param['idproducto']))
+            $where.=" and idproducto = ".$param['idproducto']; */
         if  (isset($param['pronombre']))
                 $where.=" and pronombre ='".$param['pronombre']."'";
         if  (isset($param['prodetalle']))
                 $where.=" and prodetalle ='".$param['prodetalle']."'";
         if  (isset($param['procantstock']))
-                $where.=" and procansStock ='".$param['procantstock']."'";
+                $where.=" and procantstock ='".$param['procantstock']."'";
         if  (isset($param['tipo']))
                 $where.=" and tipo ='".$param['tipo']."'";
         if  (isset($param['imagenproducto']))
