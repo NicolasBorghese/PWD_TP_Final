@@ -7,7 +7,9 @@ include_once("../../configuracion.php");
 
 $objMenu = new AbmMenu();
 $listMenu = $objMenu->buscar(null);
+
 ?>
+<script src="../estructura/js/menus.js"></script>
 <div class="contenido-pagina">
     <strong>Menus</strong>
     <?php 
@@ -42,7 +44,7 @@ $listMenu = $objMenu->buscar(null);
             echo '<td>'.$idMenuPadre.'</td>';
             echo '<td>'.$deshabilitado.'</td>';
             echo '<td>'.'<button class="btn text-white btn-dark"><a href="formEditarMenu.php?idmenu='.$idmenu.'">Editar</a></button>'.
-            '<button class="btn text-white btn-dark"><a href="deshabilitarMenu.php?idmenu='.$idmenu.'">Borrar</a></button>'
+            '<button class="btn btn-danger" id="borrar" onclick="abrirModal('. $idmenu .')">Borrar</button>'
             .'</td>';
             echo '</tr>'; 
         }
@@ -52,9 +54,24 @@ $listMenu = $objMenu->buscar(null);
         echo '<h4>No se han cargado menus.</h4>';  
         }
     ?>
- 
 </div>
 
-<?php
-include_once '../estructura/secciones/footer.php';
-?>
+<!-- Modal -->
+<div class="modal fade" id="modalMenu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Seguro que desea realizar un borrado?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>No se borrara permanentemente de la base de datos sino que se le realizara un borrado logico</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger" id="aceptar">Entendido</button>
+      </div>
+    </div>
+  </div>
+</div>

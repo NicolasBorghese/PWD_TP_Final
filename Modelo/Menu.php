@@ -237,16 +237,16 @@ class Menu {
        $fechaBaja= date('Y-m-d H:i:s');
     
         // Actualiza el valor de usdeshabilitado
-        $sql = "UPDATE menu SET medeshabilitado = '".$fechaBaja."' WHERE idmenu = ".$this->getIdMenu(). "'";
-        echo $sql;
+        $sql = "UPDATE menu SET medeshabilitado = '".$fechaBaja."' WHERE idmenu = ".$this->getIdMenu();
+        
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
             } else {
-                $this->setMensajeOperacion("menu->desabilitar: " . $base->getError());
+                $this->setMensajeOperacion("menu->deshabilitar: " . $base->getError());
             }
         } else {
-            $this->setMensajeOperacion("menu->desabilitar: " . $base->getError());
+            $this->setMensajeOperacion("menu->deshabilitar: " . $base->getError());
         }
     
         return $resp;
