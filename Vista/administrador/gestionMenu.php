@@ -24,11 +24,15 @@ $listMenu = $objMenu->buscar(null);
         </thead>
         <tbody>';
         foreach($listMenu as $objM){
+            $idMenuPadre = 'null';
+            if ($objM->getMenuPadre() != NULL){
+                $idMenuPadre = $objM->getMenuPadre()->getIdMenu();
+            }
             echo '<tr>';
             echo '<td>'.$objM->getIdMenu().'</td>';
             echo '<td>'.$objM->getMeNombre().'</td>';
             echo '<td>'.$objM->getMeDescripcion().'</td>';
-            echo '<td>'.$objM->getMenuPadre().'</td>';
+            echo '<td>'.$idMenuPadre.'</td>';
             echo '<td>'.$objM->getMeDeshabilitado().'</td>';
             echo '</tr>'; 
         }

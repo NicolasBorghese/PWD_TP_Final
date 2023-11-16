@@ -1,6 +1,6 @@
 
 <!-- ____________________________________ NAV BAR 1 ________________________________ -->
-<nav class="navbar navbar-expand-xxl  navbar-dark">
+<nav class="navbar navbar-expand-lg  navbar-dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-Toggler" aria-controls="navbar-Toggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
