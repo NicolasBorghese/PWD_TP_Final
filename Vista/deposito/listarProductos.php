@@ -44,7 +44,8 @@ if (!empty($colProductos)){
           <td>".$producto->getIdProducto()."</td>
           <td>".$producto->getProNombre()."</td>
           <td>".$producto->getProCantstock()."</td>";
-          echo'<td><a href="formActualizar.php?idproducto='.$producto->getIdProducto().'" class="btn text-white btn-dark">Actualizar</a></td>';
+          //echo'<td><a href="formActualizar.php?idproducto='.$producto->getIdProducto().'" class="btn text-white btn-dark" data-bs-target="#modalActualizarDatosProd" tabindex="-1" data-bs-toggle="modal">Actualizar</a></td>';
+          echo "<td><button type='button' class='btn text-white btn-dark' onclick='enviar( ". $producto->getIdProducto().")' data-bs-toggle='modal' data-bs-target='#modalActualizarDatosProd'>Actualizar</button></td>";
          echo"</tr>";
     }
 
@@ -55,7 +56,42 @@ if (!empty($colProductos)){
   
 ?>
 </div>
+  <!-- Modal detalle carrito-->
+  <div class="modal fade" id="modalActualizarDatosProd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">ACTUALIZAR DATOS DEL PRODUCTO</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="mostrar"></div>
+            </div>
+        </div>
+    </div>
 
 <?php
 include_once '../estructura/secciones/footer.php';
 ?>
+<script>
+    var resultado = document.getElementById("mostrar");
+
+    function enviar(codigo) {
+        // location.href="detalle.php?codigo="+codigo;
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                resultado.innerHTML = xmlhttp.responseText;
+            }
+        }
+
+        xmlhttp.open("GET", "formActualizar.php?codigo=" + codigo, true);
+        xmlhttp.send();
+
+    }
+</script>
