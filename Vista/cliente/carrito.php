@@ -1,6 +1,6 @@
 <?php
 include_once("../../configuracion.php");
-$objetoCompra= new AbmCompra();
+$objetoCompra = new AbmCompra();
 $fechaAlta = date('Y-m-d H:i:s');
 
 $parametros["idusuario"] = $_SESSION['idusuario'];
