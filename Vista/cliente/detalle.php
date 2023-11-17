@@ -1,6 +1,6 @@
 <?php
 include_once '../../configuracion.php';
-include_once '../estructura/secciones/head.php';
+include_once '../estructura/headSeguro.php';
 $cod=$_REQUEST['codigo'];
 
 $param['idproducto']=$cod;

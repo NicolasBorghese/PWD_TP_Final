@@ -1,6 +1,6 @@
 <?php
 
-include_once "../../configuracion.php";
+include_once("../../../configuracion.php");
 $datos = data_submitted();
 
 $usnombre = $datos['usnombreCrearCuenta'];
@@ -11,12 +11,9 @@ $param['usmail'] = $usmail;
 $param['idusuario'] = 0;
 $param['uspass'] = MD5(123456);
 $param['usdeshabilitado'] = NULL;
-$param['rol'] = 4;
 
 $objUsuario = new AbmUsuario();
 $resultado = $objUsuario->alta($param);
-
-new = UsuarioRol
 
 if ($resultado){
     $respuesta = array("resultado" => "exito", "mensaje" => "Su cuenta ha sido creada con éxito.

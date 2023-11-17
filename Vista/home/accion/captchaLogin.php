@@ -10,7 +10,7 @@ header ("Content-type: image/png");
 // Crear una imagen de (ancho x alto) 190, 36
 $imagen = imagecreatetruecolor(250, 50);
 $colorTexto = imagecolorallocate ($imagen, 255, 255, 255 );
-$font= "../Utiles/fuentes/Nabla-Regular.ttf";
+$font= "../../../Utiles/fuentes/Nabla-Regular.ttf";
 
 // Asignar colores random 
 $color1 = imagecolorallocate($imagen, random_int(150,255),random_int(0,100),random_int(0,90));

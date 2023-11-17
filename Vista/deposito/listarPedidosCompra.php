@@ -24,18 +24,32 @@ if ($n >= 1){
     echo "No tiene ninguna compra.";
 }
 
-// Guardo id de la compra de Moya
+// Guardo id de la primer compra de Moya
 $idCompra = $colCompras[0]->getIdCompra();
-$param = ['idcompraitem' => $idCompra];
+$param2 = ['idcompra' => $idCompra];
 
-// Creo objeto producto y los listo
+// Busco la colección de compraItem del idCompra
+$objCompraItem = new AbmCompraItem();
+$colCompraItem = $objCompraItem->buscar($param2);
+
+$objProducto = new AbmProducto();
+
+for ($i = 0; count($colCompraItem); $i++){
+
+    $param3['idproducto'] = $colCompraItem[$i]->getIdProducto();
+    $colProducto = $objProducto->buscar($param3);
+    $producto = $colProducto[0]->getProNombre();
+    echo "El usuario: ".$colUsuarios[0]->getUsNombre()."En su compra con id: ".$param2." compro un: ".$producto;
+}
+
+/* Creo objeto producto y los listo
 $objProducto = new AbmProducto();
 $colProductos = $objProducto->buscar("");
 
 // Creo objeto compraitem para buscar la compra vinculada a Moya
 $objCompraItem = new AbmCompraItem();
 $colCompraItem = $objCompraItem->buscar($param);
-print_r($colCompraItem);
+print_r($colCompraItem);*/
 
 
 

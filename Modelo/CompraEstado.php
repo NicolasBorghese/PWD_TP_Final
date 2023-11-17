@@ -199,14 +199,16 @@ $this->cefechafin = $cefechafin;
      * 
      * @return array
      */
-    public function listar($parametro = ""){
+    public function listar($parametro){
         $arreglo = array();
         $base = new BaseDatos();
         $sql = "SELECT * FROM compraestado ";
         if ($parametro != "") {
           $sql .= " WHERE ".$parametro;
         }
-     
+
+        echo "<br>".$sql."<br>";
+
         $res = $base->Ejecutar($sql);
         if ($res > -1) {
           if ($res > 0) {

@@ -1,8 +1,8 @@
 <?php
 include_once("../../configuracion.php");
 $tituloPagina = "TechnoMate | Inicio";
-include_once("../estructura/headInseguro.php");
-include_once("../estructura/navInseguro.php");
+include_once("../estructura/headSeguro.php");
+include_once("../estructura/navSeguro.php");
 ?>
 
 <div class="contenido-pagina">
@@ -37,7 +37,5 @@ include_once("../estructura/navInseguro.php");
 </div>
 
 <?php
-include_once("login.php");
-include_once("crearCuenta.php"); 
 include_once("../estructura/footer.php");
 ?>

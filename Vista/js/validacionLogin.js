@@ -58,7 +58,7 @@ $(document).ready(function () {
             };
             
             $.ajax({ 
-                url: "../../Control/Ajax/login.php",
+                url: "accion/accionLogin.php",
                 type: "POST",
                 dataType: "json",
                 data: formData,
@@ -75,23 +75,22 @@ $(document).ready(function () {
                         console.log(respuesta.resultado);
                         $(form).find('.is-valid').removeClass('is-valid');
                         $("#formLogin")[0].reset();
-                        $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
+                        $("#imgCaptchaLogin").attr("src", "accion/captchaLogin.php?r=" + Math.random());
                         alert(respuesta.mensaje);
                         $("#modalLogin").modal("hide");
                        
                         if(respuesta.rol == 1){
-                            window.location.href = "homeAdministrador.php";  
+                            window.location.href = "../administrador/homeAdministrador.php";  
                         } else if (respuesta.rol == 2){
-                            window.location.href = "homeDeposito.php";
+                            window.location.href = "../deposito/homeDeposito.php";
                         }else{
-                            window.location.href = "home.php";
+                            window.location.href = "../cliente/homeCliente.php";
                         }
                      
-
                     } else {
                         console.log(respuesta.resultado);
                         $(form).find('.is-valid').removeClass('is-valid');
-                        $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
+                        $("#imgCaptchaLogin").attr("src", "accion/captchaLogin.php?r=" + Math.random());
                         alert(respuesta.mensaje);
                         
                     }
@@ -109,10 +108,8 @@ $(document).ready(function () {
         }
     });
 
-
-
     $("#actualizarCaptchaLogin").on("click", function() {
-        $("#imgCaptchaLogin").attr("src", "../../Control/captchaLogin.php?r=" + Math.random());
+        $("#imgCaptchaLogin").attr("src", "accion/captchaLogin.php?r=" + Math.random());
     });
 });
 
@@ -127,7 +124,7 @@ jQuery.validator.addMethod("captchaLoginCorrecto", function (value, element) {
 function captchaLoginSinExpirar(value){
 
     var formData = {'captchaLogin': value};
-    var ruta = "../../Control/Ajax/captchaLoginSinExpirar.php";
+    var ruta = "accion/captchaLoginSinExpirar.php";
     var resultado = false;
         
         $.ajax({
@@ -143,6 +140,10 @@ function captchaLoginSinExpirar(value){
             if (respuesta.validacion == "exito"){
                 resultado = true;
             }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
+            console.log(xhr.responseText);
         }
 
         });
@@ -153,7 +154,7 @@ function captchaLoginSinExpirar(value){
 function captchaLoginCorrecto(value){
 
     var formData = {'captchaLogin': value};
-    var ruta = "../../Control/Ajax/captchaLoginCorrecto.php";
+    var ruta = "accion/captchaLoginCorrecto.php";
     var resultado = false;
         
         $.ajax({

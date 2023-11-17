@@ -47,7 +47,7 @@
                                 ?>
                                 
                                 <hr class="dropdown-divider">
-                                <li><a class="text-black text-decoration-none " href="../accionesDeCuenta/cerrarSession.php">Cerrar Sesion</a></li>
+                                <li><a class="text-black text-decoration-none " href="../opcionesCuenta/cerrarSession.php">Cerrar Sesion</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -62,7 +62,7 @@
         var nombreUsuarioCuentaElem = document.getElementById("nombreUsuarioCuenta");
 
         $.ajax({
-            url: "../../Control/Ajax/actualizarNombreUsuarioCuenta.php",
+            url: "../home/accion/actualizarNombreUsuarioCuenta.php",
             type: "POST",
             dataType: "json",
             //data: formData,

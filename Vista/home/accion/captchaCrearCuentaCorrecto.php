@@ -1,6 +1,6 @@
 <?php
 
-include_once "../../configuracion.php";
+include_once("../../../configuracion.php");
 $datos = data_submitted();
 
 $captcha = sha1($datos["captchaCrearCuenta"]);

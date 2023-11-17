@@ -71,8 +71,7 @@ ALTER TABLE `rol`
 INSERT INTO rol (idrol, rodescripcion) VALUES
 (1, 'Admin'),
 (2, 'Deposito'),
-(3, 'Cliente'),
-(4, 'nuevoUsuario');
+(3, 'Cliente');
 
 -- ----------------------------------------------------------------------------------
 --
@@ -203,23 +202,25 @@ ALTER TABLE `menu`
 -- Volcado de datos para la tabla 'menu'
 --
 INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VALUES
-(1, 'administrador', 'nav-bar-2', NULL, NULL),
-(2, 'deposito', 'nav-bar-2', NULL, NULL),
-(3, 'cliente','nav-bar-2', NULL, NULL),
+(1, 'administrador', '../estructura/navSeguro.php', NULL, NULL),
+(2, 'deposito', '../estructura/navSeguro.php', NULL, NULL),
+(3, 'cliente', '../estructura/navSeguro.php', NULL, NULL),
 
-/*seccion deposito*/
+/*Administrador*/
 (4, 'Ha ingresado como administrador', 'homeAdministrador.php', 1, NULL),
-/*seccion deposito*/
-(5, 'Ha ingresado a Deposito', 'homeDeposito.php', 2, NULL),
 
-(6, 'Inicio', 'home.php', 3, NULL),
-(7, 'Mates', 'mostrarProd.php?nombre=Mates', 3, NULL),
-(8, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 3, NULL),
-(9, 'Bombillas','mostrarProd.php?nombre=Bombillas', 3, NULL),
-(10, 'Termos', 'mostrarProd.php?nombre=Termos', 3,NULL),
-(11, 'SETS', 'mostrarProd.php?nombre=SETS', 3, NULL),
-(12, 'Mis Compras', '../cliente/misCompras.php', 3, NULL),
-(13, 'iconoCarrito', '../cliente/carrito.php', 3, NULL)
+/*Deposito*/
+(5, 'Ha ingresado a deposito', 'homeDeposito.php', 2, NULL),
+
+/*Cliente*/
+(6, 'Inicio', 'homeCliente.php', 3, NULL),
+(7, 'Mates', 'mostrarProductosCliente.php?nombre=Mates', 3, NULL),
+(8, 'Yerbas', 'mostrarProductosCliente.php?nombre=Yerbas', 3, NULL),
+(9, 'Bombillas', 'mostrarProductosCliente.php?nombre=Bombillas', 3, NULL),
+(10, 'Termos', 'mostrarProductosCliente.php?nombre=Termos', 3,NULL),
+(11, 'SETS', 'mostrarProductosCliente.php?nombre=SETS', 3, NULL),
+(12, 'Mis Compras', 'misCompras.php', 3, NULL),
+(13, 'iconoCarrito', 'carrito.php', 3, NULL)
 ;
 
 -- ----------------------------------------------------------------------------------
@@ -295,8 +296,8 @@ ALTER TABLE `compraestado`
 
 -- volcado de datos para la tabla compraestado //cambiar los id de compraestado, compra y compraestadotipo
 INSERT INTO compraestado (idcompraestado, idcompra, idcompraestadotipo, cefechaini, cefechafin) VALUES
-(1, 1, 1, '2021-11-19 02:43:16', '2021-11-19 06:45:09'),
-(2, 2, 2, '2021-11-19 02:45:21', '2021-11-19 06:52:46'),
+(1, 1, 1, '2021-11-19 02:43:16', NULL), -- '2021-11-19 06:45:09'
+(2, 2, 2, '2021-11-19 02:45:21', NULL), -- '2021-11-19 06:52:46'
 (3, 3, 3, '2021-11-19 02:53:12', '2021-11-19 06:53:16'),
 (4, 4, 4, '2021-11-19 02:54:15', '2021-11-19 06:54:18');
 

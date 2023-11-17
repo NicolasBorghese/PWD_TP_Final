@@ -60,7 +60,7 @@ echo "</div>";
 echo "</div>";
 
 include_once("login.php");
-include_once("formCrearCuenta.php"); 
+include_once("crearCuenta.php"); 
 include_once("../estructura/footer.php");
 ?>
 

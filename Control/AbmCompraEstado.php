@@ -102,17 +102,34 @@ class AbmCompraEstado{
     public function buscar($param){
         $where = " true ";
         if ($param<>null){
-            if  (isset($param['idcompraestado']))
+
+            if(isset($param['idcompraestado'])){
                 $where.=" and idcompraestado ='".$param['idcompraestado']."'";
-            if  (isset($param['idcompra']))
+            }
+            if(isset($param['idcompra'])){
                 $where.=" and idcompra ='".$param['idcompra']."'";
-            if  (isset($param['idcompraestadotipo']))
+            }
+                
+            if(isset($param['idcompraestadotipo'])){
                 $where.=" and idcompraestadotipo ='".$param['idcompraestadotipo']."'";
-            if  (isset($param['cifechaini']))
-                $where.=" and cifechaini ='".$param['cifechaini']."'";
-            if  (isset($param['cifechafin']))
-                $where.=" and cifechafin ='".$param['cifechafin']."'";
+            }
+                
+            if(isset($param['cefechaini'])){
+                $where.=" and cefechaini ='".$param['cefechaini']."'";
+            }
+                
+            if(isset($param['cefechafin'])){
+
+                if($param['cefechafin'] != "NULL"){
+                    $where.=" and cefechafin = ".$param['cefechafin'];
+                } else {
+                    $where.=" and cefechafin is NULL";
+                }
+                
+            }
+            
         }
+        echo $where;
         $obj = new CompraEstado();
         $arreglo = $obj->listar($where);
         return $arreglo;

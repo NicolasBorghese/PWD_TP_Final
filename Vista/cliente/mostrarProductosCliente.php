@@ -1,26 +1,13 @@
 <?php
-$texto = $_GET["nombre"];
-$tituloPagina = "TechnoMate | " . $texto;
-include_once '../estructura/secciones/head.php';
 include_once("../../configuracion.php");
 
 $datos = data_submitted();
+$texto = $datos["nombre"];
 
-$objSesion = new Session();
+$tituloPagina = "TechnoMate | " . $texto;
 
-if ($objSesion->validar()){
-    if($_SESSION['rol'] == 3){
-        include_once '../estructura/secciones/nav-bar-2.php';
-    } else if ($_SESSION['rol'] == 2){
-        header('Location: homeDeposito.php');
-    } else if ($_SESSION['rol'] == 1){
-        header('Location: homeAdministrador.php');
-    } else {
-        include_once '../estructura/secciones/nav-bar-1.php';
-    }
-} else {
-    include_once '../estructura/secciones/nav-bar-1.php';
-}
+include_once("../estructura/headSeguro.php");
+include_once("../estructura/navSeguro.php");
 
 $objProduc = new AbmProducto();
 
@@ -72,20 +59,7 @@ echo "</div>";
 echo "</div>";
 echo "</div>";
 
-if ($objSesion->validar()){
-    include_once '../accionesDeCuenta/configuracionCuenta.php';
-
-    if(count($_SESSION['colroles']) > 1){
-        include_once '../accionesDeCuenta/cambiarRol.php';
-    }
-    
-} else {
-    require_once("../login/login.php");
-    require_once("../crearCuenta/formCrearCuenta.php"); 
-}
-
-include_once '../estructura/secciones/footer.php';
-
+include_once("../estructura/footer.php");
 ?>
 
 <script>

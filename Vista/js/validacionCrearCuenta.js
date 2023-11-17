@@ -46,7 +46,7 @@ $(document).ready(function () {
             var formData = $(form).serialize()
             
             $.ajax({ 
-                url: "../../Control/Ajax/crearCuenta.php",
+                url: "../../Control/Ajax Antiguo/crearCuenta.php",
                 type: "POST",
                 dataType: "json",
                 data: formData,
@@ -59,7 +59,7 @@ $(document).ready(function () {
                 success: function(respuesta, textStatus, xhr) {
                     //se llama cuando tiene éxito la respuesta
                     if (respuesta.resultado == "exito"){
-                        console.log(respuesta.resultado);
+                        console.log("El resultado de la consulta es: " + respuesta.resultado);
 
                     } else {
                         console.log(respuesta.resultado);
@@ -75,6 +75,7 @@ $(document).ready(function () {
                 error: function(xhr, textStatus, errorThrown) {
                     //called when there is an error
                     console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown)
+                    console.log(xhr.responseText);//muestra en la consola del navegador todos los errores
                 }
             });
         }
@@ -105,7 +106,7 @@ jQuery.validator.addMethod("captchaCrearCuentaCorrecto", function (value, elemen
 function nombreNoRepetido(value){
 
     var formData = {'usnombreCrearCuenta': value};//array en formato json. value es el dato recibido desde el formulario
-    var ruta = "../../Control/Ajax/nombreNoRepetido.php";
+    var ruta = "../../Control/Ajax Antiguo/nombreNoRepetido.php";
     var resultado = false;
 
     $.ajax({
@@ -131,7 +132,7 @@ function nombreNoRepetido(value){
 function captchaCrearCuentaSinExpirar(value){
 
     var formData = {'captchaCrearCuenta': value};
-    var ruta = "../../Control/Ajax/captchaCrearCuentaSinExpirar.php";
+    var ruta = "../../Control/Ajax Antiguo/captchaCrearCuentaSinExpirar.php";
     var resultado = false;
         
     $.ajax({
@@ -157,7 +158,7 @@ function captchaCrearCuentaSinExpirar(value){
 function captchaCrearCuentaCorrecto(value){
 
     var formData = {'captchaCrearCuenta': value};
-    var ruta = "../../Control/Ajax/captchaCrearCuentaCorrecto.php";
+    var ruta = "../../Control/Ajax Antiguo/captchaCrearCuentaCorrecto.php";
     var resultado = false;
         
     $.ajax({

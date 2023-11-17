@@ -8,6 +8,7 @@ $datos = data_submitted();
 /*$a=$b;
 Es posible que los errores generados en el codigo php no permitan que se genere bien el json*/
 
+$a = $b;
 
 //json es una especie de arreglo y la funcion json_encode($param) transforma los 
 //arreglos php en formato json

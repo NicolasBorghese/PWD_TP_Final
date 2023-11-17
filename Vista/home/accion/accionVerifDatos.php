@@ -7,7 +7,7 @@ Nota: Hacer que al crear una cuenta, esta queda en la base de datos
       Como diferenciar nuevos susarios de ya existentes?
 </p>
 <?php 
-include_once "../../configuracion.php";
+include_once("../../../configuracion.php");
 $datos = data_submitted();
 $objUsuario = new AbmUsuario();
 $exiteUsuario = $objUsuario->buscar($datos);

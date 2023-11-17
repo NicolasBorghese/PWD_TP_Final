@@ -1,6 +1,6 @@
 <?php
 
-include_once "../../configuracion.php";
+include_once("../../../configuracion.php");
 $datos = data_submitted();
 
 if (isset($_COOKIE['captchaLogin'])) {
@@ -18,5 +18,4 @@ if ($cookieCaptcha != "expiro") {
 }
 
 echo json_encode($respuesta);
-
 ?>
