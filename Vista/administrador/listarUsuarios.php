@@ -3,9 +3,14 @@ include_once("../../configuracion.php");
 include_once '../../Control/AbmUsuario.php';
 include_once '../../Modelo/Conector/BaseDatos.php';
 include_once '../../Modelo/Usuario.php';
+include_once '../../Control/AbmUsuarioRol.php';
+include_once '../../Control/AbmRol.php';
+include_once '../../Modelo/UsuarioRol.php';
+include_once '../../Modelo/Rol.php';
 
 $tituloPagina = "TechnoMate | Administrador";
-include_once '../estructura/secciones/head.php';
+include_once '../estructura/headSeguro.php';
+include_once '../estructura/navSeguro.php';
 
 $datos = data_submitted();
 
@@ -23,36 +28,46 @@ if ($objSesion->validar()){
 
 $objUsuario = new AbmUsuario();
 $colUsuarios = $objUsuario->buscar("");
+
+$objUsuarioRol = new AbmUsuarioRol();
+$colUsuarioRol = $objUsuarioRol->buscar("");
+
 ?>
 
 <div class="container-fluid" style="padding: 50px;">
 
-<?php
-if (!empty($colUsuarios)){
-    if(array_key_exists('exito', $datos)){
+    <?php
+    if (!empty($colUsuarioRol)){
+        if(array_key_exists('exito', $datos)){
         echo "<h3>Modificación realizada con éxito a: ".$datos['exito']."!</h3>";
     }
+    
     echo "<h4>Listado de usuarios</h4>";
     echo "<table class='table table-striped table-hover'>";
     echo "<th>#</th>
     <th>Nombre de Usuario</th>
-    <th>Acción</th>";
+    <th>Modificar</th>";
 
-    foreach($colUsuarios as $usuario){
+    foreach($colUsuarioRol as $usuarioRol){
         echo "<tr>
-        <td>".$usuario->getIdUsuario()."</td>
-        <td>".$usuario->getUsNombre()."</td>
-        <td><button class='btn text-white btn-dark'><a style='text-decoration: none;' href='formModificarUsuarios.php?idusuario=" . $usuario->getIdusuario() . "'>Modificar</a></button></td>
+        <td>".$usuarioRol->getObjUsuario()->getIdUsuario()."</td>
+        <td>".$usuarioRol->getObjUsuario()->getUsNombre()."</td>
+        <td><button class='btn text-white btn-dark' data-bs-toggle='modal' data-bs-target='#modalModificacion' tabindex='-1'><a style='text-decoration: none;' href='formModificarUsuarios.php?idusuario= ". $usuarioRol->getObjUsuario()->getIdusuario() . "'>Datos</a></button>
+        <button class='btn text-white btn-dark' data-bs-toggle='modal' data-bs-target='#modalModificacion' tabindex='-1'><a style='text-decoration: none;' href='formModificarRoles.php?idusuario= ". $usuarioRol->getObjUsuario()->getIdusuario() . "'>Roles</a></button>
+        </td>
         </tr>";
     }
     echo "</table>";
 } else {
     echo "<h4>No hay usuarios cargados en la Base de Datos";
 }
+
 ?>
 
+    <a href="./homeAdministrador.php"><input type="submit" value="Volver" class="btn text- white btn-dark">
+        </input></a>
 </div>
 
 <?php
-include_once '../estructura/secciones/footer.php';
+include_once '../estructura/footer.php';
 ?>
