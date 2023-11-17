@@ -123,22 +123,7 @@ class AbmProducto
         return $arreglo;
     }
 
-        /**
-     * Retorna el carrito de un usuario
-     * @param array $param
-     * @return Producto
-     */
-    public function cargarProdCarrito($param){
-          $arreglo= [];
-          $param["idproducto"]=$param;
-            $objProd = new Producto;
-            $arreglo= $objProd->buscar($param);
-
-            $arrayProd[]=$arreglo;
-    
-
-        return $arreglo;
-    }
+  
 }
 
 

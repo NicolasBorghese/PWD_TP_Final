@@ -27,7 +27,7 @@ class AbmCompra{
         array_key_exists('idcompra', $param) &&
         array_key_exists('cofecha', $param) &&
         array_key_exists('idusuario', $param)
-        ){
+        ){/*
             $objUsuario = new Usuario();
             $objUsuario->setIdUsuario($param['idusuario']);
             $objUsuario->cargar();
@@ -38,7 +38,13 @@ class AbmCompra{
                 $param['idcompra'],
                 $param['cofecha'],
                 $objUsuario
-            );
+            );*/
+            $obj = new Compra();
+            $objUsuario = new Usuario();
+            $objUsuario->setIdUsuario($param['idusuario']);
+            $objUsuario->cargar();
+
+            $obj->setear($param['idcompra'], $param['cofecha'], $objUsuario);
         }
         return $objCompra;
     }
@@ -193,5 +199,28 @@ class AbmCompra{
 
         return $colInfo;
     }
+
+
+   /**
+     * Retorna el carrito de un usuario
+     * @param array $param
+     * @return Compra|null
+     */
+    public function buscarCarritoAbierto($param){
+
+        $resp = null;
+            if(isset($param["idusuario"])){
+
+            $objCo = new Compra;
+
+            //$objCo->buscar($obj);
+            $resp = $objCo->buscarCarrito($param["idusuario"]);//retorna id carrito
+        }
+
+        return $resp;
+    }
+
+    
+    
 }
 ?>

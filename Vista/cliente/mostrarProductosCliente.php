@@ -36,7 +36,7 @@ for ($i = 0; $i < count($listaProd); $i++) {
     <button type='button' class='btn' onclick='enviar(<?php echo $listaProd[$i]->getIdProducto()?>)' data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bi bi-cart-plus-fill text-start'></i></button>
 
     <!-- Modal detalle carrito-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" name="modalProd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

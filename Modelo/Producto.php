@@ -212,7 +212,7 @@ class Producto
      * 
      * @return array
      */
-    public function listar($parametro)
+    public function listar($parametro="")
     {
         $arreglo = array();
         $base = new BaseDatos();
@@ -225,18 +225,9 @@ class Producto
         if ($res > -1) {
             if ($res > 0) {
                 while ($row = $base->Registro()) {
-                    /*$obj = new Compra();
-                    $objUsuario= new Usuario();
-                    $objUsuario->setIdProducto($row['idproducto']);
-                    $objUsuario->cargar();*/
+                 
                     $obj = new Producto();
 
-<<<<<<< HEAD
-
-        
-
-     /**
-=======
                     $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'], $row['tipo'], $row['imagenproducto']);
 
                     array_push($arreglo, $obj);
@@ -247,7 +238,6 @@ class Producto
     }
 
     /**
->>>>>>> bba8c8917ffd168320d49fee66e64d384b63e970
      * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
      * en un arreglo asociativo
      * 

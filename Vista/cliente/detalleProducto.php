@@ -17,7 +17,7 @@ $listaProd=$objProducto->buscar($param);
     $imagen=$listaProd [0]->getImagenProducto();
 
 ?>
-<form  method="POST" name="formProductos" action="../cliente/carritoPrueba.php">
+<form  method="POST" name="formProductos"  action="../cliente/cargarProdCarrito.php">
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -33,9 +33,9 @@ $listaProd=$objProducto->buscar($param);
          <input class="form-control form-control-sm" type='text' name='precio' id='precio'  value="<?php echo $precio ?>" readonly>
 
          <label for="cantidad"  name="cantidad" class="col-form-label">seleccione Cantidad</label>
-         <input type="number" id="cantidad"  name="cantidad" value="" class="form-control form-control-sm">
+         <input type="number" id="cantidad"  name="cantidad" value="1" class="form-control form-control-sm" readonly>
         <p class="card-text"><small class="text-body-secondary">Si esta seguro puede continuar</small></p>
-        <button class="btn btn-dark" type="submit" >Agregar al carrito</button>
+        <button class="btn btn-dark" type="submit" id="btnAgregarProducto" >Agregar al carrito</button>
      </div>
   </div>
   </div>

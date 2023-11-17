@@ -201,15 +201,18 @@ class Compra extends BaseDatos{
         return $arreglo;
     }
 
+
+
     /**
      * Obtiene la compra activa en estado carrito
-     * @return Compra|null
+     * @return Compra
      */
-    public function buscarCarrito(){
+    public function buscarCarrito($param){
       $resp = null;
-
+      
+     // $idUsuario=$param['idusuario'];
       $consulta = "SELECT * FROM compra INNER JOIN compraestado ON compraestado.idcompra = compra.idcompra
-      WHERE idusuario = ".$this->getObjUsuario()->getIdUsuario() ." AND idcompraestadotipo = 1 AND cefechafin = '0000-00-00 00:00:00';";
+      WHERE idusuario = ".$param." AND idcompraestadotipo = 1 AND cefechafin = '0000-00-00 00:00:00';";
 
       if($this->Iniciar()){
           if($this->Ejecutar($consulta)){
