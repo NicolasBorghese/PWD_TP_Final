@@ -203,28 +203,33 @@ class Compra extends BaseDatos{
 
 
 
-    /**
-     * Obtiene la compra activa en estado carrito
-     * @return Compra
-     */
-    public function buscarCarrito($param){
-      $resp = null;
-      
-     // $idUsuario=$param['idusuario'];
-      $consulta = "SELECT * FROM compra INNER JOIN compraestado ON compraestado.idcompra = compra.idcompra
-      WHERE idusuario = ".$param." AND idcompraestadotipo = 1 AND cefechafin = '0000-00-00 00:00:00';";
+   /**
+* Obtiene la compra activa en estado carrito
+* @return Compra
+*/
+public function buscarCarrito($param)
+{
+    $resp = null;
 
-      if($this->Iniciar()){
-          if($this->Ejecutar($consulta)){
-              if($fila = $this->Registro()){
-                  $resp = new Compra();
-                  $resp->buscar($fila["idcompra"]);
-              }
-          }else{$this->setMensajeOperacion("compra->buscarCarrito: ".$this->getError());}
-      }else{$this->setMensajeOperacion("compra->buscarCarrito: ".$this->getError());}
+    $idUsuario = $param['idusuario'];
+    $consulta = "SELECT * FROM compra INNER JOIN compraestado ON compraestado.idcompra = compra.idcompra
+    WHERE idusuario = ".$idUsuario." AND idcompraestadotipo = 1 AND cefechafin IS NULL;";
 
-      return $resp;
-  } 
+    if ($this->Iniciar()) {
+        if ($this->Ejecutar($consulta)) {
+            if ($row= $this->Registro()) {
+                $resp = new Compra();
+                $resp->buscar(row["idcompra"]);
+            }
+        } else {
+            $this->setMensajeOperacion("compra->buscarCarrito: " . $this->getError());
+        }
+    } else {
+        $this->setMensajeOperacion("compra->buscarCarrito: " . $this->getError());
+    }
+
+    return $resp;
+}
 
 
     /**

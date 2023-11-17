@@ -225,5 +225,23 @@ class AbmCompra{
 
         return $arreglo;
     }
+
+      /**
+     * Retorna el carrito de un usuario
+     * @param array $param
+     * @return Compra|null
+     */
+    public function buscarCarritoAbierto($param){
+        $resultado = null;
+
+        if(isset($param["idusuario"])){
+
+            $objCo = new Compra;
+            $resultado = $objCo->buscarCarrito($param);
+        }
+
+        return $resultado;
+    }
+
 }
 ?>

@@ -36,13 +36,16 @@ include_once("../estructura/navSeguro.php");
 
            $objeItem = new AbmCompraItem(); 
            $item= $objeItem->buscar( $compraActiva );
+
+          // print_r( $item);
         
           // $parame['idproducto']= $item['idproducto'];
 
 
            $objeProd= new AbmProducto(); 
+           $parametro['idproducto']=$item['idproducto'];
 
-           $listaProducto=$objeProd ->buscar($item['idproducto']); 
+           $listaProducto=$objeProd->buscar($parametro); 
         
         
         if(count($listaProducto )>0){
