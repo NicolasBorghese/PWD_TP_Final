@@ -71,7 +71,8 @@ ALTER TABLE `rol`
 INSERT INTO rol (idrol, rodescripcion) VALUES
 (1, 'Admin'),
 (2, 'Deposito'),
-(3, 'Cliente');
+(3, 'Cliente'),
+(4, 'nuevoUsuario');
 
 -- ----------------------------------------------------------------------------------
 --

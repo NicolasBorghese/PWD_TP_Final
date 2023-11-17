@@ -1,6 +1,8 @@
 <?php
 class Session{
 
+    //IMPLEMENTAR TIENE PERMISOS
+
     /*_ _construct(). Constructor que. Inicia la sesión.*/
     public function __construct()
     {
