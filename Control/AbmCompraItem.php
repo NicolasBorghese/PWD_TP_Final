@@ -107,12 +107,14 @@ class AbmCompraItem{
             if  (isset($param['idproducto']))
                 $where.=" and idproducto ='".$param['idproducto']."'";
             if  (isset($param['idcompra']))
-                $where.=" and idcompra ='".$param['idcompra']."'";
+                $where.=" and idcompra = ".$param['idcompra'];
             if  (isset($param['cicantidad']))
                 $where.=" and cicantidad ='".$param['cicantidad']."'";
         }
+
         $obj = new CompraItem();
         $arreglo = $obj->listar($where);
+
         return $arreglo;
     }
 }
