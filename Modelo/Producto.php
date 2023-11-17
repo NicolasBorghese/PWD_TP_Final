@@ -220,6 +220,9 @@ class Producto {
             return $arreglo;
         }
 
+
+        
+
      /**
      * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
      * en un arreglo asociativo

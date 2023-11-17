@@ -193,6 +193,28 @@ class AbmCompra{
 
         return $colInfo;
     }
+
+    
+    /**
+     * Retorna el carrito de un usuario
+     * @param array $param
+     * @return Compra|null
+     */
+    public function cargarCarrito($param){
+        $resp = null;
+
+        if(isset($param["idusuario"])){
+            $objUsuario = new Usuario;
+            $obj->buscar($param["idusuario"]);
+
+            $objCompra = new Compra;
+            $objCompra->setObjUsuario( $objUsuario);
+            $resp = $objCompra->buscarCarrito();
+        }
+
+        return $resp;
+    }
 }
 
+    
 ?>

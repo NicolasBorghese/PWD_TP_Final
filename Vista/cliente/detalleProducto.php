@@ -1,12 +1,12 @@
 <?php
 include_once '../../configuracion.php';
 include_once '../estructura/headSeguro.php';
+
 $cod=$_REQUEST['codigo'];
-
-$param['idproducto']=$cod;
-
-$carrito = [];
 //echo $cod;
+$param['idproducto']=$cod;
+//echo$param;
+
 $objProducto= new AbmProducto();
 
 $listaProd=$objProducto->buscar($param);
@@ -17,7 +17,7 @@ $listaProd=$objProducto->buscar($param);
     $imagen=$listaProd [0]->getImagenProducto();
 
 ?>
-<form  method="POST" name="formProductos" action="../cliente/carrito.php">
+<form  method="POST" name="formProductos" action="../cliente/carritoPrueba.php">
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">

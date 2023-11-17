@@ -202,6 +202,29 @@ class Compra extends BaseDatos{
     }
 
     /**
+     * Obtiene la compra activa en estado carrito
+     * @return Compra|null
+     */
+    public function buscarCarrito(){
+      $resp = null;
+
+      $consulta = "SELECT * FROM compra INNER JOIN compraestado ON compraestado.idcompra = compra.idcompra
+      WHERE idusuario = ".$this->getObjUsuario()->getIdUsuario() ." AND idcompraestadotipo = 1 AND cefechafin = '0000-00-00 00:00:00';";
+
+      if($this->Iniciar()){
+          if($this->Ejecutar($consulta)){
+              if($fila = $this->Registro()){
+                  $resp = new Compra();
+                  $resp->buscar($fila["idcompra"]);
+              }
+          }else{$this->setMensajeOperacion("compra->buscarCarrito: ".$this->getError());}
+      }else{$this->setMensajeOperacion("compra->buscarCarrito: ".$this->getError());}
+
+      return $resp;
+  } 
+
+
+    /**
      * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
      * en un arreglo asociativo
      * 
