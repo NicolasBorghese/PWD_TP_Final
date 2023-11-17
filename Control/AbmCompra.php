@@ -193,5 +193,31 @@ class AbmCompra{
 
         return $colInfo;
     }
+
+    /**
+     * Retorna todos sus obj item
+     * @param array $param
+     * @return array|null
+     */
+    public function buscarItems($param){
+        $where = " true ";
+        
+        if ($param <> NULL){
+
+            if  (isset($param['idcompra']))
+                $where .= " and idcompra = '".$param['idcompra']."'";
+
+            if  (isset($param['cofecha']))
+                $where.= " and cofecha = '".$param['cofecha']."'";
+
+            if  (isset($param['idusuario']))
+                $where.= " and idusuario = ".$param['idusuario'];
+        }
+
+        $obj = new CompraItem();
+        $arreglo = $obj->listar($where);
+
+        return $arreglo;
+    }
 }
 ?>

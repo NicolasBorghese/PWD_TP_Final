@@ -129,7 +129,6 @@ class AbmCompraEstado{
             }
             
         }
-        echo $where;
         $obj = new CompraEstado();
         $arreglo = $obj->listar($where);
         return $arreglo;

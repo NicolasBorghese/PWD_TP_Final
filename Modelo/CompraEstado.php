@@ -207,8 +207,6 @@ $this->cefechafin = $cefechafin;
           $sql .= " WHERE ".$parametro;
         }
 
-        echo "<br>".$sql."<br>";
-
         $res = $base->Ejecutar($sql);
         if ($res > -1) {
           if ($res > 0) {
