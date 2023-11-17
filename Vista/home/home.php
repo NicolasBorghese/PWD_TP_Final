@@ -37,7 +37,5 @@ include_once("../estructura/navInseguro.php");
 </div>
 
 <?php
-include_once("login.php");
-include_once("crearCuenta.php"); 
 include_once("../estructura/footer.php");
 ?>

@@ -134,7 +134,7 @@ class Producto
      */
     public function insertar()
     {
-        //echo "insertar";
+        
         $resp = false;
         $base = new BaseDatos();
         $sql = "INSERT INTO producto (pronombre, prodetalle, procantstock, tipo, imagenproducto)
@@ -225,7 +225,7 @@ class Producto
         if ($res > -1) {
             if ($res > 0) {
                 while ($row = $base->Registro()) {
-                 
+            
                     $obj = new Producto();
 
                     $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'], $row['tipo'], $row['imagenproducto']);

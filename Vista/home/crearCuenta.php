@@ -4,10 +4,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Crear una Cuenta</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="logologin">
+                    <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110" class="logologin">
+                </div>
             </div>
-            <div class="modal-body">
+                <h5 class="modal-title">Crear una Cuenta</h5>
+                <div class="modal-body">
+                
                 <form name="formCrearCuenta" id="formCrearCuenta" method="POST" class="needs-validation" novalidate>
 
                     <div class="contenedor-dato">

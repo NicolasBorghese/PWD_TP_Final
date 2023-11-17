@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <div class="mx-auto">
-            <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" onload="actualizarNombreUsuarioCuenta()" width="110">
+            <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110">
         </div>
         <div class="container-fluid">
             <div class="container-fluid d-flex justify-content-center">
@@ -32,14 +32,14 @@
 
                             <a href="#" class="text-white text-decoration-none nav-link nav-item" data-bs-toggle="dropdown">
                                 <div>
-                                    <span id="nombreUsuarioCuenta"><?php //echo $_SESSION['usnombre']?></span>
+                                    <span id="nombreUsuarioCuenta"><?php echo $_SESSION['usnombre']?></span>
                                     <i class="bi bi-person-fill fa-3x zoom-icon "></i>
                                     <i class="dropdown-toggle"></i>
                                 </div>
                             </a>
 
                             <ul class=" dropdown-menu dropdown-menu-down">
-                                <li><a class="text-black text-decoration-none " href=# data-bs-toggle="modal" data-bs-target="#modalConfiguracion" tabindex="-1" onclick="actualizarDatosUsuario()">Configuración</a></li>
+                                <li><a class="text-black text-decoration-none " href=# data-bs-toggle="modal" data-bs-target="#modalConfiguracion" tabindex="-1">Configuración</a></li>
                                 <?php
                                     if (count($_SESSION['colroles']) > 1){
                                         echo "<li><a class='text-black text-decoration-none' href=# data-bs-toggle='modal' data-bs-target='#modalCambiarRol' tabindex='-1'>Cambiar Rol</a></li>";
@@ -56,34 +56,9 @@
         </div>
     </div>
 </nav>
-
-<script>
-    //$(document).ready(function () {
-        function actualizarNombreUsuarioCuenta() {
-            var nombreUsuarioCuentaElem = document.getElementById("nombreUsuarioCuenta");
-
-            $.ajax({
-                url: "../home/accion/actualizarNombreUsuarioCuenta.php",
-                type: "POST",
-                dataType: "json",
-                //data: formData,
-                async: false,
-
-                complete: function(xhr, textStatus) {
-                    //se llama cuando se recibe la respuesta (no importa si es error o éxito)
-                    console.log("La respuesta regreso");
-                },
-                success: function(respuesta, textStatus, xhr) {
-                    console.log("El nombre es: " + respuesta.nombre);
-                    nombreUsuarioCuentaElem.innerHTML = respuesta.nombre;
-                },
-                error: function(xhr, textStatus, errorThrown) {
-                    //called when there is an error
-                    console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-                    console.error(xhr.responseText);
-                }
-            });
-            window.onload = actualizarNombreUsuarioCuenta;
-        }
-    //});
-</script>
+<?php
+    include_once("../opcionesCuenta/configuracionCuenta.php");
+    if($_SESSION['colroles'] > 1){
+        include_once("../opcionesCuenta/cambiarRol.php"); 
+    }
+?>

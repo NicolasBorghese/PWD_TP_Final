@@ -200,27 +200,30 @@ class AbmCompra{
         return $colInfo;
     }
 
-
-   /**
-     * Retorna el carrito de un usuario
+    /**
+     * Retorna todos sus obj item
      * @param array $param
-     * @return Compra|null
+     * @return array|null
      */
-    public function buscarCarritoAbierto($param){
+    public function buscarItems($param){
+        $where = " true ";
+        
+        if ($param <> NULL){
 
-        $resp = null;
-            if(isset($param["idusuario"])){
+            if  (isset($param['idcompra']))
+                $where .= " and idcompra = '".$param['idcompra']."'";
 
-            $objCo = new Compra;
+            if  (isset($param['cofecha']))
+                $where.= " and cofecha = '".$param['cofecha']."'";
 
-            //$objCo->buscar($obj);
-            $resp = $objCo->buscarCarrito($param["idusuario"]);//retorna id carrito
+            if  (isset($param['idusuario']))
+                $where.= " and idusuario = ".$param['idusuario'];
         }
 
-        return $resp;
-    }
+        $obj = new CompraItem();
+        $arreglo = $obj->listar($where);
 
-    
-    
+        return $arreglo;
+    }
 }
 ?>

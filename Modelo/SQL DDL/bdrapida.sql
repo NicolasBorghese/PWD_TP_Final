@@ -69,7 +69,7 @@ ALTER TABLE `rol`
 
 -- Volcado de datos para la tabla rol
 INSERT INTO rol (idrol, rodescripcion) VALUES
-(1, 'Admin'),
+(1, 'Administrador'),
 (2, 'Deposito'),
 (3, 'Cliente');
 
@@ -255,10 +255,10 @@ ALTER TABLE `compra`
 
 -- Volcado de datos de la tabla compra //cambiar los id compra y usuario
 INSERT INTO compra (idcompra, cofecha, idusuario) VALUES
-(1, '2021-11-19 02:43:15', 1),
-(2, '2021-11-19 02:45:20', 1),
-(3, '2021-11-19 02:53:10', 1),
-(4, '2021-11-19 02:54:14', 1);
+(1, '2021-11-19 02:43:15', 8),
+(2, '2021-11-19 02:45:20', 8),
+(3, '2021-11-19 02:53:10', 8),
+(4, '2021-11-19 02:54:14', 8);
 
 -- ----------------------------------------------------------------------------------
 --
