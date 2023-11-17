@@ -46,21 +46,6 @@ if ($objSesion->validar()){
     </div>
 
 </div>
-
-<div>
-    <?php
-        if ($objSesion->validar()){
-            include_once '../opcionesCuenta/configuracionCuenta.php';
-            include_once("agregarProductos.php");
-
-            if(count($_SESSION['colroles']) > 1){
-                include_once '../opcionesCuenta/cambiarRol.php';
-            }
-            
-        } else {
-            require_once("../home/login.php");
-            require_once("../home/crearCuenta.php"); 
-        }
-        include_once '../estructura/footer.php';
-    ?>
-</div>
+<?php
+include_once ("../estructura/footer.php");
+?>

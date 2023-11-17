@@ -54,4 +54,4 @@
     </div>
 </div>
 
-<script src="../estructura/js/configuracionCuenta.js"></script>
+<script src="../js/configuracionCuenta.js"></script>

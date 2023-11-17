@@ -8,10 +8,9 @@
                 <div class="logologin">
                     <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110" class="logologin">
                 </div>
-
             </div>
-            <h5 class="modal-title ">Iniciar sesión</h5>
-            <div class="modal-body">
+                <h5 class="modal-title ">Iniciar sesión</h5>
+                <div class="modal-body">
 
                 <form name="formLogin" id="formLogin" method="POST" class="needs-validation" novalidate>
 

@@ -1,7 +1,7 @@
 /* -------------------- FUENTES -------------------- */
 @font-face {
     font-family: 'Titillium_Web';
-    src: url('fuentes/AnyConv.com__TitilliumWeb-SemiBold.woff') format('woff');
+    src: url('../../Utiles/fuentes/fuentes/AnyConv.com__TitilliumWeb-SemiBold.woff') format('woff');
 }
 
 /* -------------------- AJUSTES GENERALES -------------------- */
@@ -201,26 +201,26 @@ a:hover {
   text-align: center;
 }
 .modal-content {
-background: rgba(207, 199, 199, 0.8);
+background: rgba(207, 199, 199, 0.884);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(100, 99, 99, 0.6);
+  box-shadow: 0 0 15px rgb(61, 56, 56);
   color: white;
 }
 .form-control {
-background: rgba(0, 0, 0, .3);
+background: rgba(98, 97, 97, 0.596);
 border-style: none;
 transition: 0.5s ease-in;
 outline: none;
 box-shadow: none;
 }
 .form-control:focus {
-background: none;
+background: rgba(110, 108, 108, 0.596);
 box-shadow: none;
 outline: none;
 }
 .form-control::placeholder {
-color: rgb(204, 200, 200);
+color: rgb(122, 115, 115);
 }
 .ingresar {
 background: #222A3F;

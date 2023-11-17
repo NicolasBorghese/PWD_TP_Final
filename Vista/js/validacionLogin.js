@@ -80,11 +80,11 @@ $(document).ready(function () {
                         $("#modalLogin").modal("hide");
                        
                         if(respuesta.rol == 1){
-                            window.location.href = "../administrador/homeAdministrador.php";  
+                            window.location.href = "../../administrador/homeAdministrador.php";  
                         } else if (respuesta.rol == 2){
-                            window.location.href = "../deposito/homeDeposito.php";
+                            window.location.href = "../../deposito/homeDeposito.php";
                         }else{
-                            window.location.href = "../cliente/homeCliente.php";
+                            window.location.href = "../../cliente/homeCliente.php";
                         }
                      
                     } else {

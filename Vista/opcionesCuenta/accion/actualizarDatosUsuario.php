@@ -1,5 +1,4 @@
 <?php
-//ACCIONES DE LA VISTA
 include_once ("../../../configuracion.php");
 
 session_start();

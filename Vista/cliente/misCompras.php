@@ -5,16 +5,15 @@ $tituloPagina = "TechnoMate | " . $texto;
 include_once("../estructura/headSeguro.php");
 include_once("../estructura/navSeguro.php");
 
-
 $objCompra = new AbmCompra();
 $objProducto = new AbmProducto();
 $objUsuario = new AbmUsuario(); 
 $objAbmCompraEstado = new AbmCompraEstado();
 $objAbmCompraItem = new AbmCompraItem();
 
-//valida la session 
+//valida la session
 $param["idusuario"] = $_SESSION['idusuario'];
-
+echo $_SESSION['idusuario'];
 //busca el usuario por id
 $usuario = $objUsuario->buscar($param);
 
