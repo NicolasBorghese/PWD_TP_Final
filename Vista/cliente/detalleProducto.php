@@ -1,12 +1,12 @@
 <?php
 include_once '../../configuracion.php';
 include_once '../estructura/headSeguro.php';
+
 $cod=$_REQUEST['codigo'];
-
-$param['idproducto']=$cod;
-
-$carrito = [];
 //echo $cod;
+$param['idproducto']=$cod;
+//echo$param;
+
 $objProducto= new AbmProducto();
 
 $listaProd=$objProducto->buscar($param);
@@ -17,7 +17,7 @@ $listaProd=$objProducto->buscar($param);
     $imagen=$listaProd [0]->getImagenProducto();
 
 ?>
-<form  method="POST" name="formProductos" action="../cliente/carrito.php">
+<form  method="POST" name="formProductos" action="../cliente/carritoPrueba.php">
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -27,10 +27,10 @@ $listaProd=$objProducto->buscar($param);
       <div class="card-body">
          <label  class="col-form-label">Nombre Producto</label>
          <input class="form-control form-control-sm " type='hidden' name='id' id='id' value="<?php echo $cod ?>">
-       
-         <input class="form-control form-control-sm" type='text' name=' nombre' id='nombre' value="<?php echo $nombre ?>">
+         <input class="form-control form-control-sm" type='text' name='nombre' id='nombre'  value="<?php echo $nombre ?>" readonly>
+
          <label  class="col-form-label">Precio</label>
-         <input class="form-control form-control-sm" type='text' name='precio' id='precio'  value="<?php echo $precio ?>">
+         <input class="form-control form-control-sm" type='text' name='precio' id='precio'  value="<?php echo $precio ?>" readonly>
 
          <label for="cantidad"  name="cantidad" class="col-form-label">seleccione Cantidad</label>
          <input type="number" id="cantidad"  name="cantidad" value="" class="form-control form-control-sm">

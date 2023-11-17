@@ -33,7 +33,7 @@ for ($i = 0; $i < count($listaProd); $i++) {
     echo "<h5 class='card-title'>" . $listaProd[$i]->getProNombre() . "</h5>";
     echo "<p class='card-text'>Precio: $" . $listaProd[$i]->getProDetalle() . "</p>";
 ?>
-    <button type='button' class='btn' onclick='enviar( <?php echo $listaProd[$i]->getIdProducto() ?>)' data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bi bi-cart-plus-fill text-start'></i></button>
+    <button type='button' class='btn' onclick='enviar(<?php echo $listaProd[$i]->getIdProducto()?>)' data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bi bi-cart-plus-fill text-start'></i></button>
 
     <!-- Modal detalle carrito-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -66,7 +66,7 @@ include_once("../estructura/footer.php");
     var resultado = document.getElementById("mostrar");
 
     function enviar(codigo) {
-        // location.href="detalle.php?codigo="+codigo;
+       // location.href="detalleProducto.php?codigo="+codigo;
         var xmlhttp;
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
@@ -80,7 +80,7 @@ include_once("../estructura/footer.php");
             }
         }
 
-        xmlhttp.open("GET", "detalle.php?codigo=" + codigo, true);
+        xmlhttp.open("GET", "detalleProducto.php?codigo=" + codigo, true);
         xmlhttp.send();
 
     }

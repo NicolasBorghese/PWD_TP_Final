@@ -2,13 +2,13 @@
 include_once("../../configuracion.php");
 
 $tituloPagina = "TechnoMate | Deposito";
-include_once '../estructura/secciones/head.php';
+include_once '../estructura/headSeguro.php';
 
 $objSesion = new Session();
 
 if ($objSesion->validar()){
     if($_SESSION['rol'] == 2){
-        include_once '../estructura/secciones/nav-bar-2.php';
+        include_once '../estructura/navSeguro.php';
     } else {
         header('Location: home.php');
     }
@@ -40,7 +40,7 @@ if ($objSesion->validar()){
             <img class="imagen-accion" src="../../Archivos/Imagenes/accionDeposito3.png" alt="Administrar roles">
             <div class="informacion-accion">
                 <p>PRODUCTOS EXISTENTES</p>
-                <button><a class="btn  text-decoration-none" href="../deposito/listarProductos.php">MODIFICAR</a> </button>
+                <button><a class="btn  text-decoration-none" href="accion/listarProductos.php">MODIFICAR</a> </button>
             </div>
         </div>
     </div>
@@ -50,17 +50,17 @@ if ($objSesion->validar()){
 <div>
     <?php
         if ($objSesion->validar()){
-            include_once '../accionesDeCuenta/configuracionCuenta.php';
-            include_once("../deposito/cargarProduc.php");
+            include_once '../opcionesCuenta/configuracionCuenta.php';
+            include_once("agregarProductos.php");
 
             if(count($_SESSION['colroles']) > 1){
-                include_once '../accionesDeCuenta/cambiarRol.php';
+                include_once '../opcionesCuenta/cambiarRol.php';
             }
             
         } else {
-            require_once("../login/login.php");
-            require_once("../crearCuenta/formCrearCuenta.php"); 
+            require_once("../home/login.php");
+            require_once("../home/crearCuenta.php"); 
         }
-        include_once '../estructura/secciones/footer.php';
+        include_once '../estructura/footer.php';
     ?>
 </div>
