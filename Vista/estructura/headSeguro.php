@@ -29,9 +29,9 @@ $listaMenu = $menu->buscar($param);
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../Archivos/Imagenes/mate.png">
     <!-- link a librería de jquery -->
-    <script src="../Utiles/librerias/jquery/jquery-3.7.1.min.js"></script>
-    <script src="../Utiles/librerias/jquery/jquery.validate.min.js"></script>
-    <script src="../Utiles/librerias/jquery/messages_es_PE.js"></script>
+    <script src="../../Utiles/librerias/jquery/jquery-3.7.1.min.js"></script>
+    <script src="../../Utiles/librerias/jquery/jquery.validate.min.js"></script>
+    <script src="../../Utiles/librerias/jquery/messages_es_PE.js"></script>
 
     <!-- link a librería JS para encriptar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>

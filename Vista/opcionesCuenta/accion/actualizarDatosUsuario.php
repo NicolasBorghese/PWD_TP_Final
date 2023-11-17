@@ -1,6 +1,6 @@
 <?php
 //ACCIONES DE LA VISTA
-include_once "../../configuracion.php";
+include_once ("../../../configuracion.php");
 
 session_start();
 

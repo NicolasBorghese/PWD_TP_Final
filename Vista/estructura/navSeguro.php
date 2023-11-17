@@ -58,30 +58,32 @@
 </nav>
 
 <script>
-    function actualizarNombreUsuarioCuenta() {
-        var nombreUsuarioCuentaElem = document.getElementById("nombreUsuarioCuenta");
+    //$(document).ready(function () {
+        function actualizarNombreUsuarioCuenta() {
+            var nombreUsuarioCuentaElem = document.getElementById("nombreUsuarioCuenta");
 
-        $.ajax({
-            url: "../home/accion/actualizarNombreUsuarioCuenta.php",
-            type: "POST",
-            dataType: "json",
-            //data: formData,
-            async: false,
+            $.ajax({
+                url: "../home/accion/actualizarNombreUsuarioCuenta.php",
+                type: "POST",
+                dataType: "json",
+                //data: formData,
+                async: false,
 
-            complete: function(xhr, textStatus) {
-                //se llama cuando se recibe la respuesta (no importa si es error o éxito)
-                console.log("La respuesta regreso");
-            },
-            success: function(respuesta, textStatus, xhr) {
-                console.log("El nombre es: " + respuesta.nombre);
-                nombreUsuarioCuentaElem.innerHTML = respuesta.nombre;
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                //called when there is an error
-                console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-                console.error(xhr.responseText);
-            }
-        });
-        window.onload = actualizarNombreUsuarioCuenta;
-    }
+                complete: function(xhr, textStatus) {
+                    //se llama cuando se recibe la respuesta (no importa si es error o éxito)
+                    console.log("La respuesta regreso");
+                },
+                success: function(respuesta, textStatus, xhr) {
+                    console.log("El nombre es: " + respuesta.nombre);
+                    nombreUsuarioCuentaElem.innerHTML = respuesta.nombre;
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    //called when there is an error
+                    console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
+                    console.error(xhr.responseText);
+                }
+            });
+            window.onload = actualizarNombreUsuarioCuenta;
+        }
+    //});
 </script>
