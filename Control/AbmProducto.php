@@ -105,8 +105,8 @@ class AbmProducto
     public function buscar($param){
         $where = " true ";
         if ($param<>null){
-          /*  if  (isset($param['idproducto']))
-            $where.=" and idproducto = ".$param['idproducto']; */
+        if  (isset($param['idproducto']))
+            $where.=" and idproducto = ".$param['idproducto']; 
         if  (isset($param['pronombre']))
                 $where.=" and pronombre ='".$param['pronombre']."'";
         if  (isset($param['prodetalle']))
@@ -123,4 +123,22 @@ class AbmProducto
         return $arreglo;
     }
 
+        /**
+     * Retorna el carrito de un usuario
+     * @param array $param
+     * @return Producto
+     */
+    public function cargarProdCarrito($param){
+          $arreglo= [];
+          $param["idproducto"]=$param;
+            $objProd = new Producto;
+            $arreglo= $objProd->buscar($param);
+
+            $arrayProd[]=$arreglo;
+    
+
+        return $arreglo;
+    }
 }
+
+

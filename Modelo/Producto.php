@@ -231,6 +231,12 @@ class Producto
                     $objUsuario->cargar();*/
                     $obj = new Producto();
 
+<<<<<<< HEAD
+
+        
+
+     /**
+=======
                     $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'], $row['tipo'], $row['imagenproducto']);
 
                     array_push($arreglo, $obj);
@@ -241,6 +247,7 @@ class Producto
     }
 
     /**
+>>>>>>> bba8c8917ffd168320d49fee66e64d384b63e970
      * Esta función lee todos los valores de todos los atributos del objeto y los devuelve
      * en un arreglo asociativo
      * 
