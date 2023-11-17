@@ -69,7 +69,7 @@ ALTER TABLE `rol`
 
 -- Volcado de datos para la tabla rol
 INSERT INTO rol (idrol, rodescripcion) VALUES
-(1, 'Admin'),
+(1, 'Administrador'),
 (2, 'Deposito'),
 (3, 'Cliente');
 

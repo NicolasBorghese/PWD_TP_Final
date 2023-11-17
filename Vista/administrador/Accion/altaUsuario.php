@@ -47,13 +47,13 @@ if($exito){
     }
     
 
-    echo "<p>PUDISTE</p>";
+    header('Location: ../gestionMenu.php');
 
 }else{
-    echo "<p>no pudistexd</p>";
+    header('Location: ../gestionMenu.php');
 }
 
 
-include_once '../../estructura/secciones/footer.php';
+include_once '../../estructura/footer.php';
 
 ?>
