@@ -9,7 +9,7 @@ $objUsuario = new AbmUsuario();
 $usuario =$objUsuario->buscar($parametros);
 
 $param["cofecha"] = $_SESSION['idusuario'];
-$param["idusuario"] = $usuario->getIdUsuario;
+$param["idusuario"] = $usuario->getIdUsuario();
 
 $objCompra-> alta($param);
 // ESTO LO PUSE PORQUE CUANDO TENES LA CANTIDAD PODES CARGAR LA COMPRA ITEM

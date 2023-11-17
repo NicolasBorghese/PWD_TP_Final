@@ -9,23 +9,32 @@ print_r($datos);
 $usuario = $datos['nombreUsuario'];
 $email = $datos['emailUsuario'];
 $passEncriptada= md5($datos['passUsuario']);
+$rol = $datos['checkroladmin'];
 
+
+//creo los objetos Usuario 
 $objUsuario = new AbmUsuario();
 
-$parametros = array(
-    'idusuario' => 5,
-    'usnombre' => 'gise',
-    'uspass' => 'si',
-    'usmail' => 'gise@gmail.com',
-    'usdeshabilitado' => NULL
-);
 
-$exito = $objUsuario->alta($parametros);
+//Guardo los parametros del Usuario
+$paramUsuario['usnombre'] = $usuario;
+$paramUsuario['uspass'] = $passEncriptada;
+$paramUsuario['usmail'] = $email;
 
-if ($exito) {
+//Lo cargo a la base de datos
+$exito = $objUsuario->alta($paramUsuario);
+
+
+if($exito){
+ 
+    
     echo "<p>PUDISTE</p>";
-} else{
+    
+    
+
+}else{
     echo "<p>no pudistexd</p>";
 }
+
 
 include_once '../../estructura/secciones/footer.php';

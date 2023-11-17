@@ -100,7 +100,7 @@ $(document).ready(function () {
                 error: function(xhr, textStatus, errorThrown) {
                     //called when there is an error
                     console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-                    console.log(xhr.responseText);
+                    console.log(xhr.responseText);//muestra en la consola del navegador todos los errores
                     //console.error(xhr);
                     //console.error(textStatus);
                     //console.error(errorThrown);

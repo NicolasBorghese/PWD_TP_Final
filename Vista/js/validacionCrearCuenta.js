@@ -4,6 +4,7 @@ $(document).ready(function () {
         rules: {
             usnombreCrearCuenta: {
                 required: true,
+                //nombre            //valor que debe tener
                 nombreNoRepetido: {nombreNoRepetido: true}
             },
             usmailCrearCuenta: {
@@ -103,7 +104,7 @@ jQuery.validator.addMethod("captchaCrearCuentaCorrecto", function (value, elemen
 
 function nombreNoRepetido(value){
 
-    var formData = {'usnombreCrearCuenta': value};
+    var formData = {'usnombreCrearCuenta': value};//array en formato json. value es el dato recibido desde el formulario
     var ruta = "../../Control/Ajax/nombreNoRepetido.php";
     var resultado = false;
 

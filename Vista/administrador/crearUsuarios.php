@@ -17,7 +17,7 @@ include_once("../../configuracion.php");
         <br>
         <div class="contenedor-dato">
             <label for="emailUsuario" class="form-label">Email</label>
-            <input type="text" class="form-control" id="emailUsuario" name="emailUsuario">
+            <input type="text" class="form-control" id="emailUsuario" name="emailUsuario" >
         </div>
         <div class="contenedor-dato">
             <label for="passUsuario" class="form-label">Contraseña</label>
@@ -26,6 +26,12 @@ include_once("../../configuracion.php");
         <div class="contenedor-dato">
             <label for="passUsuario" class="form-label">Repita contraseña</label>
             <input type="password" class="form-control" id="passUsuario2" name="passUsuario">
+        </div>
+        <div class="contenedor-dato">
+            <label for="passUsuario" class="form-label">Asignar Rol</label>
+            <input type="checkbox" name="cliente" id="cliente">Cliente
+            <input type="checkbox" name="deposito" id="deposito">Deposito
+            <input type="checkbox" name="administrador" id="administrador">Administrador
         </div>
         <input type="submit" class="btn btn-outline-secondary" value="Crear usuario"></input>
 </div>
