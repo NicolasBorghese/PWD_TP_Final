@@ -51,10 +51,3 @@ $objCompraItem = new AbmCompraItem();
 $colCompraItem = $objCompraItem->buscar($param);
 print_r($colCompraItem);*/
 
-
-
-
-
-
-
-
