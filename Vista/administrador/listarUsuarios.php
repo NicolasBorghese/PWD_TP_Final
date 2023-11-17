@@ -48,12 +48,12 @@ $colUsuarioRol = $objUsuarioRol->buscar("");
     <th>Nombre de Usuario</th>
     <th>Modificar</th>";
 
-    foreach($colUsuarioRol as $usuarioRol){
+    foreach($colUsuarios as $usuario){
         echo "<tr>
-        <td>".$usuarioRol->getObjUsuario()->getIdUsuario()."</td>
-        <td>".$usuarioRol->getObjUsuario()->getUsNombre()."</td>
-        <td><button class='btn text-white btn-dark' data-bs-toggle='modal' data-bs-target='#modalModificacion' tabindex='-1'><a style='text-decoration: none;' href='formModificarUsuarios.php?idusuario= ". $usuarioRol->getObjUsuario()->getIdusuario() . "'>Datos</a></button>
-        <button class='btn text-white btn-dark' data-bs-toggle='modal' data-bs-target='#modalModificacion' tabindex='-1'><a style='text-decoration: none;' href='formModificarRoles.php?idusuario= ". $usuarioRol->getObjUsuario()->getIdusuario() . "'>Roles</a></button>
+        <td>".$usuario->getIdUsuario()."</td>
+        <td>".$usuario->getUsNombre()."</td>
+        <td><button class='btn text-white btn-dark' data-bs-toggle='modal' data-bs-target='#modalModificacion' tabindex='-1'><a style='text-decoration: none;' href='formModificarUsuarios.php?idusuario= ". $usuario->getIdusuario() . "'>Datos</a></button>
+        <button class='btn text-white btn-dark' data-bs-toggle='modal' data-bs-target='#modalModificacion' tabindex='-1'><a style='text-decoration: none;' href='formModificarRoles.php?idusuario= ". $usuario->getIdusuario() . "'>Roles</a></button>
         </td>
         </tr>";
     }

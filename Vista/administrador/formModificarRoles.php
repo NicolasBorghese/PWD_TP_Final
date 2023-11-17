@@ -11,18 +11,16 @@ include_once '../estructura/navSeguro.php';
 
 $datos = data_submitted();
 
+$objUsuario = new AbmUsuario();
+$usuario = $objUsuario->buscar($datos);
+
 $objUsuarioRol = new AbmUsuarioRol();
 $usuarioRol = $objUsuarioRol->buscar($datos);
-$colUsuarioRol = $objUsuarioRol->buscar("");
-$idUsuario['idusuario'] = $usuarioRol;
 
-// $colRoles = [];
-// foreach ($usuarioRol as $usuario){
-//     if ($usuario->getObjUsuario()->getIdUsuario() == $idUsuario);
-//     $colRoles = $usuario->getObjRol()->getIdRol();
-// }
-// $n = $colRoles;
-// echo $n;
+// $colUsuarioRol = $objUsuarioRol->buscar("");
+// $idUsuario['idusuario'] = $usuarioRol;
+
+$n = count($usuarioRol);
 
 ?>
 
@@ -35,32 +33,51 @@ $idUsuario['idusuario'] = $usuarioRol;
         <div class="contenedor-dato">
             <label for="idusuario" class="form-label">ID de usuario</label>
             <input type="text" name="idusuario" id="idusuario" class="form-control"
-                value="<?php echo $usuarioRol[0]->getObjUsuario()->getIdUsuario() ?>" readonly></input>
+                value="<?php echo $usuario[0]->getIdUsuario() ?>" readonly></input>
         </div>
         <br>
 
         <div class="contenedor-dato">
             <label for="usnombre" class="form-label">Nombre de usuario</label>
             <input type="text" name="usnombre" id="usnombre" class="form-control"
-                value="<?php echo $usuarioRol[0]->getObjUsuario()->getUsNombre() ?>" readonly></input>
+                value="<?php echo $usuario[0]->getUsNombre() ?>" readonly></input>
         </div>
         <br>
 
         <div class="contenedor-dato">
-            <label for="rolActual" class="form-label">Actual rol de usuario</label>
-            <input type="text" name="rolActual" id="rolActual" class="form-control"
-                value="<?php echo $usuarioRol[0]->getObjRol()->getRolDescripcion() ?>" readonly></input>
+            <h5>Roles actuales: <?php echo $n ?></h5>
+            <p><?php 
+            if ($n > 0){
+                foreach ($usuarioRol as $rol){
+                    echo $rol->getObjRol()->getRolDescripcion()." | ";
+                }
+            } else {
+                echo "Ningún rol asignado.";
+            }
+            ?>
+            </p>
         </div>
         <br>
 
-        <h4>Elegir roles</h4>
+        <h4>Dar roles</h4>
         <div class="contenedor-dato">
             <label for="usnombre" class="form-label">Administrador</label>
-            <input type="checkbox" id="agregarRol1" name="opciones[]" value="agregarRol1">
+            <input type="checkbox" name="Admin" value="Admin">
             <label for="usnombre" class="form-label">Depósito</label>
-            <input type="checkbox" id="agregarRol2" name="opciones[]" value="agregarRol2">
+            <input type="checkbox" name="Deposito" value="Deposito">
             <label for="usnombre" class="form-label">Cliente</label>
-            <input type="checkbox" id="agregarRol3" name="opciones[]" value="agregarRol3">
+            <input type="checkbox" name="Cliente" value="Cliente">
+        </div>
+        <br>
+
+        <h4>Quitar roles</h4>
+        <div class="contenedor-dato">
+            <label for="usnombre" class="form-label">Administrador</label>
+            <input type="checkbox" name="NoAdmin" value="Admin">
+            <label for="usnombre" class="form-label">Depósito</label>
+            <input type="checkbox" name="NoDeposito" value="Deposito">
+            <label for="usnombre" class="form-label">Cliente</label>
+            <input type="checkbox" name="NoCliente" value="Cliente">
         </div>
         <br>
 
