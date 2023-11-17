@@ -193,6 +193,8 @@ class AbmCompra{
 
         return $colInfo;
     }
+
+    
 }
 
 ?>
