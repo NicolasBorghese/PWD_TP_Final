@@ -27,10 +27,10 @@ $listaProd=$objProducto->buscar($param);
       <div class="card-body">
          <label  class="col-form-label">Nombre Producto</label>
          <input class="form-control form-control-sm " type='hidden' name='id' id='id' value="<?php echo $cod ?>">
-         <h5><?php echo $nombre ?></h5>
+         <input class="form-control form-control-sm" type='text' name='nombre' id='nombre'  value="<?php echo $nombre ?>" readonly>
 
          <label  class="col-form-label">Precio</label>
-         <h5><?php echo '$'.$precio ?></h5>
+         <input class="form-control form-control-sm" type='text' name='precio' id='precio'  value="<?php echo $precio ?>" readonly>
 
          <label for="cantidad"  name="cantidad" class="col-form-label">seleccione Cantidad</label>
          <input type="number" id="cantidad"  name="cantidad" value="" class="form-control form-control-sm">
