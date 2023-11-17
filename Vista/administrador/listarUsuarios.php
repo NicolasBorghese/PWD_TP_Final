@@ -9,7 +9,7 @@ include_once '../estructura/secciones/head.php';
 
 $datos = data_submitted();
 
-$objSesion = new Session();
+/* $objSesion = new Session();
 
 if ($objSesion->validar()){
     if($_SESSION['rol'] == 1){
@@ -19,7 +19,7 @@ if ($objSesion->validar()){
     }
 } else {
     header('Location: home.php');
-}
+} */
 
 $objUsuario = new AbmUsuario();
 $colUsuarios = $objUsuario->buscar("");
@@ -42,7 +42,7 @@ if (!empty($colUsuarios)){
         echo "<tr>
         <td>".$usuario->getIdUsuario()."</td>
         <td>".$usuario->getUsNombre()."</td>
-        <td><button class='btn text-white btn-dark'><a style='text-decoration: none;' href='formActualizar.php?idusuario=" . $usuario->getIdusuario() . "'>Actualizar</a></button></td>
+        <td><button class='btn text-white btn-dark'><a style='text-decoration: none;' href='formModificarUsuarios.php?idusuario=" . $usuario->getIdusuario() . "'>Modificar</a></button></td>
         </tr>";
     }
     echo "</table>";

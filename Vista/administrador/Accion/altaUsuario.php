@@ -3,34 +3,51 @@ include_once '../../../configuracion.php';
 
 // Encapsulo los datos para crear usuario nuevo
 $datos = data_submitted();
-print_r($datos);
+verEstructura($datos);
 
 // Extraigo datos necesarios para la creación de usuario
 $usuario = $datos['nombreUsuario'];
 $email = $datos['emailUsuario'];
 $passEncriptada= md5($datos['passUsuario']);
-$rol = $datos['checkroladmin'];
 
-
-//creo los objetos Usuario 
+//creo los objetos Usuario y objeto UsuarioRol
 $objUsuario = new AbmUsuario();
 
+$objUsuarioRol = new AbmUsuarioRol();
 
 //Guardo los parametros del Usuario
+$paramUsuario['idusuario'] = 0;
 $paramUsuario['usnombre'] = $usuario;
 $paramUsuario['uspass'] = $passEncriptada;
 $paramUsuario['usmail'] = $email;
+$paramUsuario['usdeshabilitado'] = null;
 
 //Lo cargo a la base de datos
 $exito = $objUsuario->alta($paramUsuario);
 
 
 if($exito){
- 
+    $paramUsuario2['usnombre'] = $usuario;
+    $nuevoUsuario = $objUsuario->buscar($paramUsuario2);
+    $idUsuario = $nuevoUsuario[0]->getIdUsuario();
+    $paramUsuarioRol['idusuario'] = $idUsuario;
+    //
+    if(array_key_exists('Cliente', $datos)){
     
+        $paramUsuarioRol['idrol'] = 3;
+        $objUsuarioRol->alta($paramUsuarioRol);
+    }
+    if(array_key_exists('Deposito', $datos)){
+        $paramUsuarioRol['idrol'] = 2;
+        $objUsuarioRol->alta($paramUsuarioRol);
+    }
+    if(array_key_exists('Admin', $datos)){
+        $paramUsuarioRol['idrol'] = 1;
+        $objUsuarioRol->alta($paramUsuarioRol);
+    }
+    
+
     echo "<p>PUDISTE</p>";
-    
-    
 
 }else{
     echo "<p>no pudistexd</p>";
@@ -38,3 +55,5 @@ if($exito){
 
 
 include_once '../../estructura/secciones/footer.php';
+
+?>

@@ -1,14 +1,14 @@
 <?php
 $tituloPagina = "TechnoMate | Administrador";
-include_once '../estructura/secciones/head.php';
-include("../estructura/secciones/nav-bar-1.php");
+include_once '../estructura/head.php';
+include("../estructura/nav-bar-1.php");
 require_once("../../Modelo/Conector/BaseDatos.php");
 include_once("../../configuracion.php");
 
 ?>
 <div class="contenido-pagina">
     <h5>USUARIO NUEVO</h5>
-    <form name="formLogin" id="formLogin" method="POST" class="needs-validation" action="Accion/crear.php">
+    <form name="formLogin" id="formLogin" method="POST" class="needs-validation" action="Accion/altaUsuario.php">
 
         <div class="contenedor-dato">
             <label for="nombreUsuario" class="form-label">Usuario</label>
@@ -29,9 +29,9 @@ include_once("../../configuracion.php");
         </div>
         <div class="contenedor-dato">
             <label for="passUsuario" class="form-label">Asignar Rol</label>
-            <input type="checkbox" name="cliente" id="cliente">Cliente
-            <input type="checkbox" name="deposito" id="deposito">Deposito
-            <input type="checkbox" name="administrador" id="administrador">Administrador
+            <input type="checkbox" name="Cliente" id="cliente" value="Cliente">Cliente
+            <input type="checkbox" name="Deposito" id="deposito" value="Deposito">Deposito
+            <input type="checkbox" name="Admin" id="admin" value="Admin">Administrador
         </div>
         <input type="submit" class="btn btn-outline-secondary" value="Crear usuario"></input>
 </div>

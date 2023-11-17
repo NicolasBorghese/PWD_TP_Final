@@ -125,7 +125,7 @@ class UsuarioRol {
         $base = new BaseDatos();
 
         $idusuario = $this->getObjUsuario()->getIdUsuario();
-        $idrol = $this->getObjUsuario()->getIdUsuario();
+        $idrol = $this->getObjRol()->getIdRol();
 
         $sql = "INSERT INTO usuariorol (idusuario, idrol) VALUES ("
             .$idusuario .", "

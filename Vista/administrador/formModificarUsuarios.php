@@ -8,11 +8,12 @@ include_once ('../../configuracion.php');
 $idUsuario = data_submitted();
 $objUsuario = new AbmUsuario();
 $usuario = $objUsuario->buscar($idUsuario);
+verEstructura($usuario);
 
 $tituloPagina = "TechnoMate | Administrador";
 include_once '../estructura/secciones/head.php';
 
-$objSesion = new Session();
+/* $objSesion = new Session();
 
 if ($objSesion->validar()){
     if($_SESSION['rol'] == 1){
@@ -23,10 +24,10 @@ if ($objSesion->validar()){
     
 } else {
     header('Location: home.php');
-}
+} */
 ?>
 <div class="container" style="padding: 50px;">
-<form name="actualizarUsuario" id="actualizarUsuario" method="POST" action="accionActualizar.php"
+<form name="actualizarUsuario" id="actualizarUsuario" method="POST" action="Accion/modificarUsuarios.php"
     class="needs-validation" novalidate>
     <h3>Ingrese los nuevos datos a modificar</h3>
     <br>
@@ -53,9 +54,18 @@ if ($objSesion->validar()){
     <br>
 
     <div class="contenedor-dato">
-        <label for="uspass" class="form-label">Contraseña</label>
-        <input type="password" name="uspass" id="uspass" class="form-control"
-            value="<?php echo $usuario[0]->getUsPass() ?>"></input>
+        <label for="rol" class="form-label">Agregar Rol</label>
+        <input type="checkbox" name="Cliente" id="Cliente" value="Cliente">Cliente
+        <input type="checkbox" name="Deposito" id="Deposito" value="Deposito">Deposito
+        <input type="checkbox" name="Admin" id="Admin" value="Admin">Administrador
+    </div>
+    <br>
+
+    <div class="contenedor-dato">
+        <label for="rol" class="form-label">Quitar Rol</label>
+        <input type="checkbox" name="quitarCliente" id="quitarCliente" value="Cliente">Cliente
+        <input type="checkbox" name="quitarDeposito" id="quitarCliente" value="Deposito">Deposito
+        <input type="checkbox" name="quitarAdmin" id="quitarAdmin" value="Admin">Administrador
     </div>
     <br>
 
