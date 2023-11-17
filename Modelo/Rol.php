@@ -73,7 +73,7 @@ class Rol{
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO rol(idrol,roldescripcion) 
+        $sql="INSERT INTO rol(idrol,rodescripcion) 
 		 VALUES('".$this->getIdRol()."','".$this->getRolDescripcion()."');";
          
          if ($base->Iniciar()){
@@ -101,7 +101,7 @@ class Rol{
         $resp = false;
         $base=new BaseDatos();
         
-        $sql = "UPDATE rol SET roldescripcion = '".$this->getRolDescripcion()
+        $sql = "UPDATE rol SET rodescripcion = '".$this->getRolDescripcion()
         ."' WHERE idrol = ".$this->getIdRol();
 
         if ($base->Iniciar()) {
@@ -161,7 +161,7 @@ class Rol{
                 
                 while ($row = $base->Registro()){
                     $obj= new Rol();
-                    $obj->setear($row['idrol'],$row['roldescripcion']);
+                    $obj->setear($row['idrol'],$row['rodescripcion']);
                     array_push($arreglo, $obj);
                 }  
             }

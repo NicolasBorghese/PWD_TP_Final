@@ -6,12 +6,17 @@ require_once("../../Modelo/Conector/BaseDatos.php");
 include_once("../../configuracion.php");
 
 $objMenu = new AbmMenu();
+$objMenuRol = new AbmMenuRol();//vinculo entre el menu y el rol
+$objRol = new AbmRol();//para obtener el nombre del rol? Necesario?
 $listMenu = $objMenu->buscar(null);
 
 ?>
 <script src="../estructura/js/menus.js"></script>
 <div class="contenido-pagina">
     <button><i class="bi bi-database-fill-add"></i></button>
+    <button> <a href="formCrearNuevoRol.php">Crear un Nuevo Rol</a> </button>
+    <button> <a href="formAccesoRol.php"></a> Acceso Rol</button>
+    <button> <a href="fromCrearNuevoItemMenu.php">Crear un Nuevo Item Menu</a> </button>
     <?php 
     if (count($listMenu)>0){
         echo '<table class="table">
