@@ -50,17 +50,17 @@ if ($objSesion->validar()){
 <div>
     <?php
         if ($objSesion->validar()){
-            include_once '../accionesDeCuenta/configuracionCuenta.php';
-            include_once("../deposito/cargarProduc.php");
+            include_once '../opcionesCuenta/configuracionCuenta.php';
+            include_once("agregarProductos.php");
 
             if(count($_SESSION['colroles']) > 1){
-                include_once '../accionesDeCuenta/cambiarRol.php';
+                include_once '../opcionesCuenta/cambiarRol.php';
             }
             
         } else {
-            require_once("../login/login.php");
-            require_once("../crearCuenta/formCrearCuenta.php"); 
+            require_once("../home/login.php");
+            require_once("../home/crearCuenta.php"); 
         }
-        include_once '../estructura/secciones/footer.php';
+        include_once '../estructura/footer.php';
     ?>
 </div>
