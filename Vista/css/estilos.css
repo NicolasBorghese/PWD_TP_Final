@@ -174,7 +174,7 @@ a:hover {
 .contenido-pagina {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.7)),
-        url(../../../Archivos/Imagenes/fondo.png);
+        url(../../Archivos/Imagenes/fondo.png);
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;

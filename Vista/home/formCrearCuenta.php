@@ -1,5 +1,5 @@
 
-<!-- Crea un modal con un formulaario para crear una cuenta -->
+<!-- Crea un modal con un formulario para crear una cuenta -->
 
 <div class="modal fade" id="modalCrearCuenta" data-bs-backdrop="static">
   <div class="modal-dialog">
@@ -49,4 +49,4 @@
   </div>
 </div>
 
-<script src="../estructura/js/validacionCrearCuenta.js"></script>
+<script src="../js/validacionCrearCuenta.js"></script>

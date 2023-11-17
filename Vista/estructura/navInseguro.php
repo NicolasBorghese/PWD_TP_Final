@@ -1,10 +1,6 @@
-
-<!-- ____________________________________ NAV BAR 1 ________________________________ -->
-
-<!--  -->
+<!-- ____________________________________ NAV INSEGURO _____________________________ -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-    <!--<div class="navbar-brand">-->
         <div class="mx-auto">
             <img src="../../Archivos/Imagenes/logoBlanco.png" alt="Logo de la empresa" width="110">
         </div>
@@ -17,22 +13,22 @@
             <div class="collapse navbar-collapse" id="navbar-Toggler">
                 <ul class="nav navbar-nav d-flex align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../home">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item mx-2 flex-grow-1">
-                        <a class="nav-link" href="mostrarProd.php?nombre=Mates">Mates</a>
+                        <a class="nav-link" href="mostrarProductos.php?nombre=Mates">Mates</a>
                     </li>
                     <li class="nav-item mx-2 flex-grow-1">
-                        <a class="nav-link" href="mostrarProd.php?nombre=Yerbas">Yerbas</a>
+                        <a class="nav-link" href="mostrarProductos.php?nombre=Yerbas">Yerbas</a>
                     </li>
                     <li class="nav-item mx-2 flex-grow-1">
-                        <a class="nav-link" href="mostrarProd.php?nombre=Bombillas">Bombillas</a>
+                        <a class="nav-link" href="mostrarProductos.php?nombre=Bombillas">Bombillas</a>
                     </li>
                     <li class="nav-item mx-2 flex-grow-1">
-                        <a class="nav-link" href="mostrarProd.php?nombre=Termos">Termos</a>
+                        <a class="nav-link" href="mostrarProductos.php?nombre=Termos">Termos</a>
                     </li>
                     <li class="nav-item mx-2 flex-grow-1">
-                        <a class="nav-link" href="mostrarProd.php?nombre=SETS">Sets</a>
+                        <a class="nav-link" href="mostrarProductos.php?nombre=SETS">Sets</a>
                     </li>
                     <li class="nav-item login logo mx-2 flex-grow-1">
                         <i class="bi bi-person-fill fa-3x zoom-icon " data-bs-toggle="modal" data-bs-target="#modalLogin" tabindex="-1"></i>

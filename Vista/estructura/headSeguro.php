@@ -1,3 +1,16 @@
+<?php
+//VALIDAR ACA LA SESIÓN
+include_once("../../configuracion.php");
+    
+$objSession = new Session();
+$rol = $_SESSION['rol'];
+
+$menu = new AbmMenu();
+$param['idpadre'] = $rol;/* el 3corresponde a clientes,2 a deposito,1 a administrador*/
+$listaMenu = $menu->buscar($param);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,15 +29,15 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../Archivos/Imagenes/mate.png">
     <!-- link a librería de jquery -->
-    <script src="../../Utiles/librerias/jquery/jquery-3.7.1.min.js"></script>
-    <script src="../../Utiles/librerias/jquery/jquery.validate.min.js"></script>
-    <script src="../../Utiles/librerias/jquery/messages_es_PE.js"></script>
+    <script src="../Utiles/librerias/jquery/jquery-3.7.1.min.js"></script>
+    <script src="../Utiles/librerias/jquery/jquery.validate.min.js"></script>
+    <script src="../Utiles/librerias/jquery/messages_es_PE.js"></script>
 
     <!-- link a librería JS para encriptar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 
     <!-- link a css propio -->
-    <link rel="stylesheet" href="../estructura/css/estilos.css">
+    <link rel="stylesheet" href="../css/estilos.css">
     <!-- link a js propio -->
     <!--<script src="../estructura/js/validaBoostrap.js"></script>-->
 
